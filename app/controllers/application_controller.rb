@@ -3,10 +3,10 @@ class ApplicationController < ActionController::Base
   
   helper :all 
   protect_from_forgery 
+  filter_parameter_logging :password
 
     
-  filter_parameter_logging :password
-  
+  before_filter :login_required
   after_filter :store_location
                               
   def set_layout

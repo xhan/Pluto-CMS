@@ -1,5 +1,5 @@
 class Forum::ForumsController < ApplicationController
-  
+  skip_before_filter :login_required , :only => [:index , :show]
   layout :set_layout
   def index
     find_object

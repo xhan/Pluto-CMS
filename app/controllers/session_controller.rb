@@ -1,5 +1,5 @@
 class SessionController < ApplicationController
-  
+  skip_before_filter :login_required
   skip_after_filter :store_location
   layout :set_layout
 
@@ -26,13 +26,14 @@ class SessionController < ApplicationController
           set_login_user u
           flash[:notice] = "Hello #{u.login}"
            go_back and return
+         else
+           flash[:notice] ="uh-oh, login didn't work.Do you have caps lock on? Try again!"
         end
       end
-    end
-    
-      flash[:notice] ="uh-oh, login didn't work.Do you have caps lock on? Try again!"
+    end   
+      
   end
-
+     
 
   def create
     @user = User.new(params[:user])

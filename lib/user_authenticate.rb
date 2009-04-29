@@ -34,7 +34,11 @@ module UserAuthenticate
   
   def access_denied
     store_location
-    redirect_to(login_path)
+    if request.xhr?
+      render :text => ".... 你必須先登錄才能執行此操作！麼麼"
+    else           
+      redirect_to(login_path)
+    end
   end
   
   def store_location
@@ -49,7 +53,8 @@ module UserAuthenticate
       redirect_to session[:return_to]
     else
       redirect_to url
-    end
+    end                               
+    session[:redirect_to] = nil
   end
   
 
