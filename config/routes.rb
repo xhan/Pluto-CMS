@@ -20,7 +20,11 @@ ActionController::Routing::Routes.draw do |map|
   # routes for forums
   map.namespace(:forum) do |forum|
     forum.root :controller => "forums"
-    forum.resources :forums,:collection => {:update_positions  => :post}
+    forum.resources :forums,:collection => {:update_positions  => :post} do |f|
+      f.resources :topics do |topic|
+        topic.resources :posts
+      end
+    end
     
     # show action    it doesn't work for custom actions
     forum.connect ':id',:controller => "forums" , :action => "show" 
