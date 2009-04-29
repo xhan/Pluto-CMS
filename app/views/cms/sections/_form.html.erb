@@ -1,0 +1,28 @@
+
+<%= link_to "Back", cms_sections_path %>
+<%= error_messages_for :section %>
+
+<% form_for([:cms,@section]) do |f| -%>  
+	<p>
+		Parent <%= @parent.name %> 
+		<%= f.hidden_field :parent_id %>
+	</p>
+	<p>
+		<%= f.label :name, "Name" %>
+		<%= f.text_field :name ,:class => "text"%>
+	</p>
+	<p>
+		<%= f.label :path, "Path" %>
+		<%= f.text_field :path,:class => "text" %>
+	</p>
+	<p>
+		<%= f.label :hidden, "Hidden from memu?" %>
+		<%= f.check_box :hidden %>
+	</p>
+	
+	<p>
+		<%= f.label :is_url, "Is Url" %>
+		<%= f.check_box :is_url %>
+	</p>
+	<%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<% end -%>                      

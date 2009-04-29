@@ -1,0 +1,10 @@
+<h1>Cms::Pages#new</h1>
+<p>Find me in app/views/cms/pages/new.html.erb</p>
+
+<%= error_messages_for :page %>
+
+<% form_for [:cms,@page] do |f| -%>
+  <%= f.label :name, "Name" %>
+  <%= f.collection_select :name, Templet.all , :id , :name , :prompt => "Select One" %> 
+	or new <%= link_to "templet", new_cms_templet_path %>
+<% end -%>

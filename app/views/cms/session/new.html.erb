@@ -1,0 +1,26 @@
+
+<div id="login_form">
+	<%= error_messages_for :user %>
+  <% form_for :user, :url =>{:action => :create}, :method => :post do |f| 	%>
+    <h1><%= "Sign-up Now" %></h1>
+	
+    <div class="instruction">Welcome to <%= SITE_NAME %>, we are currently in private beta.</div>
+    
+    <div class="instruction"><%= link_to "Oh yeah, I already have an account, duh.", cms_login_url %></div>
+
+	 <%= f.label :login, "Login" %>
+    <%= f.text_field :login , :class => "text" %><br/>
+		<%= f.label :email, "Email" %>
+    <%= f.text_field :email , :class => "text"  %><br/>
+	<%= f.label :password, "Password" %>
+    <%= f.password_field :password , :class => "text"  %><br/>
+		<%= f.label :password_confirmation, "Password Confirmation" %>
+    <%= f.password_field :password_confirmation,:class => "text" , :label => 'Confirm Password' %>
+
+    </div>
+    
+	  <div class="button">
+	  <%= f.submit 'Sign-up Now', :class => 'button' %>
+	  </div>
+	<% end %>
+</div>

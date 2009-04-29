@@ -1,0 +1,20 @@
+<% set_title "新建模板" %>
+<%= error_messages_for :templet %>
+
+<% form_for([:cms,@templet]) do |f| -%>
+     <p>
+     	<%= f.label :name, "Name" %>
+<%= f.text_field :name %>
+     </p>                
+<p>
+	<%= f.label :description, "Description" %>
+	<%= f.text_area :description ,:rows  => 2 %>
+</p>                                         
+<p>
+	<%= f.label :content, "Content" %>
+	<%= f.text_area :content %>
+</p>
+<%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<% end -%>           
+
+<%= link_to "back", cms_templets_path %>

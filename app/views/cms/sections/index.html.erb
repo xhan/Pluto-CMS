@@ -1,0 +1,93 @@
+<% set_title "栏目设定" %>
+<% content_for :head do -%>
+<style type="text/css">
+li{
+	width:300px;
+}
+.bubbleInfo {
+	position: relative;
+	# top: 150px;
+	#  left: 100px;
+	# width: 50px;
+}
+.trigger {
+	#position: absolute;
+}
+
+/* Bubble pop-up */
+
+.popup {
+	position: absolute;
+	display: none;
+	z-index: 50;
+	border-collapse: collapse;
+}
+</style>
+<script type="text/javascript">
+
+  $(function () {
+      $('.bubbleInfo').each(function () {
+          var distance = 10;
+          var time = 250;
+          var hideDelay = 500;
+
+          var hideDelayTimer = null;
+
+          var beingShown = false;
+          var shown = false;
+          var trigger = $('.trigger', this);
+          var info = $('.popup', this).css('opacity', 0);
+
+
+          $([trigger.get(0), info.get(0)]).mouseover(function () {
+              if (hideDelayTimer) clearTimeout(hideDelayTimer);
+              if (beingShown || shown) {
+                  // don't trigger the animation again
+                  return;
+              } else {
+                  // reset position of info box
+                  beingShown = true;
+
+                  info.css({
+                      top: 0,
+                      left:100 ,
+                      display: 'block'
+                  }).animate({
+                      left: '+=' + distance + 'px',
+                      opacity: 1
+                  }, time, 'swing', function() {
+                      beingShown = false;
+                      shown = true;
+                  });
+              }
+
+              return false;
+          }).mouseout(function () {
+              if (hideDelayTimer) clearTimeout(hideDelayTimer);
+              hideDelayTimer = setTimeout(function () {
+                  hideDelayTimer = null;
+                  info.animate({
+                      left: '-=' + distance + 'px',
+                      opacity: 0
+                  }, time, 'swing', function () {
+                      shown = false;
+                      info.css('display', 'none');
+                  });
+
+              }, hideDelay);
+
+              return false;
+          });
+      });
+  });
+  
+
+</script>
+<% end -%>
+<%= link_to "Create new Section", new_cms_section_path %>
+<h2>Root Sites</h2>
+<%= list_as_tree @root %>
+<%= thickbox_inline "hi","actionDetail" %>
+<div id ="actionDetail" >
+	<p>Hi i am xhan</p>
+</div>

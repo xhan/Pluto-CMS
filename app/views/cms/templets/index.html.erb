@@ -1,0 +1,15 @@
+<% set_title "模板浏览" %>                         
+<h2 id="msg"></h2>
+<% if !@templets.blank? %>
+  <% for templet in @templets %>
+    <p>
+    	<%= templet.name %> | <%= link_to "edit", edit_cms_templet_path(templet) %>
+		<%= link_to_remote "重新生成！",:update => "msg", :url => {:action => :republish,:id => templet }  %>
+    </p>
+  <% end %>
+<% else %>
+   There's no templet file exists
+<% end %>
+        
+<hr>
+<%= link_to "new", new_cms_templet_path %>

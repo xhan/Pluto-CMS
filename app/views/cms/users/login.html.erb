@@ -1,0 +1,19 @@
+<% form_for @user, :url => cms_login_path, :method => :post do |f| %>
+
+<div id="login_form">
+  <h1>Log-in your Account</h1>
+
+  <div class="instruction">
+    <%= link_to "Oops, I need an account!", cms_signup_url  %>
+  </div>
+
+  <%= f.text_field :login ,:class => "text"%>
+  <%= f.password_field :password ,:class => "text"%>
+  <%#= f.wrap(:remember_me, :for => :remember_me){ check_box_tag 'remember_me',1,false, :class=>"checkbox" } %>
+
+  <div class="button">
+    <%= f.submit 'Log-in Now', :class=>'button' %>
+  </div>
+
+</div>
+<%end%>
