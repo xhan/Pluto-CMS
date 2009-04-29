@@ -21,8 +21,8 @@ class Forum::TopicsController < ApplicationController
 
     @topic = @forum.topics.build(params[:forum_topic])
     
-    @topic.profile = f_profile
-
+    @topic.profile = @topic.posts.first.profile = f_profile
+    
 
     respond_to do |wants|
       wants.html {   }

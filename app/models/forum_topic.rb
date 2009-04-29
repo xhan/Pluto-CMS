@@ -14,7 +14,7 @@
 
 class ForumTopic < ActiveRecord::Base
   belongs_to :forum
-  belongs_to :profile, :class_name => "ForumUserProfile"
+  belongs_to :profile, :class_name => "ForumUserProfile" , :foreign_key => "forum_user_profile_id" 
   has_many :posts, :class_name => "ForumPost" , :dependent  => :destroy
                                            
   accepts_nested_attributes_for :posts

@@ -8491,3 +8491,491 @@ ActionView::TemplateError (undefined method `user' for #<ForumPost:0x23c2b3c>) o
 Rendered rescues/_trace (128.3ms)
 Rendered rescues/_request_and_response (0.3ms)
 Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 01:19:00) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;36;1mForum Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForumTopic Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForum Load Including Associations (0.5ms)[0m   [0;1mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+
+ActionView::TemplateError (Unknown key(s): through) on line #6 of app/views/forum/forums/show.html.erb:
+3:   <%= link_to 'Forums', forum_forums_path %> > <%=h @forum.name %>
+4:   <h1 class="forum_name"><%=h @forum.name %></h1>
+5:   <div id="forum_details">
+6:     <%= forum_details(@forum)%>
+7:   </div>
+8:    
+9:    <div id="sub_nav">
+
+    (eval):3:in `belongs_to'
+    app/models/forum_post.rb:17
+    app/helpers/forum/forums_helper.rb:4:in `forum_details'
+    app/views/forum/forums/show.html.erb:6
+
+Rendered rescues/_trace (132.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 01:23:01) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;36;1mForum Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForumTopic Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForum Load Including Associations (15.2ms)[0m   [0;1mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;36;1mForumPost Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 2) [0m
+  [4;36;1mForumPost Load (0.5ms)[0m   [0;1mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 2) ORDER BY forum_posts.id DESC LIMIT 1[0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.user) on line #12 of app/views/forum/topics/_topic.html.erb:
+9:   </td>
+10: 
+11:   <td class="last_post">
+12:     <%= post_info topic.last_post %>
+13:   </td>
+14:   
+15: 
+
+    app/models/forum_post.rb:19:in `user'
+    app/helpers/forum/topics_helper.rb:7:in `post_info'
+    app/views/forum/topics/_topic.html.erb:12
+    app/views/forum/forums/show.html.erb:38
+
+Rendered rescues/_trace (126.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mForumPost Load (0.3ms)[0m   [0;1mSELECT * FROM `forum_posts` LIMIT 1[0m
+  [4;35;1mForumPost Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+  [4;36;1mForumUserProfile Load (0.6ms)[0m   [0;1mSELECT * FROM `forum_user_profiles` [0m
+  [4;35;1mForumUserProfile Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `forum_user_profiles`[0m
+  [4;36;1mForumUserProfile Load (72.1ms)[0m   [0;1mSELECT * FROM `forum_user_profiles` ORDER BY forum_user_profiles.id DESC LIMIT 1[0m
+  [4;35;1mForumUserProfile Load (0.3ms)[0m   [0mSELECT * FROM `forum_user_profiles` ORDER BY forum_user_profiles.id DESC LIMIT 1[0m
+  [4;36;1mForumPost Load (0.4ms)[0m   [0;1mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_user_profile_id = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 01:29:16) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;35;1mForum Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForumTopic Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForum Load Including Associations (0.5ms)[0m   [0mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;36;1mForumTopic Load (0.3ms)[0m   [0;1mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;35;1mForumPost Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mUser Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 2) [0m
+  [4;35;1mForumPost Load (0.2ms)[0m   [0mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 2) ORDER BY forum_posts.id DESC LIMIT 1[0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.user) on line #12 of app/views/forum/topics/_topic.html.erb:
+9:   </td>
+10: 
+11:   <td class="last_post">
+12:     <%= post_info topic.last_post %>
+13:   </td>
+14:   
+15: 
+
+    app/models/forum_post.rb:19:in `user'
+    app/helpers/forum/topics_helper.rb:7:in `post_info'
+    app/views/forum/topics/_topic.html.erb:12
+    app/views/forum/forums/show.html.erb:38
+
+Rendered rescues/_trace (130.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#show (for 127.0.0.1 at 2009-04-30 01:31:09) [GET]
+  Parameters: {"action"=>"show", "forum_id"=>"5", "id"=>"2", "controller"=>"forum/topics"}
+  [4;36;1mForum Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;36;1mForumTopic Load (0.4ms)[0m   [0;1mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;35;1mForumTopic Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForumTopic Load (0.3ms)[0m   [0;1mSELECT * FROM `forum_topics` WHERE (`forum_topics`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering forum/topics/show
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:1)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:3)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from extract_options! at /Users/xhan/.gem/ruby/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/array/extract_options.rb:15)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from build_expiry at /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:339)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from generated code (/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route.rb:160)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:8)
+  [4;35;1mForumPost Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 2) [0m
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:12)
+  [4;35;1mForumPost Load (0.3ms)[0m   [0mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 2) ORDER BY forum_posts.id DESC LIMIT 1[0m
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.user) on line #12 of app/views/forum/topics/_topic.html.erb:
+9:   </td>
+10: 
+11:   <td class="last_post">
+12:     <%= post_info topic.last_post %>
+13:   </td>
+14:   
+15: 
+
+    app/models/forum_post.rb:19:in `user'
+    app/helpers/forum/topics_helper.rb:7:in `post_info'
+    app/views/forum/topics/_topic.html.erb:12
+    app/views/forum/topics/show.html.erb:1
+
+Rendered rescues/_trace (127.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mForumPost Load (0.3ms)[0m   [0;1mSELECT * FROM `forum_posts` ORDER BY forum_posts.id DESC LIMIT 1[0m
+  [4;35;1mForumPost Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+  [4;36;1mForumPost Load (0.3ms)[0m   [0;1mSELECT * FROM `forum_posts` ORDER BY forum_posts.id DESC LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mForumPost Load (0.3ms)[0m   [0;1mSELECT * FROM `forum_posts` ORDER BY forum_posts.id DESC LIMIT 1[0m
+  [4;35;1mForumPost Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+  [4;36;1mForumUserProfile Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `forum_user_profiles`[0m
+  [4;35;1mForumUserProfile Load (0.3ms)[0m   [0mSELECT * FROM `forum_user_profiles` WHERE (`forum_user_profiles`.`id` = 2) [0m
+  [4;36;1mUser Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 01:37:50) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;36;1mForum Columns (2.9ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForumTopic Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForum Load Including Associations (0.5ms)[0m   [0;1mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;35;1mForumTopic Load (0.4ms)[0m   [0mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;36;1mForumPost Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 2) [0m
+  [4;36;1mForumPost Load (0.3ms)[0m   [0;1mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 2) ORDER BY forum_posts.id DESC LIMIT 1[0m
+  [4;35;1mForumUserProfile Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `forum_user_profiles`[0m
+  [4;36;1mForumUserProfile Load (0.3ms)[0m   [0;1mSELECT * FROM `forum_user_profiles` WHERE (`forum_user_profiles`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered forum/topics/_topic (140.7ms)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 1) [0m
+  [4;35;1mForumPost Load (0.2ms)[0m   [0mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 1) ORDER BY forum_posts.id DESC LIMIT 1[0m
+Rendered forum/topics/_topic (5.3ms)
+Completed in 322ms (View: 245, DB: 17) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 01:37:59) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5-消失的時光", "height"=>"400", "random"=>"1241026679696", "controller"=>"forum/topics", "width"=>"300"}
+  [4;36;1mUser Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mForum Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForum Load (0.4ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;36;1mForumTopic Load (0.4ms)[0m   [0;1mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;35;1mForumTopic Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForumPost Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+Rendering forum/topics/new
+Completed in 117ms (View: 6, DB: 9) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89/topics/new?width=300&height=400&random=1241026679696]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#create (for 127.0.0.1 at 2009-04-30 01:38:10) [POST]
+  Parameters: {"action"=>"create", "authenticity_token"=>"aaaBA7mKeehRqrYnydN9ccMa8IVPqNHPred9d99mkK4=", "forum_id"=>"5-消失的時光", "controller"=>"forum/topics", "forum_topic"=>{"title"=>"很天真", "posts_attributes"=>{"0"=>{"body"=>"好孩子"}}}}
+  [4;35;1mUser Columns (3.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mForum Columns (40.9ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.3ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.4ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumPost Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+  [4;36;1mForumUserProfile Load (0.4ms)[0m   [0;1mSELECT * FROM `forum_user_profiles` WHERE (`forum_user_profiles`.user_id = 1) LIMIT 1[0m
+  [4;35;1mForumUserProfile Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `forum_user_profiles`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mForumTopic Create (0.2ms)[0m   [0mINSERT INTO `forum_topics` (`created_at`, `title`, `updated_at`, `forum_id`, `type`, `forum_user_profile_id`) VALUES('2009-04-29 17:38:10', '很天真', '2009-04-29 17:38:10', 5, NULL, NULL)[0m
+  [4;36;1mForumPost Create (0.2ms)[0m   [0;1mINSERT INTO `forum_posts` (`forum_topic_id`, `created_at`, `body`, `updated_at`, `forum_user_profile_id`) VALUES(3, '2009-04-29 17:38:10', '好孩子', '2009-04-29 17:38:10', NULL)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:1)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:3)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from extract_options! at /Users/xhan/.gem/ruby/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/array/extract_options.rb:15)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from generated code (/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route.rb:160)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:8)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 3) [0m
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:12)
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.user) on line #12 of app/views/forum/topics/_topic.html.erb:
+9:   </td>
+10: 
+11:   <td class="last_post">
+12:     <%= post_info topic.last_post %>
+13:   </td>
+14:   
+15: 
+
+    app/models/forum_post.rb:20:in `user'
+    app/helpers/forum/topics_helper.rb:7:in `post_info'
+    app/views/forum/topics/_topic.html.erb:12
+    app/controllers/forum/topics_controller.rb:34:in `create'
+    app/controllers/forum/topics_controller.rb:30:in `create'
+    app/controllers/forum/topics_controller.rb:27:in `create'
+
+Rendered rescues/_trace (135.9ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mForumTopic Load (0.3ms)[0m   [0;1mSELECT * FROM `forum_topics` ORDER BY forum_topics.id DESC LIMIT 1[0m
+  [4;35;1mForumTopic Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mForumTopic Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT * FROM `forum_topics` ORDER BY forum_topics.id DESC LIMIT 1[0m
+  [4;36;1mForumTopic Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumUserProfile Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `forum_user_profiles`[0m
+  [4;36;1mForumUserProfile Load (0.3ms)[0m   [0;1mSELECT * FROM `forum_user_profiles` WHERE (`forum_user_profiles`.`id` = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 01:42:29) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;35;1mForum Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForumTopic Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForum Load Including Associations (0.5ms)[0m   [0mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;36;1mForumTopic Load (0.4ms)[0m   [0;1mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;35;1mForumPost Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mUser Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 3) [0m
+  [4;35;1mForumPost Load (1.0ms)[0m   [0mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 3) ORDER BY forum_posts.id DESC LIMIT 1[0m
+  [4;36;1mForumUserProfile Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `forum_user_profiles`[0m
+  [4;35;1mForumUserProfile Load (0.3ms)[0m   [0mSELECT * FROM `forum_user_profiles` WHERE (`forum_user_profiles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered forum/topics/_topic (27.4ms)
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 2) [0m
+  [4;36;1mForumPost Load (0.2ms)[0m   [0;1mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 2) ORDER BY forum_posts.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `forum_user_profiles` WHERE (`forum_user_profiles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered forum/topics/_topic (6.4ms)
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 1) [0m
+  [4;36;1mForumPost Load (0.2ms)[0m   [0;1mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 1) ORDER BY forum_posts.id DESC LIMIT 1[0m
+Rendered forum/topics/_topic (5.0ms)
+Completed in 182ms (View: 47, DB: 24) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 01:42:33) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5-消失的時光", "height"=>"400", "random"=>"1241026953771", "controller"=>"forum/topics", "width"=>"300"}
+  [4;35;1mUser Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mForum Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.3ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.4ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumPost Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+Rendering forum/topics/new
+Completed in 50ms (View: 3, DB: 16) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89/topics/new?width=300&height=400&random=1241026953771]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#create (for 127.0.0.1 at 2009-04-30 01:42:46) [POST]
+  Parameters: {"action"=>"create", "authenticity_token"=>"aaaBA7mKeehRqrYnydN9ccMa8IVPqNHPred9d99mkK4=", "forum_id"=>"5-消失的時光", "controller"=>"forum/topics", "forum_topic"=>{"title"=>"可以了！！！", "posts_attributes"=>{"0"=>{"body"=>"一定可以"}}}}
+  [4;36;1mUser Columns (2.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mForum Columns (33.3ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForum Load (11.2ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;36;1mForumTopic Load (0.5ms)[0m   [0;1mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;35;1mForumTopic Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForumPost Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+  [4;35;1mForumUserProfile Load (0.4ms)[0m   [0mSELECT * FROM `forum_user_profiles` WHERE (`forum_user_profiles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mForumUserProfile Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `forum_user_profiles`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mForumTopic Create (0.9ms)[0m   [0;1mINSERT INTO `forum_topics` (`created_at`, `title`, `updated_at`, `forum_id`, `type`, `forum_user_profile_id`) VALUES('2009-04-29 17:42:46', '可以了！！！', '2009-04-29 17:42:46', 5, NULL, 2)[0m
+  [4;35;1mForumPost Create (0.3ms)[0m   [0mINSERT INTO `forum_posts` (`forum_topic_id`, `created_at`, `body`, `updated_at`, `forum_user_profile_id`) VALUES(4, '2009-04-29 17:42:46', '一定可以', '2009-04-29 17:42:46', 2)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:1)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:3)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from extract_options! at /Users/xhan/.gem/ruby/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/array/extract_options.rb:15)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from generated code (/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route.rb:160)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:8)
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 4) [0m
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:12)
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:16)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:17)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:17)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:18)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from extract_options! at /Users/xhan/.gem/ruby/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/array/extract_options.rb:15)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from generated code (/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route.rb:160)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:20)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:22)
+Rendered forum/topics/_topic (78.8ms)
+Completed in 186ms (View: 23, DB: 128) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89/topics]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 01:42:49) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;35;1mForum Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForumTopic Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForum Load Including Associations (1.1ms)[0m   [0mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;36;1mForumTopic Load (0.3ms)[0m   [0;1mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;35;1mForumPost Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mUser Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 4) [0m
+  [4;35;1mForumPost Load (0.2ms)[0m   [0mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 4) ORDER BY forum_posts.id DESC LIMIT 1[0m
+  [4;36;1mForumUserProfile Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `forum_user_profiles`[0m
+  [4;35;1mForumUserProfile Load (0.4ms)[0m   [0mSELECT * FROM `forum_user_profiles` WHERE (`forum_user_profiles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered forum/topics/_topic (19.8ms)
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 3) [0m
+  [4;36;1mForumPost Load (0.2ms)[0m   [0;1mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 3) ORDER BY forum_posts.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `forum_user_profiles` WHERE (`forum_user_profiles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered forum/topics/_topic (5.9ms)
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 2) [0m
+  [4;36;1mForumPost Load (0.3ms)[0m   [0;1mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 2) ORDER BY forum_posts.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `forum_user_profiles` WHERE (`forum_user_profiles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered forum/topics/_topic (6.1ms)
+  [4;35;1mSQL (2.2ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 1) [0m
+  [4;36;1mForumPost Load (0.3ms)[0m   [0;1mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 1) ORDER BY forum_posts.id DESC LIMIT 1[0m
+Rendered forum/topics/_topic (69.2ms)
+Completed in 199ms (View: 55, DB: 82) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 01:42:50) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;35;1mForum Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForumTopic Columns (5.5ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForum Load Including Associations (6.4ms)[0m   [0mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;36;1mForumTopic Load (0.4ms)[0m   [0;1mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;35;1mForumPost Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 4) [0m
+  [4;35;1mForumPost Load (0.4ms)[0m   [0mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 4) ORDER BY forum_posts.id DESC LIMIT 1[0m
+  [4;36;1mForumUserProfile Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `forum_user_profiles`[0m
+  [4;35;1mForumUserProfile Load (0.3ms)[0m   [0mSELECT * FROM `forum_user_profiles` WHERE (`forum_user_profiles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered forum/topics/_topic (76.3ms)
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 3) [0m
+  [4;36;1mForumPost Load (0.2ms)[0m   [0;1mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 3) ORDER BY forum_posts.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `forum_user_profiles` WHERE (`forum_user_profiles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered forum/topics/_topic (6.3ms)
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 2) [0m
+  [4;36;1mForumPost Load (0.3ms)[0m   [0;1mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 2) ORDER BY forum_posts.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `forum_user_profiles` WHERE (`forum_user_profiles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Rendered forum/topics/_topic (6.1ms)
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 1) [0m
+  [4;36;1mForumPost Load (0.2ms)[0m   [0;1mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 1) ORDER BY forum_posts.id DESC LIMIT 1[0m
+Rendered forum/topics/_topic (4.9ms)
+Completed in 190ms (View: 53, DB: 84) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#show (for 127.0.0.1 at 2009-04-30 01:42:59) [GET]
+  Parameters: {"action"=>"show", "forum_id"=>"5-消失的時光", "id"=>"4", "controller"=>"forum/topics"}
+  [4;35;1mForum Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.8ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.4ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT * FROM `forum_topics` WHERE (`forum_topics`.`id` = 4) [0m
+Rendering template within layouts/application
+Rendering forum/topics/show
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:1)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:3)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from extract_options! at /Users/xhan/.gem/ruby/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/array/extract_options.rb:15)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from build_expiry at /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:339)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from generated code (/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route.rb:160)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:8)
+  [4;36;1mForumPost Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 4) [0m
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:12)
+  [4;36;1mForumPost Load (0.4ms)[0m   [0;1mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 4) ORDER BY forum_posts.id DESC LIMIT 1[0m
+  [4;35;1mForumUserProfile Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `forum_user_profiles`[0m
+  [4;36;1mForumUserProfile Load (0.3ms)[0m   [0;1mSELECT * FROM `forum_user_profiles` WHERE (`forum_user_profiles`.`id` = 2) [0m
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:16)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:17)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:17)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:18)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from extract_options! at /Users/xhan/.gem/ruby/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/array/extract_options.rb:15)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from build_expiry at /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:339)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from generated code (/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route.rb:160)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:20)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:22)
+Rendered forum/topics/_topic (104.4ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 178ms (View: 37, DB: 88) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89/topics/4]
+  [4;35;1mForum Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forums` [0m
+  [4;35;1mForum Load (88.9ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` IN (2,4)) [0m
+  [4;36;1mForum Load (0.3ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` IN (1,2)) [0m
+  [4;35;1mForum Load (0.3ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` = 2) [0m
+  [4;36;1mForum Load (0.3ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 1) [0m
+  [4;35;1mForum Load (0.3ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;36;1mForum Load (0.4ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` IN (5,6)) [0m
+  [4;35;1mForum Load (0.4ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` IN (5,7)) [0m
+  [4;36;1mForum Load (0.4ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` IN (7,5)) [0m
+  [4;35;1mForum Load (0.4ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` IN (7,5)) [0m
