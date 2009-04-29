@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password
   
   after_filter :store_location
-  
+                              
   def set_layout
     if request.xhr?
       false

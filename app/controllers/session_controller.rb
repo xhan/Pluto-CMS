@@ -1,6 +1,6 @@
 class SessionController < ApplicationController
   
-  skip_before_filter :store_location
+  skip_after_filter :store_location
   layout :set_layout
 
   def new   
@@ -14,7 +14,7 @@ class SessionController < ApplicationController
 
 
   def login
-    redirect_back  and return if logged_in?
+    go_back  and return if logged_in?
     # redirect_to :back and return if logged_in?
     @user = User.new
     return unless request.post?
@@ -23,13 +23,13 @@ class SessionController < ApplicationController
       u = User.find_by_login params[:user][:login]
       if params[:user][:password] && params[:user][:password].size >0 && u
         if u.authenticated?(params[:user][:password]) 
-          session[:id] =u.id
+          set_login_user u
           flash[:notice] = "Hello #{u.login}"
-           redirect_to :back
+           go_back and return
         end
       end
     end
-    # flash.now[:error] = "uh-oh, login didn't work.Do you have caps lock on? Try again!"
+    
       flash[:notice] ="uh-oh, login didn't work.Do you have caps lock on? Try again!"
   end
 
@@ -47,7 +47,6 @@ class SessionController < ApplicationController
 
   def logout
     logout!
-    redirect_to :back
   end
 
   private

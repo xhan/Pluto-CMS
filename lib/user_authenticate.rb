@@ -3,12 +3,7 @@ module UserAuthenticate
   # private
   #return true if the user is authenticate to the system
 
-  def logout!
-    reset_session
-    @current_user = nil
-    flash[:notice] = "You have been logged out!"
-    redirect_to('/')
-  end
+
   
   def current_user
     @current_user ||= User.find session[:id] if session[:id]
@@ -20,13 +15,15 @@ module UserAuthenticate
   
   def logout!
     session[:id] = nil
-    reset_session
+    @current_user = nil
+    go_back
   end
   
-  def current_user= user
-    @current_user = user
-    session[:id] = user.id
-  end
+  def set_login_user user
+     @current_user = user
+     session[:id] = user.id
+  end                   
+
   
   def login_required
     name,passwd = get_auth_data
@@ -46,14 +43,16 @@ module UserAuthenticate
   end
   
   # Redirect to the URI stored by the most recent store_location call or
-  # to the passed default.
-  def redirect_back url=nil
-       if url
-          redirect_to url
-        else
-          redirect_to session[:return_to]
-       end 
+  # to the passed default. 
+  def go_back url='/'
+    if session[:return_to] && session[:return_to] != "#{request.request_uri}"
+      redirect_to session[:return_to]
+    else
+      redirect_to url
+    end
   end
+  
+
   
   def redirect_back_or_default(default)
     # return if performed?
