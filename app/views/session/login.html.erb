@@ -1,10 +1,10 @@
-<% form_for @user, :url => cms_login_path, :method => :post do |f| %>
+<% form_for @user, :url => login_path, :method => :post do |f| %>
 
 <div id="login_form">
   <h1>Log-in your Account</h1>
 
   <div class="instruction">
-    <%= link_to "Oops, I need an account!", cms_signup_url  %>
+    <%= link_to "Oops, I need an account!", signup_url  %>
   </div>
 
   <%= f.text_field :login ,:class => "text"%>

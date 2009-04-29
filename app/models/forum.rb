@@ -17,13 +17,13 @@ class Forum < ActiveRecord::Base
   has_many :posts , :through => :topics
      
   validates_presence_of :name,:description
-  attr_accessor :name,:description
+   # attr_accessor :name,:description
   
   def before_save
-    position = Forum.maximum(:position)+1
+    position = Forum.count(:position)+1
   end
   
   def to_param
-    "#{self.id}-#{self.name.to_slug_url}"
-  end
+     "#{self.id}-#{self.name.to_slug_url}"
+   end     
 end

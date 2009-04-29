@@ -47,14 +47,17 @@ module UserAuthenticate
   
   # Redirect to the URI stored by the most recent store_location call or
   # to the passed default.
-  def redirect_back url
-    redirect_back_or_default url
+  def redirect_back url=nil
+       if url
+          redirect_to url
+        else
+          redirect_to session[:return_to]
+       end 
   end
   
   def redirect_back_or_default(default)
-    return if performed?
+    # return if performed?
     if session[:return_to] && 
-      session[:return_to] != '/' && 
       session[:return_to] != "#{request.request_uri}" &&
       !session[:return_to].include?( request.path)
       redirect_to(session[:return_to]) 

@@ -1,4 +1,3 @@
-
 <div id="login_form">
 	<%= error_messages_for :user %>
   <% form_for :user, :url =>{:action => :create}, :method => :post do |f| 	%>
@@ -6,7 +5,7 @@
 	
     <div class="instruction">Welcome to <%= SITE_NAME %>, we are currently in private beta.</div>
     
-    <div class="instruction"><%= link_to "Oh yeah, I already have an account, duh.", cms_login_url %></div>
+    <div class="instruction"><%= link_to "Oh yeah, I already have an account, duh.", login_url %></div>
 
 	 <%= f.label :login, "Login" %>
     <%= f.text_field :login , :class => "text" %><br/>

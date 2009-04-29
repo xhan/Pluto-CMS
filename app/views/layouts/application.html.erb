@@ -22,10 +22,14 @@
 			<p><%=  flash[:notice] || "explore UFO"%></p>
 		</div>
 		<div class="title-menu">
-	        <a href="http://forum.maxthon.com">Maxthon Forum</a>
+	        <%= link_to "Pluto Forum", forum_root_path %>
         	<a href="sitemap.htm">Site Map</a>
 
-            <a href="#">Contact Us</a>
+			<%- if logged_in? -%> 
+			<%=  link_to current_user.login,"#copyright" %>
+			<%- else -%> 
+			<%= link_to "請先登錄",login_path %>
+			<% end -%>
         </div>
   </div>
 	</div>
@@ -61,7 +65,8 @@
 					</td>
 					<td width="25%" valign="top">
 						<h5>Downloads</h5>
-						<p><a href="download.htm">Get Maxthon!</a><br />
+						<p><%= link_to "注冊帳號", signup_path %>
+							<br />
 						    <a href="http://addons.maxthon.com/">Skins &amp; Plugins</a><br/>
 						<a href="download.htm#lang">Language Packs</a></p>
 					</td>
@@ -82,7 +87,7 @@
                   </tr>
 			</table>
 		</div>
-    <div class="copyright">Copyright &copy; 1999-2008 Maxthon International Limited. All Rights Reserved. </div>
+    <div class="copyright" name="copyright">Copyright &copy; 1999-2008 Maxthon International Limited. All Rights Reserved. </div>
   </div>
 	</div>
   <!-- end footer -->

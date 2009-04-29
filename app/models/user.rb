@@ -19,8 +19,10 @@ require "digest/sha1"
 
 class User < ActiveRecord::Base
   
-  attr_accessor :password,:email,:password_confirmation,:login,:expires_at
+  # attr_accessor :password,:email,:password_confirmation,:login,:expires_at 
+  attr_accessor :password_confirmation, :password
   validates_presence_of :login
+  validates_presence_of :email
   validates_confirmation_of :password, :if => :password_required?, :message => "Password should match confirmation"
   validates_presence_of :password,:if => :password_required?
   validates_presence_of :password_confirmation, :if => :password_required?

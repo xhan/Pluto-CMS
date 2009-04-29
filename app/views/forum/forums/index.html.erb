@@ -1,2 +1,23 @@
-<h1>Forum::Forums#index</h1>
-<p>Find me in app/views/forum/forums/index.html.erb</p>
+<h1>Forums List _ <%= SITE_NAME%></h1>
+
+<div id="sub_nav">
+  <%= thickbox_outline "Create a new forum",new_forum_forum_path ,{:title  => "Create a new forum"},{:width =>500,:heigth => 600} %>
+</div>
+
+
+<div id="forum_list_header">
+  <div class="last_post">Last Post</div>
+  <div class="info">Forum</div>
+</div>
+
+<ul id="forums_list">
+  
+	<%= render :partial => 'each_forum' ,:collection => @forums %>
+
+</ul>
+<div id="no_forums_message" style="display: <%= @forums.empty? ? 'block' : 'none' %>">
+  No forums exist at this time.
+</div>
+<br />
+<%= sortable_element('forums_list', :url => {:action => :update_positions}) %>
+<br/>

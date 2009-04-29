@@ -1,5 +1,6 @@
-class SessionController < Cms::ApplicationController
-
+class SessionController < ApplicationController
+  
+  skip_before_filter :store_location
   layout :set_layout
 
   def new   
@@ -13,7 +14,8 @@ class SessionController < Cms::ApplicationController
 
 
   def login
-    redirect_back_or_default '/' and return if logged_in?
+    redirect_back  and return if logged_in?
+    # redirect_to :back and return if logged_in?
     @user = User.new
     return unless request.post?
     #handle authenticate
@@ -23,7 +25,7 @@ class SessionController < Cms::ApplicationController
         if u.authenticated?(params[:user][:password]) 
           session[:id] =u.id
           flash[:notice] = "Hello #{u.login}"
-          redirect_back_or_default '/'
+           redirect_to :back
         end
       end
     end
@@ -45,6 +47,7 @@ class SessionController < Cms::ApplicationController
 
   def logout
     logout!
+    redirect_to :back
   end
 
   private
