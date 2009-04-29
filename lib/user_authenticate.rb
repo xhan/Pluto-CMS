@@ -3,7 +3,9 @@ module UserAuthenticate
   # private
   #return true if the user is authenticate to the system
 
-
+  def f_profile
+    current_user.forum_profile
+  end
   
   def current_user
     @current_user ||= User.find session[:id] if session[:id]

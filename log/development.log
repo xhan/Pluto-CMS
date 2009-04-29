@@ -7412,3 +7412,1082 @@ ActionView::MissingTemplate (Missing template forum/forums/show.erb in view path
   
 
 Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mForum Columns (3.1ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForumTopic Load (70.0ms)[0m   [0;1mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = NULL) ORDER BY updated_at desc[0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = NULL) ORDER BY created_at, updated_at desc LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-29 23:57:10) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;35;1mForum Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForumTopic Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForum Load Including Associations (0.0ms)[0m   [0mMysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'esc' at line 1: SELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at esc[0m
+
+ActiveRecord::StatementInvalid (Mysql::Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'esc' at line 1: SELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums`  LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5)  ORDER BY forum_topics.created_at esc):
+  /usr/local/lib/ruby/gems/1.8/gems/josevalim-rails-footnotes-3.4.1/lib/rails-footnotes/notes/queries_note.rb:104:in `execute'
+  /usr/local/lib/ruby/gems/1.8/gems/josevalim-rails-footnotes-3.4.1/lib/rails-footnotes/notes/queries_note.rb:104:in `execute'
+  app/controllers/forum/forums_controller.rb:52:in `find_object'
+  app/controllers/forum/forums_controller.rb:17:in `show'
+
+Rendered rescues/_trace (112.9ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-29 23:57:45) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;36;1mForum Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForumTopic Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForum Load Including Associations (0.3ms)[0m   [0;1mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW TABLES[0m
+
+NoMethodError (undefined method `paginate' for #<Class:0x23c0224>):
+  app/controllers/forum/forums_controller.rb:53:in `find_object'
+  app/controllers/forum/forums_controller.rb:17:in `show'
+
+Rendered rescues/_trace (50.6ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-29 23:59:24) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;36;1mForum Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForumTopic Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForum Load Including Associations (0.5ms)[0m   [0;1mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;36;1mForumPost Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+  [4;35;1mSQL (31.7ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mUser Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 186ms (View: 91, DB: 44) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-29 23:59:34) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5-消失的時光", "height"=>"130", "random"=>"1241020774436", "controller"=>"forum/topics", "width"=>"300"}
+  [4;35;1mUser Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+
+ActionView::MissingTemplate (Missing template forum/topics/new.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#index (for 127.0.0.1 at 2009-04-29 23:59:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"forum/forums"}
+  [4;35;1mForum Load (0.6ms)[0m   [0mSELECT * FROM `forums` ORDER BY position[0m
+Rendering template within layouts/application
+Rendering forum/forums/index
+  [4;36;1mForum Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+Rendered forum/forums/_each_forum (5.4ms)
+Rendered forum/forums/_each_forum (0.3ms)
+Rendered forum/forums/_each_forum (0.3ms)
+Rendered forum/forums/_each_forum (0.3ms)
+Rendered forum/forums/_each_forum (0.2ms)
+  [4;35;1mUser Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 126ms (View: 26, DB: 7) | 200 OK [http://localhost/forum/forums]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-29 23:59:47) [GET]
+  Parameters: {"action"=>"show", "id"=>"6-瘋狂搶購", "controller"=>"forum/forums"}
+  [4;35;1mForum Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForumTopic Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForum Load Including Associations (0.3ms)[0m   [0mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 6) ORDER BY forum_topics.created_at [0m
+  [4;36;1mForumTopic Load (0.2ms)[0m   [0;1mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 6) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;35;1mForumPost Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 6)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 6)) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 6) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 6) [0m
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 71ms (View: 19, DB: 11) | 200 OK [http://localhost/forum/forums/6-%E7%98%8B%E7%8B%82%E6%90%B6%E8%B3%BC]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-29 23:59:51) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;36;1mForum Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForumTopic Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForum Load Including Associations (0.3ms)[0m   [0;1mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;35;1mForumTopic Load (0.2ms)[0m   [0mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;36;1mForumPost Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 129ms (View: 77, DB: 11) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#index (for 127.0.0.1 at 2009-04-30 00:01:47) [GET]
+  Parameters: {"action"=>"index", "controller"=>"forum/forums"}
+  [4;35;1mForum Load (0.5ms)[0m   [0mSELECT * FROM `forums` ORDER BY position[0m
+Rendering template within layouts/application
+Rendering forum/forums/index
+  [4;36;1mForum Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+Rendered forum/forums/_each_forum (3.8ms)
+Rendered forum/forums/_each_forum (0.3ms)
+Rendered forum/forums/_each_forum (0.3ms)
+Rendered forum/forums/_each_forum (0.3ms)
+Rendered forum/forums/_each_forum (0.3ms)
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 52ms (View: 15, DB: 5) | 200 OK [http://localhost/forum/forums]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 00:01:57) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;35;1mForum Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForumTopic Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForum Load Including Associations (0.3ms)[0m   [0mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;36;1mForumTopic Load (0.2ms)[0m   [0;1mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;35;1mForumPost Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mUser Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 131ms (View: 80, DB: 11) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:02:12) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5-消失的時光", "height"=>"130", "random"=>"1241020931917", "controller"=>"forum/topics", "width"=>"300"}
+  [4;36;1mUser Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+
+ActionView::MissingTemplate (Missing template forum/topics/new.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:14:45) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5-消失的時光", "height"=>"130", "random"=>"1241021685236", "controller"=>"forum/topics", "width"=>"300"}
+  [4;36;1mUser Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mForum Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;36;1mForumTopic Load (0.3ms)[0m   [0;1mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;35;1mForumTopic Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForumPost Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+Rendering template within layouts/application
+Rendering forum/topics/new
+
+ActionView::TemplateError (undefined method `forum_path' for #<ActionView::Base:0x23289b0>) on line #4 of app/views/forum/topics/new.html.erb:
+1: <h1>New topic in <%=h @forum.name %></h1>
+2: 
+3: <div id="sub_nav">
+4:   <%= link_to "&larr; Back to #{@forum.name}", forum_path(@forum) %>
+5: </div>
+6: 
+7: <%= error_messages_for :topic %>
+
+    app/views/forum/topics/new.html.erb:4
+
+Rendered rescues/_trace (50.1ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 00:15:01) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;35;1mForum Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForumTopic Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForum Load Including Associations (0.5ms)[0m   [0mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;36;1mForumTopic Load (0.2ms)[0m   [0;1mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;35;1mForumPost Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 134ms (View: 20, DB: 10) | 200 OK [http://localhost/forum/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#index (for 127.0.0.1 at 2009-04-30 00:15:28) [GET]
+  Parameters: {"action"=>"index", "forum_id"=>"5", "controller"=>"forum/topics"}
+  [4;36;1mForum Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;36;1mForumTopic Load (0.2ms)[0m   [0;1mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;35;1mForumTopic Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+
+ActionView::MissingTemplate (Missing template forum/topics/index.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:15:34) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5", "controller"=>"forum/topics"}
+  [4;36;1mUser Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mForum Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;36;1mForumTopic Load (0.3ms)[0m   [0;1mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;35;1mForumTopic Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForumPost Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+Rendering template within layouts/application
+Rendering forum/topics/new
+
+ActionView::TemplateError (undefined method `forum_path' for #<ActionView::Base:0x23c0a80>) on line #4 of app/views/forum/topics/new.html.erb:
+1: <h1>New topic in <%=h @forum.name %></h1>
+2: 
+3: <div id="sub_nav">
+4:   <%= link_to "&larr; Back to #{@forum.name}", forum_path(@forum) %>
+5: </div>
+6: 
+7: <%= error_messages_for :topic %>
+
+    app/views/forum/topics/new.html.erb:4
+
+Rendered rescues/_trace (115.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:15:49) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5", "controller"=>"forum/topics"}
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mForum Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.9ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumPost Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+Rendering template within layouts/application
+Rendering forum/topics/new
+
+ActionView::TemplateError (undefined method `forum_forum_forum_topics_path' for #<ActionView::Base:0x247ce4c>) on line #9 of app/views/forum/topics/new.html.erb:
+6: 
+7: <%= error_messages_for :topic %>
+8: <%= error_messages_for :post %>
+9: <% remote_form_for( [:forum_forum,@topic]) do |f| -%>
+10:   <%= f.label :title, "Title" %><br/>
+11:   <%= f.text_field :title %>
+12: 	<%- f.fields_for :posts do |field| -%>
+
+    app/views/forum/topics/new.html.erb:9
+
+Rendered rescues/_trace (51.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:16:03) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5", "controller"=>"forum/topics"}
+  [4;36;1mUser Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mForum Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;36;1mForumTopic Load (0.3ms)[0m   [0;1mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;35;1mForumTopic Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForumPost Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+Rendering template within layouts/application
+Rendering forum/topics/new
+Completed in 73ms (View: 8, DB: 10) | 200 OK [http://localhost/forum/forums/5/topics/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:17:45) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5-消失的時光", "height"=>"130", "random"=>"1241021865059", "controller"=>"forum/topics", "width"=>"300"}
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mForum Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumPost Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+Rendering template within layouts/application
+Rendering forum/topics/new
+Completed in 38ms (View: 6, DB: 8) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89/topics/new?width=300&height=130&random=1241021865059]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:18:33) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5-消失的時光", "height"=>"130", "random"=>"1241021912979", "controller"=>"forum/topics", "width"=>"300"}
+  [4;36;1mUser Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mForum Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForum Load (0.3ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;36;1mForumTopic Load (0.3ms)[0m   [0;1mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;35;1mForumTopic Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForumPost Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+Rendering template within layouts/application
+Rendering forum/topics/new
+Completed in 41ms (View: 6, DB: 10) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89/topics/new?width=300&height=130&random=1241021912979]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:19:48) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5-消失的時光", "height"=>"130", "random"=>"1241021988836", "controller"=>"forum/topics", "width"=>"300"}
+  [4;35;1mUser Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mForum Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumPost Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+Rendering forum/topics/new
+Completed in 35ms (View: 3, DB: 9) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89/topics/new?width=300&height=130&random=1241021988836]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 00:20:44) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;36;1mForum Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForumTopic Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForum Load Including Associations (0.4ms)[0m   [0;1mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;36;1mForumPost Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mUser Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 142ms (View: 88, DB: 10) | 200 OK [http://localhost/forum/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:20:46) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5-消失的時光", "height"=>"400", "random"=>"1241022046400", "controller"=>"forum/topics", "width"=>"300"}
+  [4;35;1mUser Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mForum Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.3ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumPost Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+Rendering forum/topics/new
+Completed in 38ms (View: 6, DB: 9) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89/topics/new?width=300&height=400&random=1241022046400]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 00:21:08) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;36;1mForum Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForumTopic Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForum Load Including Associations (0.4ms)[0m   [0;1mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;35;1mForumTopic Load (0.2ms)[0m   [0mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;36;1mForumPost Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mUser Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 143ms (View: 87, DB: 11) | 200 OK [http://localhost/forum/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:21:09) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5-消失的時光", "height"=>"400", "random"=>"1241022069319", "controller"=>"forum/topics", "width"=>"300"}
+  [4;35;1mUser Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mForum Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumPost Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+Rendering forum/topics/new
+Completed in 39ms (View: 6, DB: 9) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89/topics/new?width=300&height=400&random=1241022069319]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 00:21:23) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;36;1mForum Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForumTopic Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForum Load Including Associations (0.3ms)[0m   [0;1mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;35;1mForumTopic Load (0.4ms)[0m   [0mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;36;1mForumPost Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 136ms (View: 83, DB: 10) | 200 OK [http://localhost/forum/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:21:25) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5-消失的時光", "height"=>"400", "random"=>"1241022085408", "controller"=>"forum/topics", "width"=>"300"}
+  [4;35;1mUser Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mForum Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.4ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumPost Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+Rendering forum/topics/new
+Completed in 42ms (View: 6, DB: 9) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89/topics/new?width=300&height=400&random=1241022085408]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#create (for 127.0.0.1 at 2009-04-30 00:21:28) [POST]
+  Parameters: {"action"=>"create", "authenticity_token"=>"aaaBA7mKeehRqrYnydN9ccMa8IVPqNHPred9d99mkK4=", "forum_id"=>"5-消失的時光", "controller"=>"forum/topics", "forum_topic"=>{"title"=>"", "posts"=>{"body"=>""}}}
+  [4;36;1mUser Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mForum Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForum Load (0.3ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;36;1mForumTopic Load (0.3ms)[0m   [0;1mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;35;1mForumTopic Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+
+ActionView::MissingTemplate (Missing template forum/topics/create.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 00:21:37) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;36;1mForum Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForumTopic Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForum Load Including Associations (0.3ms)[0m   [0;1mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;35;1mForumTopic Load (0.2ms)[0m   [0mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;36;1mForumPost Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 74ms (View: 20, DB: 12) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:21:44) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5-消失的時光", "height"=>"400", "random"=>"1241022104788", "controller"=>"forum/topics", "width"=>"300"}
+  [4;35;1mUser Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mForum Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumPost Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+Rendering forum/topics/new
+Completed in 37ms (View: 3, DB: 8) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89/topics/new?width=300&height=400&random=1241022104788]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 00:21:49) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;36;1mForum Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForumTopic Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForum Load Including Associations (0.3ms)[0m   [0;1mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;35;1mForumTopic Load (0.2ms)[0m   [0mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;36;1mForumPost Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mUser Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 75ms (View: 20, DB: 12) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:21:52) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5-消失的時光", "height"=>"400", "random"=>"1241022111989", "controller"=>"forum/topics", "width"=>"300"}
+  [4;35;1mUser Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mForum Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.4ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (9.4ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumPost Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+Rendering forum/topics/new
+Completed in 47ms (View: 3, DB: 17) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89/topics/new?width=300&height=400&random=1241022111989]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:32:13) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5-消失的時光", "height"=>"400", "random"=>"1241022733388", "controller"=>"forum/topics", "width"=>"300"}
+  [4;36;1mUser Columns (2.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mForum Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForum Load (0.9ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;36;1mForumTopic Load (0.3ms)[0m   [0;1mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;35;1mForumTopic Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForumPost Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+Rendering forum/topics/new
+Completed in 40ms (View: 4, DB: 11) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89/topics/new?width=300&height=400&random=1241022733388]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:32:22) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5-消失的時光", "height"=>"400", "random"=>"1241022741935", "controller"=>"forum/topics", "width"=>"300"}
+  [4;35;1mUser Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mForum Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.4ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumPost Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+Rendering forum/topics/new
+Completed in 37ms (View: 3, DB: 9) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89/topics/new?width=300&height=400&random=1241022741935]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:32:25) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5", "controller"=>"forum/topics"}
+  [4;36;1mUser Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mForum Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;36;1mForumTopic Load (0.3ms)[0m   [0;1mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;35;1mForumTopic Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForumPost Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+Rendering template within layouts/application
+Rendering forum/topics/new
+Completed in 69ms (View: 5, DB: 9) | 200 OK [http://localhost/forum/forums/5/topics/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:33:11) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5", "controller"=>"forum/topics"}
+  [4;35;1mUser Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mForum Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumPost Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+Rendering template within layouts/application
+Rendering forum/topics/new
+Completed in 72ms (View: 6, DB: 10) | 200 OK [http://localhost/forum/forums/5/topics/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 00:33:18) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;36;1mForum Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForumTopic Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForum Load Including Associations (0.3ms)[0m   [0;1mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;36;1mForumPost Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mUser Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 132ms (View: 78, DB: 10) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:33:20) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5-消失的時光", "height"=>"400", "random"=>"1241022800325", "controller"=>"forum/topics", "width"=>"300"}
+  [4;35;1mUser Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mForum Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumPost Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+Rendering forum/topics/new
+Completed in 36ms (View: 3, DB: 9) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89/topics/new?width=300&height=400&random=1241022800325]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:34:02) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5", "controller"=>"forum/topics"}
+  [4;36;1mUser Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mForum Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForum Load (0.4ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;36;1mForumTopic Load (0.3ms)[0m   [0;1mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;35;1mForumTopic Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForumPost Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+Rendering template within layouts/application
+Rendering forum/topics/new
+Completed in 130ms (View: 5, DB: 9) | 200 OK [http://localhost/forum/forums/5/topics/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:34:03) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5", "controller"=>"forum/topics"}
+  [4;35;1mUser Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mForum Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.3ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumPost Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+Rendering template within layouts/application
+Rendering forum/topics/new
+Completed in 72ms (View: 5, DB: 10) | 200 OK [http://localhost/forum/forums/5/topics/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:34:10) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5", "controller"=>"forum/topics"}
+  [4;36;1mUser Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mForum Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForum Load (0.3ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;36;1mForumTopic Load (0.3ms)[0m   [0;1mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;35;1mForumTopic Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForumPost Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+Rendering template within layouts/application
+Rendering forum/topics/new
+Completed in 128ms (View: 5, DB: 10) | 200 OK [http://localhost/forum/forums/5/topics/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:34:16) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5", "controller"=>"forum/topics"}
+  [4;35;1mUser Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mForum Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumPost Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+Rendering template within layouts/application
+Rendering forum/topics/new
+Completed in 71ms (View: 6, DB: 10) | 200 OK [http://localhost/forum/forums/5/topics/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:43:39) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5", "controller"=>"forum/topics"}
+  [4;36;1mUser Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mForum Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;36;1mForumTopic Load (0.3ms)[0m   [0;1mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;35;1mForumTopic Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForumPost Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+Rendering template within layouts/application
+Rendering forum/topics/new
+Completed in 133ms (View: 6, DB: 10) | 200 OK [http://localhost/forum/forums/5/topics/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 00:43:40) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5", "controller"=>"forum/topics"}
+  [4;35;1mUser Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mForum Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumPost Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+Rendering template within layouts/application
+Rendering forum/topics/new
+Completed in 70ms (View: 5, DB: 9) | 200 OK [http://localhost/forum/forums/5/topics/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(`forums`.position) AS count_position FROM `forums` [0m
+  [4;36;1mForum Create (0.2ms)[0m   [0;1mINSERT INTO `forums` (`name`, `position`, `created_at`, `updated_at`, `description`) VALUES('first try', NULL, '2009-04-29 16:46:38', '2009-04-29 16:46:38', 'hello nest objects')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 00:49:16) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;36;1mForum Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForumTopic Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForum Load Including Associations (0.3ms)[0m   [0;1mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;35;1mForumTopic Load (0.2ms)[0m   [0mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;36;1mForumPost Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+
+ActionView::TemplateError (Missing template topics/_topic.erb in view path app/views) on line #38 of app/views/forum/forums/show.html.erb:
+35: 
+36:      </tr>
+37: 
+38:      <%= render :partial => 'topics/topic', :collection => @topics%>
+39: 
+40:    </table>
+41:    <div id="no_topics_message" style="display: <%= @topics.empty? ? 'block' : 'none' %>">
+
+    app/views/forum/forums/show.html.erb:38
+
+Rendered rescues/_trace (54.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 00:49:39) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;35;1mForum Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForumTopic Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForum Load Including Associations (0.9ms)[0m   [0mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;36;1mForumTopic Load (0.3ms)[0m   [0;1mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;35;1mForumPost Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+
+ActionView::TemplateError (Missing template forum_topics/_topic.erb in view path app/views) on line #38 of app/views/forum/forums/show.html.erb:
+35: 
+36:      </tr>
+37: 
+38:      <%= render :partial => 'forum_topics/topic', :collection => @topics%>
+39: 
+40:    </table>
+41:    <div id="no_topics_message" style="display: <%= @topics.empty? ? 'block' : 'none' %>">
+
+    app/views/forum/forums/show.html.erb:38
+
+Rendered rescues/_trace (52.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 00:50:13) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;36;1mForum Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForumTopic Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForum Load Including Associations (0.3ms)[0m   [0;1mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;35;1mForumTopic Load (1.1ms)[0m   [0mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;36;1mForumPost Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 1) [0m
+
+ActionView::TemplateError (undefined method `last_topic' for #<ForumTopic:0x2526fa0>) on line #12 of app/views/forum/topics/_topic.html.erb:
+9:   </td>
+10: 
+11:   <td class="last_post">
+12:     <%= post_info topic.last_topic%>
+13:   </td>
+14:   
+15: 
+
+    app/views/forum/topics/_topic.html.erb:12
+    app/views/forum/forums/show.html.erb:38
+
+Rendered rescues/_trace (61.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 00:51:13) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;36;1mForum Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForumTopic Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForum Load Including Associations (0.5ms)[0m   [0;1mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;35;1mForumTopic Load (0.2ms)[0m   [0mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;36;1mForumPost Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 1) [0m
+  [4;36;1mForumPost Load (0.2ms)[0m   [0;1mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 1) ORDER BY forum_posts.id DESC LIMIT 1[0m
+Rendered forum/topics/_topic (7.9ms)
+Completed in 87ms (View: 29, DB: 12) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#show (for 127.0.0.1 at 2009-04-30 00:51:29) [GET]
+  Parameters: {"action"=>"show", "forum_id"=>"5-消失的時光", "id"=>"1", "controller"=>"forum/topics"}
+  [4;35;1mForum Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.2ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumTopic Load (0.2ms)[0m   [0mSELECT * FROM `forum_topics` WHERE (`forum_topics`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering forum/topics/show
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:1)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:3)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from extract_options! at /Users/xhan/.gem/ruby/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/array/extract_options.rb:15)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from build_expiry at /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:339)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from generated code (/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route.rb:160)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:8)
+  [4;36;1mForumPost Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 1) [0m
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:12)
+  [4;36;1mForumPost Load (0.2ms)[0m   [0;1mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 1) ORDER BY forum_posts.id DESC LIMIT 1[0m
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:16)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:17)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:17)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:18)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from extract_options! at /Users/xhan/.gem/ruby/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/array/extract_options.rb:15)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from build_expiry at /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:339)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from generated code (/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route.rb:160)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:20)
+DEPRECATION WARNING: @topic will no longer be implicitly assigned to topic. (called from _run_erb_app47views47forum47topics47_topic46html46erb_locals_object_topic at /Users/xhan/Codes/plutocms/app/views/forum/topics/_topic.html.erb:22)
+Rendered forum/topics/_topic (72.9ms)
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 143ms (View: 84, DB: 11) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89/topics/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mForum Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForum Load (0.3ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;36;1mForumTopic Load (0.3ms)[0m   [0;1mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;35;1mForumTopic Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForumPost Load (0.3ms)[0m   [0;1mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 1) [0m
+  [4;35;1mForumPost Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 01:04:43) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5", "controller"=>"forum/topics"}
+  [4;35;1mUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mForum Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.4ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumPost Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+Rendering template within layouts/application
+Rendering forum/topics/new
+Completed in 74ms (View: 5, DB: 9) | 200 OK [http://localhost/forum/forums/5/topics/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 01:04:48) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;36;1mForum Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForumTopic Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForum Load Including Associations (0.4ms)[0m   [0;1mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;35;1mForumTopic Load (0.2ms)[0m   [0mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;36;1mForumPost Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 1) [0m
+  [4;36;1mForumPost Load (0.1ms)[0m   [0;1mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 1) ORDER BY forum_posts.id DESC LIMIT 1[0m
+Rendered forum/topics/_topic (6.2ms)
+Completed in 85ms (View: 27, DB: 12) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#new (for 127.0.0.1 at 2009-04-30 01:05:01) [GET]
+  Parameters: {"action"=>"new", "forum_id"=>"5-消失的時光", "height"=>"400", "random"=>"1241024701568", "controller"=>"forum/topics", "width"=>"300"}
+  [4;35;1mUser Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mForum Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForum Load (0.3ms)[0m   [0;1mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;35;1mForumTopic Load (0.3ms)[0m   [0mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;36;1mForumTopic Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumPost Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+Rendering forum/topics/new
+Completed in 96ms (View: 3, DB: 10) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89/topics/new?width=300&height=400&random=1241024701568]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#create (for 127.0.0.1 at 2009-04-30 01:05:16) [POST]
+  Parameters: {"action"=>"create", "authenticity_token"=>"aaaBA7mKeehRqrYnydN9ccMa8IVPqNHPred9d99mkK4=", "forum_id"=>"5-消失的時光", "controller"=>"forum/topics", "forum_topic"=>{"title"=>"Hi", "posts_attributes"=>{"0"=>{"body"=>"Yes ma"}}}}
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mForum Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForum Load (0.6ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;36;1mForumTopic Load (0.3ms)[0m   [0;1mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;35;1mForumTopic Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+
+NameError (undefined local variable or method `f_profile' for #<Forum::TopicsController:0x24566d4>):
+  app/controllers/forum/topics_controller.rb:24:in `create'
+
+Rendered rescues/_trace (39.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::TopicsController#create (for 127.0.0.1 at 2009-04-30 01:08:03) [POST]
+  Parameters: {"action"=>"create", "authenticity_token"=>"aaaBA7mKeehRqrYnydN9ccMa8IVPqNHPred9d99mkK4=", "forum_id"=>"5-消失的時光", "controller"=>"forum/topics", "forum_topic"=>{"title"=>"Hi", "posts_attributes"=>{"0"=>{"body"=>"Yes ma"}}}}
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mForum Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mForum Load (0.2ms)[0m   [0mSELECT * FROM `forums` WHERE (`forums`.`id` = 5) [0m
+  [4;36;1mForumTopic Load (0.3ms)[0m   [0;1mSELECT `forum_topics`.* FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc[0m
+  [4;35;1mForumTopic Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `forum_topics`[0m
+  [4;36;1mForumPost Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `forum_posts`[0m
+  [4;35;1mForumUserProfile Load (0.4ms)[0m   [0mSELECT * FROM `forum_user_profiles` WHERE (`forum_user_profiles`.user_id = 1) LIMIT 1[0m
+  [4;36;1mForumUserProfile Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `forum_user_profiles`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+Completed in 115ms (View: 6, DB: 12) | 200 OK [http://localhost/forum/forums/5-%E6%B6%88%E5%A4%B1%E7%9A%84%E6%99%82%E5%85%89/topics]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mForumTopic Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mForumTopic Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForumPost Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mForumTopic Create (0.2ms)[0m   [0mINSERT INTO `forum_topics` (`created_at`, `title`, `updated_at`, `forum_id`, `type`, `forum_user_profile_id`) VALUES('2009-04-29 17:15:14', 'Hi', '2009-04-29 17:15:14', NULL, NULL, NULL)[0m
+  [4;36;1mForumPost Create (62.3ms)[0m   [0;1mINSERT INTO `forum_posts` (`forum_topic_id`, `created_at`, `body`, `updated_at`, `forum_user_profile_id`) VALUES(2, '2009-04-29 17:15:14', 'Yes ma', '2009-04-29 17:15:14', NULL)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Forum::ForumsController#show (for 127.0.0.1 at 2009-04-30 01:16:47) [GET]
+  Parameters: {"action"=>"show", "id"=>"5-消失的時光", "controller"=>"forum/forums"}
+  [4;35;1mForum Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `forums`[0m
+  [4;36;1mForumTopic Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mForum Load Including Associations (22.5ms)[0m   [0mSELECT `forums`.`id` AS t0_r0, `forums`.`name` AS t0_r1, `forums`.`description` AS t0_r2, `forums`.`position` AS t0_r3, `forums`.`created_at` AS t0_r4, `forums`.`updated_at` AS t0_r5, `forum_topics`.`id` AS t1_r0, `forum_topics`.`forum_id` AS t1_r1, `forum_topics`.`forum_user_profile_id` AS t1_r2, `forum_topics`.`title` AS t1_r3, `forum_topics`.`type` AS t1_r4, `forum_topics`.`created_at` AS t1_r5, `forum_topics`.`updated_at` AS t1_r6 FROM `forums` LEFT OUTER JOIN `forum_topics` ON forum_topics.forum_id = forums.id WHERE (`forums`.`id` = 5) ORDER BY forum_topics.created_at [0m
+  [4;36;1mForumTopic Load (0.3ms)[0m   [0;1mSELECT * FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) ORDER BY updated_at desc LIMIT 0, 30[0m
+Rendering template within layouts/application
+Rendering forum/forums/show
+  [4;35;1mForumPost Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_posts` INNER JOIN `forum_topics` ON `forum_posts`.forum_topic_id = `forum_topics`.id WHERE ((`forum_topics`.forum_id = 5)) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `forum_topics` WHERE (`forum_topics`.forum_id = 5) [0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 2) [0m
+  [4;35;1mForumPost Load (0.2ms)[0m   [0mSELECT * FROM `forum_posts` WHERE (`forum_posts`.forum_topic_id = 2) ORDER BY forum_posts.id DESC LIMIT 1[0m
+
+ActionView::TemplateError (undefined method `user' for #<ForumPost:0x23c2b3c>) on line #12 of app/views/forum/topics/_topic.html.erb:
+9:   </td>
+10: 
+11:   <td class="last_post">
+12:     <%= post_info topic.last_post %>
+13:   </td>
+14:   
+15: 
+
+    app/helpers/forum/topics_helper.rb:7:in `post_info'
+    app/views/forum/topics/_topic.html.erb:12
+    app/views/forum/forums/show.html.erb:38
+
+Rendered rescues/_trace (128.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)

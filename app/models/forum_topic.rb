@@ -16,6 +16,11 @@ class ForumTopic < ActiveRecord::Base
   belongs_to :forum
   belongs_to :profile, :class_name => "ForumUserProfile"
   has_many :posts, :class_name => "ForumPost" , :dependent  => :destroy
-  validates_presence_of :name                                           
-  attr_accessor :name
+                                           
+  accepts_nested_attributes_for :posts
+  # attr_accessor :name
+  
+  def last_post
+    self.posts.last 
+  end
 end

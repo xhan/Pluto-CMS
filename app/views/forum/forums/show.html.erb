@@ -10,7 +10,7 @@
      <%- if logged_in? %>
        <%= thickbox_outline('Start a new topic', new_forum_forum_topic_path(@forum), {:title => "Starting a new topic in #{@forum.name}",
                                                                    :id => "new_topic_link"},
-                                                                  {:height => 130, :width => 300}) %>
+                                                                  {:height => 400, :width => 300}) %>
        
      <%- end %>
 
@@ -35,7 +35,7 @@
 
      </tr>
 
-     <%= render :partial => 'topics/topic', :collection => @topics%>
+     <%= render :partial => 'forum/topics/topic', :collection => @topics%>
 
    </table>
    <div id="no_topics_message" style="display: <%= @topics.empty? ? 'block' : 'none' %>">

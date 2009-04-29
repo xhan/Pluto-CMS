@@ -49,7 +49,7 @@ class Forum::ForumsController < ApplicationController
 
   def find_object
     if params[:id]
-      @forum = Forum.find params[:id] , :include => :topics , :order => "forum_topics.created_at esc"
+      @forum = Forum.find params[:id] , :include => :topics , :order => "forum_topics.created_at "
       @topics = @forum.topics.paginate(:all, :page => params[:page], :per_page => @per_page)
       
     else
