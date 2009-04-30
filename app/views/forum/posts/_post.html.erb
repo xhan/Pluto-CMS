@@ -1,0 +1,15 @@
+<a name="<%= post.dom_id%>" href=""></a>
+<div class="post" id="<%= post.dom_id%>">
+  
+  <div class="info">
+  Posted by <%=link_to h(post.user.login), '#' %><br/>
+  Posted <%= time_ago_in_words_cn post.created_at %> ago<br/>
+
+  </div>
+  
+  <div class="body">
+    <%= sanitize textilize(post.body)%>
+  </div>
+
+  
+</div>  
