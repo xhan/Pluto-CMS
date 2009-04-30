@@ -10,7 +10,7 @@ class Forum::TopicsController < ApplicationController
   end      
 
   def show
-
+    @post = @topic.posts.build
   end     
 
   def new

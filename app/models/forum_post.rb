@@ -16,6 +16,15 @@ class ForumPost < ActiveRecord::Base
   # belongs_to :profile, :class_name => "ForumUserProfile"
   belongs_to :profile, :class_name => "ForumUserProfile", :foreign_key => "forum_user_profile_id"
   belongs_to :forum_user_profile, :class_name => "ForumUserProfile", :foreign_key => "forum_user_profile_id"
+  
+  validates_presence_of :body
+  
+  # before_save :insert_profile
+  
+  def insert_profile 
+    # self.profile = f_profile
+  end
+  
   def user
     self.profile.user
   end

@@ -1,0 +1,5 @@
+<% form_for @post ,:url  =>  forum_forum_topic_posts_path(@forum,@topic) do |f| -%>
+<%# form_for([:topic,@posts])  do |f| -%>
+  <%= f.text_area :body %>
+	<%= f.submit "回復", :disable_with => '回復中' %>
+<% end -%>  

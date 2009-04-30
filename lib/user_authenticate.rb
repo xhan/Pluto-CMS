@@ -111,6 +111,7 @@ module UserAuthenticate
   #
   
   def self.included base
-    base.send :helper_method ,:current_user,:logged_in?
+    base.send :helper_method ,:current_user,:logged_in?      
+    # ActiveRecord::Base.send :f_profile
   end
 end
