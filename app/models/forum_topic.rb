@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20090429052506
+# Schema version: 20090430105951
 #
 # Table name: forum_topics
 #
@@ -15,7 +15,7 @@
 class ForumTopic < ActiveRecord::Base
   belongs_to :forum
   belongs_to :profile, :class_name => "ForumUserProfile" , :foreign_key => "forum_user_profile_id" 
-  has_many :posts, :class_name => "ForumPost" , :dependent  => :destroy
+  has_many :posts, :class_name => "ForumPost" , :order => "created_at desc",  :dependent  => :destroy
                                            
   accepts_nested_attributes_for :posts
   # attr_accessor :name

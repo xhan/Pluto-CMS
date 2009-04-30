@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090429052506) do
+ActiveRecord::Schema.define(:version => 20090430105951) do
 
   create_table "forum_posts", :force => true do |t|
     t.integer  "forum_topic_id"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(:version => 20090429052506) do
     t.string   "name"
     t.string   "title"
     t.string   "path"
-    t.string   "template"
+    t.string   "templet_id"
     t.boolean  "hidden"
     t.datetime "created_at"
     t.datetime "updated_at"

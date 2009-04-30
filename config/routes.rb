@@ -12,9 +12,11 @@ ActionController::Routing::Routes.draw do |map|
                         
     cms.root :controller => "home", :action => "dashboard"
     
-    cms.resources :sections, :member => {:position => :put}
+    cms.resources :sections, :member => {:position => :put}  do |section|
+      section.resources :pages, :only => [:new,:create]
+    end
     cms.resources :templets   
-    cms.resources :pages
+    cms.resources :pages ,:only => [:show,:edit,:update]
   end
   
   # routes for forums
@@ -34,4 +36,5 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+  map.connect '*path',:controller => "cms/pages" ,:action => "show"
 end

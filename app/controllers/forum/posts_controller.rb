@@ -20,4 +20,5 @@ class Forum::PostsController < ApplicationController
       go_back forum_forum_topic_path(@topic.forum,@topic)
     end
   end
+  
 end

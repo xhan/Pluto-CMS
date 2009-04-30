@@ -1,10 +1,29 @@
-<h1>Cms::Pages#new</h1>
-<p>Find me in app/views/cms/pages/new.html.erb</p>
+<% set_title "新建頁面" %>
+
+<% content_for :head do -%>
+<script type="text/javascript">
+jQuery(function($){
+  $("#page_name").keyup(function(){
+    var section = { name: null, path: "<%= @page.section.path %>".replace(/\/$/, '') }
+    section.name = $.trim($(this).val()).toLowerCase().replace(/-|_/g, '').replace(/ /g, '_').replace(/\W/g, '')
+    $("#page_path").val(section.path + "/" + section.name)
+  })
+})
+</script>                       
+<% end -%>
+
 
 <%= error_messages_for :page %>
 
-<% form_for [:cms,@page] do |f| -%>
-  <%= f.label :name, "Name" %>
-  <%= f.collection_select :name, Templet.all , :id , :name , :prompt => "Select One" %> 
+<% form_for [:cms_section,@page] do |f| -%>
+  <%= f.label :name, "Name",:title => "表明頁面身份" %>
+  <%= f.text_field :name %>
+<%= f.label :title, "頁面標題" %>     
+<%= f.text_field :title %>
+<%= f.label :path, "Path" %>
+<%= f.text_field :path %>
+  <%= f.collection_select :templet_id, Templet.all , :id , :name , :prompt => "選擇一個模板" %> 
 	or new <%= link_to "templet", new_cms_templet_path %>
+	
+	<%= f.submit "創建", :disable_with => '創建中' %>
 <% end -%>

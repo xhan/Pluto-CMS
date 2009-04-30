@@ -1,2 +1,3 @@
-<h1>Templets#show</h1>
-<p>Find me in app/views/templets/show.html.erb</p>
+<% set_title "顯示模板內容 "+@templet.name %>
+<%= link_to "編輯該模板", edit_cms_templet_path(@templet) %>
+<%=simple_format h(@templet.content) %>

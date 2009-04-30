@@ -3,7 +3,7 @@
 <% if !@templets.blank? %>
   <% for templet in @templets %>
     <p>
-    	<%= templet.name %> | <%= link_to "edit", edit_cms_templet_path(templet) %>
+    	<%= link_to templet.name ,[:cms,templet] %> | <%= link_to "edit", edit_cms_templet_path(templet) %>
 		<%= link_to_remote "重新生成！",:update => "msg", :url => {:action => :republish,:id => templet }  %>
     </p>
   <% end %>
