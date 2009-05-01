@@ -28,39 +28,37 @@ module Cms::SectionsHelper
       end
   end
   
-  def list_as_tree object ,concat_flag =false, &block
-    if !object.children.blank?
-      result = content_tag(:ul) do
+  def list_as_tree object  , &block
+    unless object.children.blank?
+     result = content_tag(:ul) do
         content =""
         for item in object.children do
-          # view_content = item_view(item)
-          view_content = block.call(item)
-          # puts view_content
-          content += content_tag(:li,item.children.blank? ? view_content : (view_content + list_as_tree(item,false,&block) ))
+          view_content = capture(item,&block)
+          # view_content = block.call(item)
+          content += content_tag(:li,item.children.blank? ? view_content : (view_content + list_as_tree(item,&block) ))
         end #for
-        content
+         content
       end  # ul
-      puts result
-      concat result if concat_flag
-    else
-      '' 
+      concat(result)
+      result
     end #unless
 
   end # def         
-  
-  def sss &block  
-    puts "here is block function"
-    v = capture(&block)
-    concat(v)
-    "fffsdf"
-  end
-      
+  # 
+  # def sss &block  
+  #   # puts "here is block function"
+  #    v = block.call
+  #    v+=" ...."
+  #   # concat(v)
+  #   # "fffsdf"   
+  #   # s ="123123"
+  # end
+  #     
   # def list_as_tree object, &block
-  #   s = ""
   #   4.times do 
-  #     s += block.call object
+  #       block.call(object)
   #   end               
-  #   s
+  #   
   # end      
 
 end

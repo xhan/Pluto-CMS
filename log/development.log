@@ -16087,3 +16087,644 @@ ActionView::TemplateError (can't convert nil into String) on line #89 of app/vie
 Rendered rescues/_trace (69.0ms)
 Rendered rescues/_request_and_response (0.3ms)
 Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 16:57:04) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;35;1mSection Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+  [4;36;1mSection Load (1.5ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 1) ORDER BY position[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 2) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 7) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 8) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 9) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 11) ORDER BY position[0m
+
+ActionView::TemplateError (can't convert nil into String) on line #89 of app/views/cms/sections/index.html.erb:
+86: <% end -%>
+87: <%= link_to "Create new Section", new_cms_section_path %>
+88: <h2>Root Sites</h2>
+89: <% list_as_tree @root ,true do |item| %>
+90: <div class="bubbleInfo">
+91: 	<div class="trigger"><%= item.name %></div>
+92: 	<div class="popup">
+
+    app/helpers/cms/sections_helper.rb:39:in `+'
+    app/helpers/cms/sections_helper.rb:39:in `list_as_tree'
+    /usr/local/lib/ruby/gems/1.8/gems/mislav-will_paginate-2.3.8/lib/will_paginate/finder.rb:168:in `method_missing'
+    /usr/local/lib/ruby/gems/1.8/gems/mislav-will_paginate-2.3.8/lib/will_paginate/finder.rb:168:in `method_missing'
+    app/helpers/cms/sections_helper.rb:35:in `list_as_tree'
+    app/helpers/cms/sections_helper.rb:33:in `list_as_tree'
+    app/helpers/cms/sections_helper.rb:39:in `list_as_tree'
+    /usr/local/lib/ruby/gems/1.8/gems/mislav-will_paginate-2.3.8/lib/will_paginate/finder.rb:168:in `method_missing'
+    /usr/local/lib/ruby/gems/1.8/gems/mislav-will_paginate-2.3.8/lib/will_paginate/finder.rb:168:in `method_missing'
+    app/helpers/cms/sections_helper.rb:35:in `list_as_tree'
+    app/helpers/cms/sections_helper.rb:33:in `list_as_tree'
+    app/views/cms/sections/index.html.erb:89
+
+Rendered rescues/_trace (135.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 16:59:46) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;35;1mSection Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 1) ORDER BY position[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 2) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 7) ORDER BY position[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 8) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 9) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 11) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 3) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 4) ORDER BY position[0m
+  [4;36;1mSection Load (0.6ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 5) ORDER BY position[0m
+  [4;35;1mSection Load (0.6ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 6) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 12) ORDER BY position[0m
+Completed in 115ms (View: 30, DB: 9) | 200 OK [http://localhost/cms/sections]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:00:35) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;36;1mSection Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 1) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 2) ORDER BY position[0m
+  [4;35;1mSection Load (1.8ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 7) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 8) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 9) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 11) ORDER BY position[0m
+
+ActionView::TemplateError (can't convert nil into String) on line #89 of app/views/cms/sections/index.html.erb:
+86: <% end -%>
+87: <%= link_to "Create new Section", new_cms_section_path %>
+88: <h2>Root Sites</h2>
+89: <% list_as_tree @root ,true do |item| %>
+90: <div class="bubbleInfo">
+91: 	<div class="trigger"><%= item.name %></div>
+92: 	<div class="popup">
+
+    app/helpers/cms/sections_helper.rb:38:in `+'
+    app/helpers/cms/sections_helper.rb:38:in `list_as_tree'
+    /usr/local/lib/ruby/gems/1.8/gems/mislav-will_paginate-2.3.8/lib/will_paginate/finder.rb:168:in `method_missing'
+    /usr/local/lib/ruby/gems/1.8/gems/mislav-will_paginate-2.3.8/lib/will_paginate/finder.rb:168:in `method_missing'
+    app/helpers/cms/sections_helper.rb:35:in `list_as_tree'
+    app/helpers/cms/sections_helper.rb:33:in `list_as_tree'
+    app/helpers/cms/sections_helper.rb:38:in `list_as_tree'
+    /usr/local/lib/ruby/gems/1.8/gems/mislav-will_paginate-2.3.8/lib/will_paginate/finder.rb:168:in `method_missing'
+    /usr/local/lib/ruby/gems/1.8/gems/mislav-will_paginate-2.3.8/lib/will_paginate/finder.rb:168:in `method_missing'
+    app/helpers/cms/sections_helper.rb:35:in `list_as_tree'
+    app/helpers/cms/sections_helper.rb:33:in `list_as_tree'
+    app/views/cms/sections/index.html.erb:89
+
+Rendered rescues/_trace (136.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:02:02) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+
+ActionView::TemplateError (wrong number of arguments (2 for 1)) on line #89 of app/views/cms/sections/index.html.erb:
+86: <% end -%>
+87: <%= link_to "Create new Section", new_cms_section_path %>
+88: <h2>Root Sites</h2>
+89: <% list_as_tree @root ,true do |item| %>
+90: <div class="bubbleInfo">
+91: 	<div class="trigger"><%= item.name %></div>
+92: 	<div class="popup">
+
+    app/views/cms/sections/index.html.erb:89:in `list_as_tree'
+    app/views/cms/sections/index.html.erb:89
+
+Rendered rescues/_trace (50.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:02:17) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;35;1mSection Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 1) ORDER BY position[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 2) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 7) ORDER BY position[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 8) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 9) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 11) ORDER BY position[0m
+
+ActionView::TemplateError (can't convert nil into String) on line #89 of app/views/cms/sections/index.html.erb:
+86: <% end -%>
+87: <%= link_to "Create new Section", new_cms_section_path %>
+88: <h2>Root Sites</h2>
+89: <% list_as_tree @root  do |item| %>
+90: <div class="bubbleInfo">
+91: 	<div class="trigger"><%= item.name %></div>
+92: 	<div class="popup">
+
+    app/helpers/cms/sections_helper.rb:38:in `+'
+    app/helpers/cms/sections_helper.rb:38:in `list_as_tree'
+    /usr/local/lib/ruby/gems/1.8/gems/mislav-will_paginate-2.3.8/lib/will_paginate/finder.rb:168:in `method_missing'
+    /usr/local/lib/ruby/gems/1.8/gems/mislav-will_paginate-2.3.8/lib/will_paginate/finder.rb:168:in `method_missing'
+    app/helpers/cms/sections_helper.rb:35:in `list_as_tree'
+    app/helpers/cms/sections_helper.rb:33:in `list_as_tree'
+    app/helpers/cms/sections_helper.rb:38:in `list_as_tree'
+    /usr/local/lib/ruby/gems/1.8/gems/mislav-will_paginate-2.3.8/lib/will_paginate/finder.rb:168:in `method_missing'
+    /usr/local/lib/ruby/gems/1.8/gems/mislav-will_paginate-2.3.8/lib/will_paginate/finder.rb:168:in `method_missing'
+    app/helpers/cms/sections_helper.rb:35:in `list_as_tree'
+    app/helpers/cms/sections_helper.rb:33:in `list_as_tree'
+    app/views/cms/sections/index.html.erb:89
+
+Rendered rescues/_trace (68.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:02:52) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;35;1mSection Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+  [4;36;1mSection Load (0.5ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 1) ORDER BY position[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 2) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 7) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 8) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 9) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 11) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 3) ORDER BY position[0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 4) ORDER BY position[0m
+  [4;36;1mSection Load (0.6ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 5) ORDER BY position[0m
+  [4;35;1mSection Load (0.5ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 6) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 12) ORDER BY position[0m
+Completed in 114ms (View: 29, DB: 9) | 200 OK [http://localhost/cms/sections]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:03:01) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;36;1mSection Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 1) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 2) ORDER BY position[0m
+  [4;35;1mSection Load (0.6ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 7) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 8) ORDER BY position[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 9) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 11) ORDER BY position[0m
+
+ActionView::TemplateError (can't convert nil into String) on line #89 of app/views/cms/sections/index.html.erb:
+86: <% end -%>
+87: <%= link_to "Create new Section", new_cms_section_path %>
+88: <h2>Root Sites</h2>
+89: <% list_as_tree @root  do |item| %>
+90: <div class="bubbleInfo">
+91: 	<div class="trigger"><%= item.name %></div>
+92: 	<div class="popup">
+
+    app/helpers/cms/sections_helper.rb:38:in `+'
+    app/helpers/cms/sections_helper.rb:38:in `list_as_tree'
+    /usr/local/lib/ruby/gems/1.8/gems/mislav-will_paginate-2.3.8/lib/will_paginate/finder.rb:168:in `method_missing'
+    /usr/local/lib/ruby/gems/1.8/gems/mislav-will_paginate-2.3.8/lib/will_paginate/finder.rb:168:in `method_missing'
+    app/helpers/cms/sections_helper.rb:35:in `list_as_tree'
+    app/helpers/cms/sections_helper.rb:33:in `list_as_tree'
+    app/helpers/cms/sections_helper.rb:38:in `list_as_tree'
+    /usr/local/lib/ruby/gems/1.8/gems/mislav-will_paginate-2.3.8/lib/will_paginate/finder.rb:168:in `method_missing'
+    /usr/local/lib/ruby/gems/1.8/gems/mislav-will_paginate-2.3.8/lib/will_paginate/finder.rb:168:in `method_missing'
+    app/helpers/cms/sections_helper.rb:35:in `list_as_tree'
+    app/helpers/cms/sections_helper.rb:33:in `list_as_tree'
+    app/views/cms/sections/index.html.erb:89
+
+Rendered rescues/_trace (70.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:03:33) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;36;1mSection Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 1) ORDER BY position[0m
+Completed in 78ms (View: 4, DB: 3) | 200 OK [http://localhost/cms/sections]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:04:37) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;35;1mSection Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+  [4;36;1mSection Load (0.9ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 1) ORDER BY position[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 2) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 7) ORDER BY position[0m
+  [4;35;1mSection Load (0.5ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 8) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 9) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 11) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 3) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 4) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 5) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 6) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 12) ORDER BY position[0m
+Completed in 168ms (View: 86, DB: 9) | 200 OK [http://localhost/cms/sections]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:05:17) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;36;1mSection Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 1) ORDER BY position[0m
+  [4;36;1mSection Load (0.5ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 2) ORDER BY position[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 7) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 8) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 9) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 11) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 3) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 4) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 5) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 6) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 12) ORDER BY position[0m
+Completed in 172ms (View: 88, DB: 9) | 200 OK [http://localhost/cms/sections]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:05:33) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;35;1mSection Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 1) ORDER BY position[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 2) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 7) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 8) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 9) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 11) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 3) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 4) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 5) ORDER BY position[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 6) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 12) ORDER BY position[0m
+Completed in 173ms (View: 89, DB: 9) | 200 OK [http://localhost/cms/sections]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:05:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;36;1mSection Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 1) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 2) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 7) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 8) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 9) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 11) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 3) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 4) ORDER BY position[0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 5) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 6) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 12) ORDER BY position[0m
+Completed in 173ms (View: 31, DB: 8) | 200 OK [http://localhost/cms/sections]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` LIMIT 1[0m
+  [4;35;1mSection Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:11:16) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;35;1mSection Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+  [4;36;1mSection Load (0.5ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 1) ORDER BY position[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 2) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 7) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 8) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 9) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 11) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 3) ORDER BY position[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 4) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 5) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 6) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 12) ORDER BY position[0m
+Completed in 156ms (View: 32, DB: 48) | 200 OK [http://localhost/cms/sections]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:13:36) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;36;1mSection Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 1) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 2) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 7) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 8) ORDER BY position[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 9) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 11) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 3) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 4) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 5) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 6) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 12) ORDER BY position[0m
+Completed in 173ms (View: 89, DB: 9) | 200 OK [http://localhost/cms/sections]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:13:45) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;35;1mSection Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 1) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 2) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 7) ORDER BY position[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 8) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 9) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 11) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 3) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 4) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 5) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 6) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 12) ORDER BY position[0m
+Completed in 174ms (View: 89, DB: 9) | 200 OK [http://localhost/cms/sections]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#new (for 127.0.0.1 at 2009-05-01 17:14:02) [GET]
+  Parameters: {"section_id"=>"11", "action"=>"new", "controller"=>"cms/pages"}
+  [4;35;1mSection Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.`id` = 11) [0m
+  [4;35;1mPage Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+Rendering template within layouts/application
+Rendering cms/pages/new
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.`id` = 11) [0m
+  [4;35;1mTemplet Load (11.2ms)[0m   [0mSELECT * FROM `templets` [0m
+  [4;36;1mTemplet Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+Completed in 172ms (View: 15, DB: 19) | 200 OK [http://localhost/cms/sections/11/pages/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#new (for 127.0.0.1 at 2009-05-01 17:14:12) [GET]
+  Parameters: {"action"=>"new", "parent_id"=>"11", "controller"=>"cms/sections"}
+  [4;35;1mSection Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+  [4;36;1mSection Load (0.2ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.`id` = 11) [0m
+Rendering template within layouts/application
+Rendering cms/sections/new
+Rendered cms/sections/_form (2.7ms)
+Completed in 136ms (View: 9, DB: 3) | 200 OK [http://localhost/cms/sections/new?parent_id=11]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#create (for 127.0.0.1 at 2009-05-01 17:14:32) [POST]
+  Parameters: {"section"=>{"name"=>"好個屁", "is_url"=>"0", "path"=>"/pp1/hello/pi", "parent_id"=>"11", "hidden"=>"0"}, "commit"=>"Submit", "action"=>"create", "authenticity_token"=>"KZj7suQ6s94ieXQb+msbADtwfUME6W7HQlrfYd0gdLc=", "controller"=>"cms/sections"}
+  [4;35;1mSection Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.`id` = 11) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `sections` WHERE (`sections`.`parent_id` = 11) [0m
+  [4;35;1mSection Create (0.2ms)[0m   [0mINSERT INTO `sections` (`name`, `position`, `created_at`, `updated_at`, `is_url`, `path`, `parent_id`, `hidden`) VALUES('好個屁', 1, '2009-05-01 09:14:32', '2009-05-01 09:14:32', 0, '/pp1/hello/pi', 11, 0)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/cms/sections
+Completed in 17ms (DB: 3) | 302 Found [http://localhost/cms/sections]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:14:32) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;36;1mSection Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+  [4;35;1mSection Load (0.5ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 1) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 2) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 7) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 8) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 9) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 11) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 13) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 3) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 4) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 5) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 6) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 12) ORDER BY position[0m
+Completed in 182ms (View: 29, DB: 9) | 200 OK [http://localhost/cms/sections]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:26:48) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;36;1mSection Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+Completed in 130ms (View: 7, DB: 3) | 200 OK [http://localhost/cms/sections]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:30:49) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;36;1mSection Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+Completed in 87ms (View: 11, DB: 3) | 200 OK [http://localhost/cms/sections]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:30:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;36;1mSection Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+Completed in 86ms (View: 7, DB: 3) | 200 OK [http://localhost/cms/sections]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:34:47) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;36;1mSection Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+Completed in 133ms (View: 7, DB: 3) | 200 OK [http://localhost/cms/sections]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:35:33) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.5ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;36;1mSection Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+Completed in 82ms (View: 7, DB: 3) | 200 OK [http://localhost/cms/sections]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:35:46) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;36;1mSection Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+Completed in 83ms (View: 7, DB: 3) | 200 OK [http://localhost/cms/sections]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:35:48) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;36;1mSection Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+Completed in 135ms (View: 7, DB: 3) | 200 OK [http://localhost/cms/sections]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:39:04) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;36;1mSection Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+Completed in 124ms (View: 6, DB: 2) | 200 OK [http://localhost/cms/sections]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 17:39:21) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;36;1mSection Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+Completed in 82ms (View: 7, DB: 3) | 200 OK [http://localhost/cms/sections]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 19:16:54) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;36;1mSection Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+Completed in 141ms (View: 7, DB: 3) | 200 OK [http://localhost/cms/sections]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 19:17:18) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;36;1mSection Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+  [4;35;1mSection Load (0.5ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 1) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 2) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 7) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 8) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 9) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 11) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 13) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 3) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 4) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 5) ORDER BY position[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 6) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 12) ORDER BY position[0m
+
+ActionView::TemplateError (undefined method `sss' for #<ActionView::Base:0x237cab0>) on line #97 of app/views/cms/sections/index.html.erb:
+94: 	</div>
+95: </div>     
+96: <% end %>
+97: <% sss do %>
+98: sdfsfsdf
+99: <% end -%>
+100: <%= thickbox_inline "hi","actionDetail" %>
+
+    app/views/cms/sections/index.html.erb:97
+
+Rendered rescues/_trace (50.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::SectionsController#index (for 127.0.0.1 at 2009-05-01 19:17:27) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/sections"}
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` LIMIT 1[0m
+Rendering template within layouts/application
+Rendering cms/sections/index
+  [4;36;1mSection Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 1) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 2) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 7) ORDER BY position[0m
+  [4;36;1mSection Load (0.5ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 8) ORDER BY position[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 9) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 11) ORDER BY position[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 13) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 3) ORDER BY position[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 4) ORDER BY position[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 5) ORDER BY position[0m
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 6) ORDER BY position[0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 12) ORDER BY position[0m
+Completed in 189ms (View: 35, DB: 75) | 200 OK [http://localhost/cms/sections]
