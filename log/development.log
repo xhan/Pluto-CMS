@@ -16728,3 +16728,467 @@ Rendering cms/sections/index
   [4;35;1mSection Load (0.4ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.parent_id = 6) ORDER BY position[0m
   [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.parent_id = 12) ORDER BY position[0m
 Completed in 189ms (View: 35, DB: 75) | 200 OK [http://localhost/cms/sections]
+  [4;35;1mSQL (0.6ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#new (for 127.0.0.1 at 2009-05-01 20:34:39) [GET]
+  Parameters: {"section_id"=>"13", "action"=>"new", "controller"=>"cms/pages"}
+  [4;35;1mSection Columns (44.3ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+  [4;36;1mSection Load (0.9ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.`id` = 13) [0m
+  [4;35;1mPage Columns (8.4ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+Rendering template within layouts/application
+Rendering cms/pages/new
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.`id` = 13) [0m
+  [4;35;1mTemplet Load (18.3ms)[0m   [0mSELECT * FROM `templets` [0m
+  [4;36;1mTemplet Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+Completed in 1198ms (View: 841, DB: 75) | 200 OK [http://localhost/cms/sections/13/pages/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#show (for 127.0.0.1 at 2009-05-01 20:37:44) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/pages"}
+  [4;35;1mPage Columns (3.5ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (10.3ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mTemplet Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+  [4;36;1mTemplet Load (0.2ms)[0m   [0;1mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/cms_templets/browser
+Rendering cms/pages/show
+Completed in 319ms (View: 105, DB: 16) | 200 OK [http://localhost/cms/pages/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#index (for 127.0.0.1 at 2009-05-01 20:37:59) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/templets"}
+  [4;35;1mTemplet Load (0.3ms)[0m   [0mSELECT * FROM `templets` [0m
+Rendering template within layouts/application
+Rendering cms/templets/index
+  [4;36;1mTemplet Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+Completed in 92ms (View: 19, DB: 3) | 200 OK [http://localhost/cms/templets]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#edit (for 127.0.0.1 at 2009-05-01 20:38:01) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"cms/templets"}
+  [4;35;1mTemplet Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+  [4;36;1mTemplet Load (0.2ms)[0m   [0;1mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 167ms (View: 29, DB: 3) | 200 OK [http://localhost/cms/templets/1/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#index (for 127.0.0.1 at 2009-05-01 20:39:50) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/templets"}
+  [4;35;1mTemplet Load (0.3ms)[0m   [0mSELECT * FROM `templets` [0m
+Rendering template within layouts/application
+Rendering cms/templets/index
+  [4;36;1mTemplet Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+Completed in 77ms (View: 5, DB: 3) | 200 OK [http://localhost/cms/templets]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#show (for 127.0.0.1 at 2009-05-01 20:39:52) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/templets"}
+  [4;35;1mTemplet Columns (3.1ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+  [4;36;1mTemplet Load (0.4ms)[0m   [0;1mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/show
+Completed in 82ms (View: 6, DB: 4) | 200 OK [http://localhost/cms/templets/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#edit (for 127.0.0.1 at 2009-05-01 20:39:55) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"cms/templets"}
+  [4;35;1mTemplet Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+  [4;36;1mTemplet Load (0.2ms)[0m   [0;1mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 136ms (View: 8, DB: 3) | 200 OK [http://localhost/cms/templets/1/edit]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#update (for 127.0.0.1 at 2009-05-01 21:01:26) [PUT]
+  Parameters: {"commit"=>"Submit", "action"=>"update", "_method"=>"put", "authenticity_token"=>"KZj7suQ6s94ieXQb+msbADtwfUME6W7HQlrfYd0gdLc=", "id"=>"1", "controller"=>"cms/templets", "templet"=>{"name"=>"browser", "content"=>"<html>\r\n\t<head><title>Test Templates</title></head>\r\n\r\n<body>\r\n   \t<h1>Hello world</h1>           \r\n\t<p>Find my at layout/cms_templates/browser.html.erb</p>\r\n\t<p>Created at April 26,2009 by xhan</p>\r\n<p>Updated at May 1 ,2009 by xhan</p>\r\n\r\n\t<%= sticker_tag %>\r\n \r\n</body>\r\n\r\n</html>\r\n", "description"=>"hello"}}
+  [4;35;1mTemplet Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+  [4;36;1mTemplet Load (0.2ms)[0m   [0;1mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mTemplet Update (25.5ms)[0m   [0;1mUPDATE `templets` SET `content` = '<html>\r\n	<head><title>Test Templates</title></head>\r\n\r\n<body>\r\n 	<h1>Hello world</h1> \r\n	<p>Find my at layout/cms_templates/browser.html.erb</p>\r\n	<p>Created at April 26,2009 by xhan</p>\r\n<p>Updated at May 1 ,2009 by xhan</p>\r\n\r\n	<%= sticker_tag %>\r\n \r\n</body>\r\n\r\n</html>\r\n', `updated_at` = '2009-05-01 13:01:26' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/cms/templets
+Completed in 39ms (DB: 28) | 302 Found [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#index (for 127.0.0.1 at 2009-05-01 21:01:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Load (0.3ms)[0m   [0;1mSELECT * FROM `templets` [0m
+Rendering template within layouts/application
+Rendering cms/templets/index
+  [4;35;1mTemplet Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+Completed in 129ms (View: 5, DB: 2) | 200 OK [http://localhost/cms/templets]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#show (for 127.0.0.1 at 2009-05-01 21:01:29) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.6ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/show
+Completed in 76ms (View: 3, DB: 3) | 200 OK [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#show (for 127.0.0.1 at 2009-05-01 21:01:37) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/pages"}
+  [4;36;1mPage Columns (2.8ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.4ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;36;1mTemplet Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.4ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/cms_templets/browser
+Rendering cms/pages/show
+Completed in 146ms (View: 3, DB: 6) | 200 OK [http://localhost/cms/pages/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#show (for 127.0.0.1 at 2009-05-01 21:01:39) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/pages"}
+  [4;36;1mPage Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.4ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;36;1mTemplet Columns (2.9ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/cms_templets/browser
+Rendering cms/pages/show
+Completed in 136ms (View: 3, DB: 7) | 200 OK [http://localhost/cms/pages/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#show (for 127.0.0.1 at 2009-05-01 21:02:38) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.9ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/show
+Completed in 79ms (View: 6, DB: 3) | 200 OK [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#index (for 127.0.0.1 at 2009-05-01 21:02:40) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Load (0.3ms)[0m   [0;1mSELECT * FROM `templets` [0m
+Rendering template within layouts/application
+Rendering cms/templets/index
+  [4;35;1mTemplet Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+Completed in 138ms (View: 5, DB: 3) | 200 OK [http://localhost/cms/templets]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#republish (for 127.0.0.1 at 2009-05-01 21:02:42) [POST]
+  Parameters: {"action"=>"republish", "authenticity_token"=>"KZj7suQ6s94ieXQb+msbADtwfUME6W7HQlrfYd0gdLc=", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (44.0ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (5.5ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTemplet Update (0.3ms)[0m   [0mUPDATE `templets` SET `updated_at` = '2009-05-01 13:02:42', `published_at` = '2009-05-01 13:02:42' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+Completed in 176ms (View: 1, DB: 50) | 200 OK [http://localhost/cms/templets/republish/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#show (for 127.0.0.1 at 2009-05-01 21:02:45) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/pages"}
+  [4;35;1mPage Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (1.0ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mTemplet Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+  [4;36;1mTemplet Load (0.2ms)[0m   [0;1mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/cms_templets/browser
+Rendering cms/pages/show
+
+ActionView::TemplateError (undefined local variable or method `sticker_tag' for #<ActionView::Base:0x22bb1d0>) on line #10 of app/views/layouts/cms_templets/browser.html.erb:
+7: 	<p>Created at April 26,2009 by xhan</p>
+8: <p>Updated at May 1 ,2009 by xhan</p>
+9: 
+10: 	<%= sticker_tag %>
+11:  
+12: </body>
+13: 
+
+    app/views/layouts/cms_templets/browser.html.erb:10
+    app/controllers/cms/pages_controller.rb:17:in `show'
+    app/controllers/cms/pages_controller.rb:15:in `show'
+
+Rendered rescues/_trace (54.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#show (for 127.0.0.1 at 2009-05-01 21:03:22) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/pages"}
+  [4;35;1mPage Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mTemplet Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+  [4;36;1mTemplet Load (0.4ms)[0m   [0;1mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/cms_templets/browser
+Rendering cms/pages/show
+
+ActionView::TemplateError (wrong number of arguments (1 for 0)) on line #10 of app/views/layouts/cms_templets/browser.html.erb:
+7: 	<p>Created at April 26,2009 by xhan</p>
+8: <p>Updated at May 1 ,2009 by xhan</p>
+9: 
+10: 	<%= sticker_tag %>
+11:  
+12: </body>
+13: 
+
+    app/views/layouts/cms_templets/browser.html.erb:10:in `method_missing'
+    app/views/layouts/cms_templets/browser.html.erb:10
+    app/controllers/cms/pages_controller.rb:17:in `show'
+    app/controllers/cms/pages_controller.rb:15:in `show'
+
+Rendered rescues/_trace (124.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#show (for 127.0.0.1 at 2009-05-01 21:04:12) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/pages"}
+  [4;35;1mPage Columns (97.4ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mTemplet Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+  [4;36;1mTemplet Load (0.8ms)[0m   [0;1mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/cms_templets/browser
+Rendering cms/pages/show
+Completed in 183ms (View: 4, DB: 101) | 200 OK [http://localhost/cms/pages/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#show (for 127.0.0.1 at 2009-05-01 21:06:17) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/pages"}
+  [4;35;1mPage Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (1.4ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mTemplet Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+  [4;36;1mTemplet Load (0.2ms)[0m   [0;1mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/cms_templets/browser
+Rendering cms/pages/show
+Completed in 92ms (View: 4, DB: 7) | 200 OK [http://localhost/cms/pages/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#show (for 127.0.0.1 at 2009-05-01 21:06:32) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/pages"}
+  [4;35;1mPage Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (1.1ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mTemplet Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+  [4;36;1mTemplet Load (0.2ms)[0m   [0;1mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/cms_templets/browser
+Rendering cms/pages/show
+Completed in 143ms (View: 4, DB: 7) | 200 OK [http://localhost/cms/pages/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#show (for 127.0.0.1 at 2009-05-01 21:06:34) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/pages"}
+  [4;35;1mPage Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mTemplet Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+  [4;36;1mTemplet Load (0.5ms)[0m   [0;1mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/cms_templets/browser
+Rendering cms/pages/show
+Completed in 86ms (View: 3, DB: 6) | 200 OK [http://localhost/cms/pages/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#show (for 127.0.0.1 at 2009-05-01 21:06:37) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/pages"}
+  [4;35;1mPage Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.4ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mTemplet Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+  [4;36;1mTemplet Load (0.4ms)[0m   [0;1mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/cms_templets/browser
+Rendering cms/pages/show
+Completed in 148ms (View: 3, DB: 6) | 200 OK [http://localhost/cms/pages/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#show (for 127.0.0.1 at 2009-05-01 21:18:08) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/pages"}
+  [4;35;1mPage Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (1.0ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mTemplet Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+  [4;36;1mTemplet Load (0.2ms)[0m   [0;1mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/cms_templets/browser
+Rendering cms/pages/show
+
+ActionView::TemplateError (wrong number of arguments (0 for 1)) on line #10 of app/views/layouts/cms_templets/browser.html.erb:
+7: 	<p>Created at April 26,2009 by xhan</p>
+8: <p>Updated at May 1 ,2009 by xhan</p>
+9: 
+10: 	<%= sticker_tag %>
+11:  
+12: </body>
+13: 
+
+    app/views/layouts/cms_templets/browser.html.erb:10:in `sticker_tag'
+    app/views/layouts/cms_templets/browser.html.erb:10
+    app/controllers/cms/pages_controller.rb:17:in `show'
+    app/controllers/cms/pages_controller.rb:15:in `show'
+
+Rendered rescues/_trace (115.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#show (for 127.0.0.1 at 2009-05-01 21:18:24) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/pages"}
+  [4;35;1mPage Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (1.1ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mTemplet Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+  [4;36;1mTemplet Load (0.3ms)[0m   [0;1mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/cms_templets/browser
+Rendering cms/pages/show
+Completed in 89ms (View: 3, DB: 7) | 200 OK [http://localhost/cms/pages/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#show (for 127.0.0.1 at 2009-05-01 21:18:49) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/pages"}
+  [4;35;1mPage Columns (3.4ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (1.1ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mTemplet Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+  [4;36;1mTemplet Load (0.4ms)[0m   [0;1mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/cms_templets/browser
+Rendering cms/pages/show
+
+ActionView::TemplateError (wrong number of arguments (0 for 1)) on line #10 of app/views/layouts/cms_templets/browser.html.erb:
+7: 	<p>Created at April 26,2009 by xhan</p>
+8: <p>Updated at May 1 ,2009 by xhan</p>
+9: 
+10: 	<%= sticker_tag %>
+11:  
+12: </body>
+13: 
+
+    app/views/layouts/cms_templets/browser.html.erb:10:in `sticker_tag'
+    app/views/layouts/cms_templets/browser.html.erb:10
+    app/controllers/cms/pages_controller.rb:17:in `show'
+    app/controllers/cms/pages_controller.rb:15:in `show'
+
+Rendered rescues/_trace (54.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ActionController::Base#show (for 127.0.0.1 at 2009-05-01 21:45:15) [GET]
+  Parameters: {"id"=>"1"}
+
+NoMethodError (undefined method `rescue_form' for ApplicationController:Class):
+  app/controllers/application_controller.rb:13
+  app/controllers/cms/application_controller.rb:1
+  app/controllers/cms/pages_controller.rb:1
+
+Rendered rescues/_trace (116.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#show (for 127.0.0.1 at 2009-05-01 21:45:57) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/pages"}
+  [4;35;1mPage Columns (3.1ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.5ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mTemplet Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+  [4;36;1mTemplet Load (0.2ms)[0m   [0;1mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/cms_templets/browser
+Rendering cms/pages/show
+Completed in 89ms (View: 3, DB: 7) | 200 OK [http://localhost/cms/pages/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#show (for 127.0.0.1 at 2009-05-01 21:46:00) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/pages"}
+  [4;35;1mPage Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mTemplet Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+  [4;36;1mTemplet Load (0.3ms)[0m   [0;1mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/cms_templets/browser
+Rendering cms/pages/show
+Completed in 88ms (View: 3, DB: 6) | 200 OK [http://localhost/cms/pages/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#show (for 127.0.0.1 at 2009-05-01 21:46:16) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/pages"}
+  [4;35;1mPage Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.5ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mTemplet Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+  [4;36;1mTemplet Load (0.4ms)[0m   [0;1mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/cms_templets/browser
+Rendering cms/pages/show
+
+ActionView::TemplateError (wrong number of arguments (0 for 1)) on line #10 of app/views/layouts/cms_templets/browser.html.erb:
+7: 	<p>Created at April 26,2009 by xhan</p>
+8: <p>Updated at May 1 ,2009 by xhan</p>
+9: 
+10: 	<%= sticker_tag %>
+11:  
+12: </body>
+13: 
+
+    app/views/layouts/cms_templets/browser.html.erb:10:in `sticker_tag'
+    app/views/layouts/cms_templets/browser.html.erb:10
+    app/controllers/cms/pages_controller.rb:17:in `show'
+    app/controllers/cms/pages_controller.rb:15:in `show'
+
+Rendered rescues/_trace (115.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#show (for 127.0.0.1 at 2009-05-01 21:56:18) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/templets"}
+  [4;35;1mTemplet Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+  [4;36;1mTemplet Load (0.6ms)[0m   [0;1mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/show
+Completed in 78ms (View: 3, DB: 3) | 200 OK [http://localhost/cms/templets/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#show (for 127.0.0.1 at 2009-05-01 23:04:35) [GET]
+  Parameters: {"action"=>"show", "path"=>[], "controller"=>"cms/pages"}
+Completed in 67ms (View: 1, DB: 0) | 200 OK [http://localhost/]

@@ -14,10 +14,12 @@
 
 class Templet < ActiveRecord::Base       
   validates_presence_of :name , :content     
-  validates_format_of :name, :with => /\A[^\/]*\Z/, :message => "cannot contain '/'"
+  validates_format_of :name, :with => /\A[^\/]*\Z/, :message => "cannot contain '/'"   
+  
   TEMPLET_FOLDER = "cms_templets"
   TEMPLET_PATH = "#{RAILS_ROOT}/app/views/layouts/#{TEMPLET_FOLDER}"
-
+  PATTERN_TAG =  /<%=\s*sticker_tag.*?%>/m
+  PATTERN_BLOCK = /<%\s*sticker_tag.*?do.*?<%.*?end.*?%>/m
   
   # publish contents to exist file as a layout template
   def publish!
@@ -36,7 +38,10 @@ class Templet < ActiveRecord::Base
   end
       
   def search_stickers
-    # self.content.
+    # sticker_tags = self.content.scan(PATTERN_TAG)
+    # sticker_tags.each do |sticker|
+      
+    end
   end                
   
 end
