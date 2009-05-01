@@ -15,6 +15,7 @@
 class Templet < ActiveRecord::Base       
   validates_presence_of :name , :content     
   validates_format_of :name, :with => /\A[^\/]*\Z/, :message => "cannot contain '/'"   
+  validates_uniqueness_of :name
   
   TEMPLET_FOLDER = "cms_templets"
   TEMPLET_PATH = "#{RAILS_ROOT}/app/views/layouts/#{TEMPLET_FOLDER}"
@@ -40,8 +41,14 @@ class Templet < ActiveRecord::Base
   def search_stickers
     # sticker_tags = self.content.scan(PATTERN_TAG)
     # sticker_tags.each do |sticker|
-      
-    end
+      self.content.gsub!(PATTERN_TAG) do |sticker|
+         
+      end
+    
   end                
   
+  private
+  def generate_identify
+    
+  end
 end
