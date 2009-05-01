@@ -13253,3 +13253,58 @@ Processing Cms::PagesController#show (for 127.0.0.1 at 2009-04-30 21:11:24) [GET
 Rendering template within layouts/cms_templets/browser
 Rendering cms/pages/show
 Completed in 130ms (View: 3, DB: 7) | 200 OK [http://localhost/cms/pages/1]
+  [4;36;1mSQL (39.4ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (19.8ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (143.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (18.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090422022212)
+Migrating to CreateSections (20090423131454)
+Migrating to CreatePages (20090423154401)
+Migrating to AddSectionTestDate (20090424080152)
+Migrating to CreateTemplets (20090426163458)
+Migrating to AddColumns (20090428064306)
+Migrating to CreateForums (20090429045726)
+Migrating to CreateForumTopics (20090429045752)
+Migrating to CreateForumPosts (20090429045836)
+Migrating to CreateForumUserProfiles (20090429050016)
+Migrating to ChangeUserId2Profile (20090429052506)
+Migrating to RenamePageTemplate (20090430105951)
+Migrating to CreateStickers (20090501051500)
+  [4;36;1mSQL (85.7ms)[0m   [0;1mCREATE TABLE `stickers` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `content` text, `user_id` int(11), `published_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090501051500')[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (3.7ms)[0m   [0mSHOW FIELDS FROM `forum_posts`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mdescribe `forum_posts`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW KEYS FROM `forum_posts`[0m
+  [4;36;1mSQL (3.4ms)[0m   [0;1mSHOW FIELDS FROM `forum_topics`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `forum_topics`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `forum_topics`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mSHOW FIELDS FROM `forum_user_profiles`[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mdescribe `forum_user_profiles`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `forum_user_profiles`[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mSHOW FIELDS FROM `forums`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `forums`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `forums`[0m
+  [4;35;1mSQL (3.5ms)[0m   [0mSHOW FIELDS FROM `page_versions`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `page_versions`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `page_versions`[0m
+  [4;36;1mSQL (19.4ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mdescribe `pages`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `pages`[0m
+  [4;35;1mSQL (3.5ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `sections`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `sections`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSHOW FIELDS FROM `stickers`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `stickers`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `stickers`[0m
+  [4;35;1mSQL (3.4ms)[0m   [0mSHOW FIELDS FROM `templates`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mdescribe `templates`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `templates`[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `templets`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `templets`[0m
+  [4;35;1mSQL (3.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `users`[0m

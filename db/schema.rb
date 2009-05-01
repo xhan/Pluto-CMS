@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090430105951) do
+ActiveRecord::Schema.define(:version => 20090501051500) do
 
   create_table "forum_posts", :force => true do |t|
     t.integer  "forum_topic_id"
@@ -91,6 +91,14 @@ ActiveRecord::Schema.define(:version => 20090430105951) do
     t.integer  "position"
     t.boolean  "hidden",     :default => false
     t.boolean  "is_url",     :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stickers", :force => true do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "published_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
