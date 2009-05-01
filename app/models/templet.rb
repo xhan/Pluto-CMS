@@ -34,5 +34,9 @@ class Templet < ActiveRecord::Base
   def layout_path
     TEMPLET_FOLDER + '/' + name + '.html.erb'
   end
+      
+  def search_stickers
+    # self.content.
+  end                
   
 end

@@ -5,9 +5,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery 
   filter_parameter_logging :password
 
+  
     
   before_filter :login_required,:pagination_defaults
   after_filter :store_location
+  
+  # TODO it need fix later
+  rescue_from 'ArgumentError' do |exception|
+    render :text => "exception"
+  end
                               
   def set_layout
     if request.xhr?

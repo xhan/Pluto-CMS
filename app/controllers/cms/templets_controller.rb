@@ -15,6 +15,16 @@ class Cms::TempletsController < Cms::ApplicationController
     @templet = Templet.find params[:id]
   end                                  
   
+  def update
+   @templet = Templet.find params[:id]
+   if @templet.update_attributes params[:templet] 
+     flash[:notice] = "更新成功"
+     redirect_to :action  => :index
+   else
+     render :action => "edit"
+   end
+  end
+  
   def create
     @templet = Templet.new params[:templet]
     if @templet.save
