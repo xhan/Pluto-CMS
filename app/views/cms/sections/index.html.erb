@@ -86,8 +86,16 @@ li{
 <% end -%>
 <%= link_to "Create new Section", new_cms_section_path %>
 <h2>Root Sites</h2>
-<%= list_as_tree @root %>
+<% list_as_tree @root ,true do |item| %>
+<div class="bubbleInfo">
+	<div class="trigger"><%= item.name %></div>
+	<div class="popup">
+		<%= addition_fun item %>
+	</div>
+</div>     
+<% end %>
+
 <%= thickbox_inline "hi","actionDetail" %>
-<div id ="actionDetail" >
+<div id ="actionDetail" style="display:none">
 	<p>Hi i am xhan</p>
-</div>
+</div>        

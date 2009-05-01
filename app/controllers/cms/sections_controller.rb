@@ -1,6 +1,7 @@
 class Cms::SectionsController < Cms::ApplicationController
   def index
-    # @section = Section.all
+    # @section = Section.all 
+    puts "------hello"
     @root = Section.first
   end
 

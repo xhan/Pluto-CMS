@@ -9,7 +9,7 @@ class Cms::PagesController < Cms::ApplicationController
   
   def show
     unless @page
-      
+      render :text => "its under testing!" and return
     end  
     
     respond_to do |wants|
