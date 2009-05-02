@@ -15,7 +15,7 @@ ActionController::Routing::Routes.draw do |map|
     cms.resources :sections, :member => {:position => :put}  do |section|
       section.resources :pages, :only => [:new,:create]
     end
-    cms.resources :templets   
+    cms.resources :templets, :member => {:check  => :get }
     cms.resources :pages ,:only => [:show,:edit,:update]
   end
   

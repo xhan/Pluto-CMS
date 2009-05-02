@@ -1,4 +1,5 @@
 <% set_title "顯示模板內容 "+@templet.name %>
 <%= link_to "編輯該模板", edit_cms_templet_path(@templet) %> 
-<%= link_to "back", cms_templets_path %>
+<%= link_to "back", cms_templets_path %>                <br/>
+<%= link_to "检查不干胶", check_cms_templet_path(@templet) %> 
 <%=simple_format h(@templet.content) %>

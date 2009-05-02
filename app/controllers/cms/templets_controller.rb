@@ -15,6 +15,13 @@ class Cms::TempletsController < Cms::ApplicationController
     @templet = Templet.find params[:id]
   end                                  
   
+  def check
+    @templet = Templet.find params[:id]
+    @templet.check_stickers
+    flash[:notice] = "found #{@templet.nodes.size}"
+    render :action => "edit"
+  end            
+  
   def update
    @templet = Templet.find params[:id]
    if @templet.update_attributes params[:templet] 

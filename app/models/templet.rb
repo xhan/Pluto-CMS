@@ -39,35 +39,38 @@ class Templet < ActiveRecord::Base
   end
            
   # make sure the stickers in templet was valid .
-  def make_stickers
-    
+  def check_stickers    
     @sticker_nodes =[]
     # sticker_tags = self.content.scan(PATTERN_TAG)
     # sticker_tags.each do |sticker|
       self.content.gsub!(PATTERN_TAG) do |sticker|
          generate_identify_tag(sticker)
       end
-    
+    # TODO  add block check & modify
   end                
+  
+  def nodes
+    @sticker_nodes
+  end
   
   private                    
   #str to be checked
   def generate_identify_tag str  
      par = str.sub(/.*?sticker_tag\s*/,'').sub(/\s*%>/,'').chomp
      if par.blank?                      # no args
-         "<%= sticker_tag #{id}%>"
-       elsif par[/\W+/].size == 0       # no invalid , * in args . just one arg
+         "<%= sticker_tag #{generate_id} %>"
+       elsif par[0,1]==':' and par[1..-1].index(/\W+/).nil?       # no invalid , * in args . just one arg
          @sticker_nodes.push par
          str                            #do nothing
        else                             # raise errors
-         raise TypeError,"#{str} 语法错误"
+         raise TypeError,"#{str} 语法错误,请保持<%= sticker_tag %> 或仅添加 <%= sticker_tag :name %>  类似语法"
      end
   end 
   
   def generate_id
-    id = "ID_#{(rand*1_000_000).to_i}_" 
+    id = ":ID_#{(rand*1_000_000).to_i}_" 
      while @sticker_nodes.include? id
-       id = "ID_#{(rand*1_000_000).to_i}_" 
+       id = ":ID_#{(rand*1_000_000).to_i}_" 
      end 
      @sticker_nodes.push id   
      return id   

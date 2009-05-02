@@ -1,0 +1,665 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::PagesController#show (for 127.0.0.1 at 2009-05-02 20:01:16) [GET]
+  Parameters: {"action"=>"show", "path"=>[], "controller"=>"cms/pages"}
+Completed in 104ms (View: 16, DB: 0) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#index (for 127.0.0.1 at 2009-05-02 20:01:23) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Load (59.6ms)[0m   [0;1mSELECT * FROM `templets` [0m
+Rendering template within layouts/application
+Rendering cms/templets/index
+  [4;35;1mTemplet Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+Completed in 112ms (View: 37, DB: 62) | 200 OK [http://localhost/cms/templets]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#show (for 127.0.0.1 at 2009-05-02 20:01:26) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/show
+Completed in 23ms (View: 6, DB: 2) | 200 OK [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#show (for 127.0.0.1 at 2009-05-02 20:01:30) [GET]
+  Parameters: {"action"=>"show", "id"=>"check", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Templet with ID=check):
+  app/controllers/cms/templets_controller.rb:7:in `show'
+
+Rendered rescues/_trace (101.2ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#show (for 127.0.0.1 at 2009-05-02 20:02:48) [GET]
+  Parameters: {"action"=>"show", "id"=>"check", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (3.5ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.4ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Templet with ID=check):
+  app/controllers/cms/templets_controller.rb:7:in `show'
+
+Rendered rescues/_trace (101.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#show (for 127.0.0.1 at 2009-05-02 20:03:21) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.3ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/show
+Completed in 23ms (View: 6, DB: 3) | 200 OK [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#check (for 127.0.0.1 at 2009-05-02 20:03:23) [GET]
+  Parameters: {"action"=>"check", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 50ms (View: 32, DB: 3) | 200 OK [http://localhost/cms/templets/1/check]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#index (for 127.0.0.1 at 2009-05-02 20:04:02) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Load (0.3ms)[0m   [0;1mSELECT * FROM `templets` [0m
+Rendering template within layouts/application
+Rendering cms/templets/index
+  [4;35;1mTemplet Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+Completed in 21ms (View: 5, DB: 3) | 200 OK [http://localhost/cms/templets]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#show (for 127.0.0.1 at 2009-05-02 20:04:04) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/show
+Completed in 21ms (View: 4, DB: 3) | 200 OK [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#check (for 127.0.0.1 at 2009-05-02 20:04:53) [GET]
+  Parameters: {"action"=>"check", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 22ms (View: 4, DB: 3) | 200 OK [http://localhost/cms/templets/1/check]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#index (for 127.0.0.1 at 2009-05-02 20:06:21) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Load (0.3ms)[0m   [0;1mSELECT * FROM `templets` [0m
+Rendering template within layouts/application
+Rendering cms/templets/index
+  [4;35;1mTemplet Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+Completed in 81ms (View: 5, DB: 3) | 200 OK [http://localhost/cms/templets]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#edit (for 127.0.0.1 at 2009-05-02 20:06:24) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.4ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 23ms (View: 5, DB: 3) | 200 OK [http://localhost/cms/templets/1/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#update (for 127.0.0.1 at 2009-05-02 20:06:37) [PUT]
+  Parameters: {"commit"=>"Submit", "action"=>"update", "_method"=>"put", "authenticity_token"=>"dDyR6+Qh2GUOi08CaIVD38r0UPEIPIvkN4o6zrx/y7s=", "id"=>"1", "controller"=>"cms/templets", "templet"=>{"name"=>"browser", "content"=>"<html>\r\n\t<head><title>Test Templates</title></head>\r\n\r\n<body>\r\n   \t<h1>Hello world</h1>           \r\n\t<p>Find my at layout/cms_templates/browser.html.erb</p>\r\n\t<p>Created at April 26,2009 by xhan</p>\r\n<p>Updated at May 1 ,2009 by xhan</p>\r\n\r\n\t<%= sticker_tag 1,2%>\r\n\r\n \r\n</body>\r\n\r\n</html>\r\n", "description"=>"hello"}}
+  [4;36;1mTemplet Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.8ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTemplet Exists (16.2ms)[0m   [0mSELECT `templets`.id FROM `templets` WHERE (`templets`.`name` = BINARY 'browser' AND `templets`.id <> 1) LIMIT 1[0m
+  [4;36;1mTemplet Update (0.3ms)[0m   [0;1mUPDATE `templets` SET `content` = '<html>\r\n	<head><title>Test Templates</title></head>\r\n\r\n<body>\r\n 	<h1>Hello world</h1> \r\n	<p>Find my at layout/cms_templates/browser.html.erb</p>\r\n	<p>Created at April 26,2009 by xhan</p>\r\n<p>Updated at May 1 ,2009 by xhan</p>\r\n\r\n	<%= sticker_tag 1,2%>\r\n\r\n \r\n</body>\r\n\r\n</html>\r\n', `updated_at` = '2009-05-02 12:06:37' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/cms/templets
+Completed in 65ms (DB: 20) | 302 Found [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#index (for 127.0.0.1 at 2009-05-02 20:06:37) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Load (0.3ms)[0m   [0;1mSELECT * FROM `templets` [0m
+Rendering template within layouts/application
+Rendering cms/templets/index
+  [4;35;1mTemplet Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+Completed in 21ms (View: 4, DB: 2) | 200 OK [http://localhost/cms/templets]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#show (for 127.0.0.1 at 2009-05-02 20:06:40) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/show
+Completed in 21ms (View: 3, DB: 3) | 200 OK [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#check (for 127.0.0.1 at 2009-05-02 20:06:42) [GET]
+  Parameters: {"action"=>"check", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+
+TypeError (<%= sticker_tag 1,2%> 语法错误):
+  app/models/templet.rb:66:in `generate_identify_tag'
+  app/models/templet.rb:47:in `check_stickers'
+  app/models/templet.rb:46:in `gsub!'
+  app/models/templet.rb:46:in `check_stickers'
+  app/controllers/cms/templets_controller.rb:20:in `check'
+
+Rendered rescues/_trace (41.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#edit (for 127.0.0.1 at 2009-05-02 20:07:46) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 23ms (View: 6, DB: 3) | 200 OK [http://localhost/cms/templets/1/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#update (for 127.0.0.1 at 2009-05-02 20:17:08) [PUT]
+  Parameters: {"commit"=>"Submit", "action"=>"update", "_method"=>"put", "authenticity_token"=>"dDyR6+Qh2GUOi08CaIVD38r0UPEIPIvkN4o6zrx/y7s=", "id"=>"1", "controller"=>"cms/templets", "templet"=>{"name"=>"browser", "content"=>"<html>\r\n\t<head><title>Test Templates</title></head>\r\n\r\n<body>\r\n   \t<h1>Hello world</h1>           \r\n\t<p>Find my at layout/cms_templates/browser.html.erb</p>\r\n\t<p>Created at April 26,2009 by xhan</p>\r\n<p>Updated at May 1 ,2009 by xhan</p>\r\n\r\n<%= sticker_tag %>\r\n<%= sticker_tag :xhan%>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n \r\n</body>\r\n\r\n</html>\r\n", "description"=>"hello"}}
+  [4;36;1mTemplet Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.7ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTemplet Exists (0.3ms)[0m   [0mSELECT `templets`.id FROM `templets` WHERE (`templets`.`name` = BINARY 'browser' AND `templets`.id <> 1) LIMIT 1[0m
+  [4;36;1mTemplet Update (0.3ms)[0m   [0;1mUPDATE `templets` SET `content` = '<html>\r\n	<head><title>Test Templates</title></head>\r\n\r\n<body>\r\n 	<h1>Hello world</h1> \r\n	<p>Find my at layout/cms_templates/browser.html.erb</p>\r\n	<p>Created at April 26,2009 by xhan</p>\r\n<p>Updated at May 1 ,2009 by xhan</p>\r\n\r\n<%= sticker_tag %>\r\n<%= sticker_tag :xhan%>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n \r\n</body>\r\n\r\n</html>\r\n', `updated_at` = '2009-05-02 12:17:08' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/cms/templets
+Completed in 16ms (DB: 4) | 302 Found [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#index (for 127.0.0.1 at 2009-05-02 20:17:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Load (0.3ms)[0m   [0;1mSELECT * FROM `templets` [0m
+Rendering template within layouts/application
+Rendering cms/templets/index
+  [4;35;1mTemplet Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+Completed in 21ms (View: 5, DB: 3) | 200 OK [http://localhost/cms/templets]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#show (for 127.0.0.1 at 2009-05-02 20:17:10) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/show
+Completed in 22ms (View: 4, DB: 3) | 200 OK [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#check (for 127.0.0.1 at 2009-05-02 20:17:14) [GET]
+  Parameters: {"action"=>"check", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#check (for 127.0.0.1 at 2009-05-02 20:23:29) [GET]
+  Parameters: {"action"=>"check", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.9ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#show (for 127.0.0.1 at 2009-05-02 20:23:31) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/show
+Completed in 22ms (View: 4, DB: 3) | 200 OK [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#edit (for 127.0.0.1 at 2009-05-02 20:24:14) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 85ms (View: 4, DB: 3) | 200 OK [http://localhost/cms/templets/1/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#update (for 127.0.0.1 at 2009-05-02 20:24:20) [PUT]
+  Parameters: {"commit"=>"Submit", "action"=>"update", "_method"=>"put", "authenticity_token"=>"dDyR6+Qh2GUOi08CaIVD38r0UPEIPIvkN4o6zrx/y7s=", "id"=>"1", "controller"=>"cms/templets", "templet"=>{"name"=>"browser", "content"=>"<html>\r\n\t<head><title>Test Templates</title></head>\r\n\r\n<body>\r\n   \t<h1>Hello world</h1>           \r\n\t<p>Find my at layout/cms_templates/browser.html.erb</p>\r\n\t<p>Created at April 26,2009 by xhan</p>\r\n<p>Updated at May 1 ,2009 by xhan</p>\r\n\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n \r\n</body>\r\n\r\n</html>\r\n", "description"=>"hello"}}
+  [4;36;1mTemplet Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (1.0ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTemplet Exists (0.2ms)[0m   [0mSELECT `templets`.id FROM `templets` WHERE (`templets`.`name` = BINARY 'browser' AND `templets`.id <> 1) LIMIT 1[0m
+  [4;36;1mTemplet Update (0.3ms)[0m   [0;1mUPDATE `templets` SET `content` = '<html>\r\n	<head><title>Test Templates</title></head>\r\n\r\n<body>\r\n 	<h1>Hello world</h1> \r\n	<p>Find my at layout/cms_templates/browser.html.erb</p>\r\n	<p>Created at April 26,2009 by xhan</p>\r\n<p>Updated at May 1 ,2009 by xhan</p>\r\n\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n \r\n</body>\r\n\r\n</html>\r\n', `updated_at` = '2009-05-02 12:24:20' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/cms/templets
+Completed in 17ms (DB: 4) | 302 Found [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#index (for 127.0.0.1 at 2009-05-02 20:24:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Load (0.3ms)[0m   [0;1mSELECT * FROM `templets` [0m
+Rendering template within layouts/application
+Rendering cms/templets/index
+  [4;35;1mTemplet Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+Completed in 23ms (View: 5, DB: 3) | 200 OK [http://localhost/cms/templets]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#show (for 127.0.0.1 at 2009-05-02 20:24:22) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/show
+Completed in 22ms (View: 3, DB: 3) | 200 OK [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#check (for 127.0.0.1 at 2009-05-02 20:24:24) [GET]
+  Parameters: {"action"=>"check", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 25ms (View: 4, DB: 3) | 200 OK [http://localhost/cms/templets/1/check]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#check (for 127.0.0.1 at 2009-05-02 20:24:43) [GET]
+  Parameters: {"action"=>"check", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.4ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 22ms (View: 3, DB: 3) | 200 OK [http://localhost/cms/templets/1/check]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#check (for 127.0.0.1 at 2009-05-02 20:24:44) [GET]
+  Parameters: {"action"=>"check", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 23ms (View: 4, DB: 3) | 200 OK [http://localhost/cms/templets/1/check]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#check (for 127.0.0.1 at 2009-05-02 20:24:45) [GET]
+  Parameters: {"action"=>"check", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 23ms (View: 3, DB: 3) | 200 OK [http://localhost/cms/templets/1/check]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#check (for 127.0.0.1 at 2009-05-02 20:25:17) [GET]
+  Parameters: {"action"=>"check", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 23ms (View: 4, DB: 3) | 200 OK [http://localhost/cms/templets/1/check]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#check (for 127.0.0.1 at 2009-05-02 20:25:19) [GET]
+  Parameters: {"action"=>"check", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 23ms (View: 4, DB: 3) | 200 OK [http://localhost/cms/templets/1/check]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#check (for 127.0.0.1 at 2009-05-02 20:25:20) [GET]
+  Parameters: {"action"=>"check", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (1.7ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 26ms (View: 4, DB: 4) | 200 OK [http://localhost/cms/templets/1/check]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#check (for 127.0.0.1 at 2009-05-02 20:25:23) [GET]
+  Parameters: {"action"=>"check", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 23ms (View: 4, DB: 3) | 200 OK [http://localhost/cms/templets/1/check]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#check (for 127.0.0.1 at 2009-05-02 20:25:23) [GET]
+  Parameters: {"action"=>"check", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.3ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 23ms (View: 3, DB: 3) | 200 OK [http://localhost/cms/templets/1/check]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#check (for 127.0.0.1 at 2009-05-02 20:25:26) [GET]
+  Parameters: {"action"=>"check", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 24ms (View: 4, DB: 3) | 200 OK [http://localhost/cms/templets/1/check]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#edit (for 127.0.0.1 at 2009-05-02 20:25:32) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.3ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 24ms (View: 5, DB: 4) | 200 OK [http://localhost/cms/templets/1/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#update (for 127.0.0.1 at 2009-05-02 20:25:42) [PUT]
+  Parameters: {"commit"=>"Submit", "action"=>"update", "_method"=>"put", "authenticity_token"=>"dDyR6+Qh2GUOi08CaIVD38r0UPEIPIvkN4o6zrx/y7s=", "id"=>"1", "controller"=>"cms/templets", "templet"=>{"name"=>"browser", "content"=>"<html>\r\n\t<head><title>Test Templates</title></head>\r\n\r\n<body>\r\n   \t<h1>Hello world</h1>           \r\n\t<p>Find my at layout/cms_templates/browser.html.erb</p>\r\n\t<p>Created at April 26,2009 by xhan</p>\r\n<p>Updated at May 1 ,2009 by xhan</p>\r\n\r\n<%=\r\n sticker_tag\r\n %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n \r\n</body>\r\n\r\n</html>\r\n", "description"=>"hello"}}
+  [4;36;1mTemplet Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.5ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTemplet Exists (0.2ms)[0m   [0mSELECT `templets`.id FROM `templets` WHERE (`templets`.`name` = BINARY 'browser' AND `templets`.id <> 1) LIMIT 1[0m
+  [4;36;1mTemplet Update (0.2ms)[0m   [0;1mUPDATE `templets` SET `content` = '<html>\r\n	<head><title>Test Templates</title></head>\r\n\r\n<body>\r\n 	<h1>Hello world</h1> \r\n	<p>Find my at layout/cms_templates/browser.html.erb</p>\r\n	<p>Created at April 26,2009 by xhan</p>\r\n<p>Updated at May 1 ,2009 by xhan</p>\r\n\r\n<%=\r\n sticker_tag\r\n %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n \r\n</body>\r\n\r\n</html>\r\n', `updated_at` = '2009-05-02 12:25:42' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/cms/templets
+Completed in 16ms (DB: 4) | 302 Found [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#index (for 127.0.0.1 at 2009-05-02 20:25:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Load (0.3ms)[0m   [0;1mSELECT * FROM `templets` [0m
+Rendering template within layouts/application
+Rendering cms/templets/index
+  [4;35;1mTemplet Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+Completed in 24ms (View: 5, DB: 3) | 200 OK [http://localhost/cms/templets]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#show (for 127.0.0.1 at 2009-05-02 20:25:44) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.5ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/show
+Completed in 22ms (View: 4, DB: 3) | 200 OK [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#check (for 127.0.0.1 at 2009-05-02 20:25:46) [GET]
+  Parameters: {"action"=>"check", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+
+TypeError (<%=
+ sticker_tag
+ %> 语法错误,请保持<%= sticker_tag %> 或仅添加 <%= sticker_tag :name %>  类似语法):
+  app/models/templet.rb:66:in `generate_identify_tag'
+  app/models/templet.rb:47:in `check_stickers'
+  app/models/templet.rb:46:in `gsub!'
+  app/models/templet.rb:46:in `check_stickers'
+  app/controllers/cms/templets_controller.rb:20:in `check'
+
+Rendered rescues/_trace (40.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#edit (for 127.0.0.1 at 2009-05-02 20:26:03) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.3ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 24ms (View: 5, DB: 3) | 200 OK [http://localhost/cms/templets/1/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#update (for 127.0.0.1 at 2009-05-02 20:26:14) [PUT]
+  Parameters: {"commit"=>"Submit", "action"=>"update", "_method"=>"put", "authenticity_token"=>"dDyR6+Qh2GUOi08CaIVD38r0UPEIPIvkN4o6zrx/y7s=", "id"=>"1", "controller"=>"cms/templets", "templet"=>{"name"=>"browser", "content"=>"<html>\r\n\t<head><title>Test Templates</title></head>\r\n\r\n<body>\r\n   \t<h1>Hello world</h1>           \r\n\t<p>Find my at layout/cms_templates/browser.html.erb</p>\r\n\t<p>Created at April 26,2009 by xhan</p>\r\n<p>Updated at May 1 ,2009 by xhan</p>\r\n\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n \r\n</body>\r\n\r\n</html>\r\n", "description"=>"hello"}}
+  [4;36;1mTemplet Columns (12.6ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (9.4ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTemplet Exists (0.3ms)[0m   [0mSELECT `templets`.id FROM `templets` WHERE (`templets`.`name` = BINARY 'browser' AND `templets`.id <> 1) LIMIT 1[0m
+  [4;36;1mTemplet Update (0.3ms)[0m   [0;1mUPDATE `templets` SET `content` = '<html>\r\n	<head><title>Test Templates</title></head>\r\n\r\n<body>\r\n 	<h1>Hello world</h1> \r\n	<p>Find my at layout/cms_templates/browser.html.erb</p>\r\n	<p>Created at April 26,2009 by xhan</p>\r\n<p>Updated at May 1 ,2009 by xhan</p>\r\n\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n<%= sticker_tag %>\r\n \r\n</body>\r\n\r\n</html>\r\n', `updated_at` = '2009-05-02 12:26:14' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/cms/templets
+Completed in 36ms (DB: 23) | 302 Found [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#index (for 127.0.0.1 at 2009-05-02 20:26:14) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Load (0.3ms)[0m   [0;1mSELECT * FROM `templets` [0m
+Rendering template within layouts/application
+Rendering cms/templets/index
+  [4;35;1mTemplet Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+Completed in 21ms (View: 4, DB: 2) | 200 OK [http://localhost/cms/templets]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#show (for 127.0.0.1 at 2009-05-02 20:26:17) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/show
+Completed in 86ms (View: 4, DB: 3) | 200 OK [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#check (for 127.0.0.1 at 2009-05-02 20:26:20) [GET]
+  Parameters: {"action"=>"check", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.8ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 24ms (View: 3, DB: 4) | 200 OK [http://localhost/cms/templets/1/check]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#update (for 127.0.0.1 at 2009-05-02 20:27:24) [PUT]
+  Parameters: {"commit"=>"Submit", "action"=>"update", "_method"=>"put", "authenticity_token"=>"dDyR6+Qh2GUOi08CaIVD38r0UPEIPIvkN4o6zrx/y7s=", "id"=>"1", "controller"=>"cms/templets", "templet"=>{"name"=>"browser", "content"=>"<html>\r\n\t<head><title>Test Templates</title></head>\r\n\r\n<body>\r\n   \t<h1>Hello world</h1>           \r\n\t<p>Find my at layout/cms_templates/browser.html.erb</p>\r\n\t<p>Created at April 26,2009 by xhan</p>\r\n<p>Updated at May 1 ,2009 by xhan</p>\r\n\r\n<%= sticker_tag :ID_46770_ %>\r\n<%= sticker_tag :ID_880049_ %>\r\n<%= sticker_tag :ID_264679_ %>\r\n<%= sticker_tag :ID_382213_ %>\r\n<%= sticker_tag :ID_723275_ %>\r\n \r\n</body>\r\n\r\n</html>\r\n", "description"=>"hello"}}
+  [4;36;1mTemplet Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.4ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTemplet Exists (0.2ms)[0m   [0mSELECT `templets`.id FROM `templets` WHERE (`templets`.`name` = BINARY 'browser' AND `templets`.id <> 1) LIMIT 1[0m
+  [4;36;1mTemplet Update (0.3ms)[0m   [0;1mUPDATE `templets` SET `content` = '<html>\r\n	<head><title>Test Templates</title></head>\r\n\r\n<body>\r\n 	<h1>Hello world</h1> \r\n	<p>Find my at layout/cms_templates/browser.html.erb</p>\r\n	<p>Created at April 26,2009 by xhan</p>\r\n<p>Updated at May 1 ,2009 by xhan</p>\r\n\r\n<%= sticker_tag :ID_46770_ %>\r\n<%= sticker_tag :ID_880049_ %>\r\n<%= sticker_tag :ID_264679_ %>\r\n<%= sticker_tag :ID_382213_ %>\r\n<%= sticker_tag :ID_723275_ %>\r\n \r\n</body>\r\n\r\n</html>\r\n', `updated_at` = '2009-05-02 12:27:24' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/cms/templets
+Completed in 15ms (DB: 4) | 302 Found [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#index (for 127.0.0.1 at 2009-05-02 20:27:24) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Load (0.4ms)[0m   [0;1mSELECT * FROM `templets` [0m
+Rendering template within layouts/application
+Rendering cms/templets/index
+  [4;35;1mTemplet Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+Completed in 24ms (View: 5, DB: 3) | 200 OK [http://localhost/cms/templets]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#show (for 127.0.0.1 at 2009-05-02 20:27:26) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.3ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/show
+Completed in 24ms (View: 4, DB: 3) | 200 OK [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#check (for 127.0.0.1 at 2009-05-02 20:27:28) [GET]
+  Parameters: {"action"=>"check", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.5ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 23ms (View: 3, DB: 3) | 200 OK [http://localhost/cms/templets/1/check]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#update (for 127.0.0.1 at 2009-05-02 20:27:40) [PUT]
+  Parameters: {"commit"=>"Submit", "action"=>"update", "_method"=>"put", "authenticity_token"=>"dDyR6+Qh2GUOi08CaIVD38r0UPEIPIvkN4o6zrx/y7s=", "id"=>"1", "controller"=>"cms/templets", "templet"=>{"name"=>"browser", "content"=>"<html>\r\n\t<head><title>Test Templates</title></head>\r\n\r\n<body>\r\n   \t<h1>Hello world</h1>           \r\n\t<p>Find my at layout/cms_templates/browser.html.erb</p>\r\n\t<p>Created at April 26,2009 by xhan</p>\r\n<p>Updated at May 1 ,2009 by xhan</p>\r\n\r\n<%= sticker_tag :xhan %>\r\n<%= sticker_tag :ID_880049_ %>\r\n<%= sticker_tag :ID_264679_ %>\r\n<%= sticker_tag :ID_382213_ %>\r\n<%= sticker_tag :ID_723275_ %>\r\n \r\n</body>\r\n\r\n</html>\r\n", "description"=>"hello"}}
+  [4;36;1mTemplet Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.5ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTemplet Exists (0.2ms)[0m   [0mSELECT `templets`.id FROM `templets` WHERE (`templets`.`name` = BINARY 'browser' AND `templets`.id <> 1) LIMIT 1[0m
+  [4;36;1mTemplet Update (0.3ms)[0m   [0;1mUPDATE `templets` SET `content` = '<html>\r\n	<head><title>Test Templates</title></head>\r\n\r\n<body>\r\n 	<h1>Hello world</h1> \r\n	<p>Find my at layout/cms_templates/browser.html.erb</p>\r\n	<p>Created at April 26,2009 by xhan</p>\r\n<p>Updated at May 1 ,2009 by xhan</p>\r\n\r\n<%= sticker_tag :xhan %>\r\n<%= sticker_tag :ID_880049_ %>\r\n<%= sticker_tag :ID_264679_ %>\r\n<%= sticker_tag :ID_382213_ %>\r\n<%= sticker_tag :ID_723275_ %>\r\n \r\n</body>\r\n\r\n</html>\r\n', `updated_at` = '2009-05-02 12:27:40' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/cms/templets
+Completed in 15ms (DB: 4) | 302 Found [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#index (for 127.0.0.1 at 2009-05-02 20:27:40) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Load (0.3ms)[0m   [0;1mSELECT * FROM `templets` [0m
+Rendering template within layouts/application
+Rendering cms/templets/index
+  [4;35;1mTemplet Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+Completed in 86ms (View: 5, DB: 2) | 200 OK [http://localhost/cms/templets]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#show (for 127.0.0.1 at 2009-05-02 20:27:42) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/show
+Completed in 23ms (View: 4, DB: 3) | 200 OK [http://localhost/cms/templets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#check (for 127.0.0.1 at 2009-05-02 20:27:45) [GET]
+  Parameters: {"action"=>"check", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.3ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering cms/templets/edit
+Completed in 25ms (View: 4, DB: 3) | 200 OK [http://localhost/cms/templets/1/check]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#index (for 127.0.0.1 at 2009-05-02 20:28:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Load (0.3ms)[0m   [0;1mSELECT * FROM `templets` [0m
+Rendering template within layouts/application
+Rendering cms/templets/index
+  [4;35;1mTemplet Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `templets`[0m
+Completed in 83ms (View: 5, DB: 3) | 200 OK [http://localhost/cms/templets]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Cms::TempletsController#republish (for 127.0.0.1 at 2009-05-02 20:28:02) [POST]
+  Parameters: {"action"=>"republish", "authenticity_token"=>"dDyR6+Qh2GUOi08CaIVD38r0UPEIPIvkN4o6zrx/y7s=", "id"=>"1", "controller"=>"cms/templets"}
+  [4;36;1mTemplet Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `templets`[0m
+  [4;35;1mTemplet Load (0.2ms)[0m   [0mSELECT * FROM `templets` WHERE (`templets`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTemplet Update (0.3ms)[0m   [0mUPDATE `templets` SET `updated_at` = '2009-05-02 12:28:03', `published_at` = '2009-05-02 12:28:02' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+Completed in 169ms (View: 1, DB: 3) | 200 OK [http://localhost/cms/templets/republish/1]
