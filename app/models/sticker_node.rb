@@ -1,2 +1,3 @@
-class StickerNode < ActiveRecord::Base
+class StickerNode < ActiveRecord::Base    
+  
 end

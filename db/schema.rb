@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090501051500) do
+ActiveRecord::Schema.define(:version => 20090502131506) do
 
   create_table "forum_posts", :force => true do |t|
     t.integer  "forum_topic_id"
@@ -94,6 +94,15 @@ ActiveRecord::Schema.define(:version => 20090501051500) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "sticker_nodes", :force => true do |t|
+    t.integer  "templet_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sticker_nodes", ["name"], :name => "index_sticker_nodes_on_name"
 
   create_table "stickers", :force => true do |t|
     t.text     "content"
