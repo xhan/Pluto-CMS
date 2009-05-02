@@ -37,18 +37,41 @@ class Templet < ActiveRecord::Base
   def layout_path
     TEMPLET_FOLDER + '/' + name + '.html.erb'
   end
-      
-  def search_stickers
+           
+  # make sure the stickers in templet was valid .
+  def make_stickers
+    
+    @sticker_nodes =[]
     # sticker_tags = self.content.scan(PATTERN_TAG)
     # sticker_tags.each do |sticker|
       self.content.gsub!(PATTERN_TAG) do |sticker|
-         
+         generate_identify_tag(sticker)
       end
     
   end                
   
-  private
-  def generate_identify
-    
+  private                    
+  #str to be checked
+  def generate_identify_tag str  
+     par = str.sub(/.*?sticker_tag\s*/,'').sub(/\s*%>/,'').chomp
+     if par.blank?                      # no args
+         "<%= sticker_tag #{id}%>"
+       elsif par[/\W+/].size == 0       # no invalid , * in args . just one arg
+         @sticker_nodes.push par
+         str                            #do nothing
+       else                             # raise errors
+         raise TypeError,"#{str} 语法错误"
+     end
+  end 
+  
+  def generate_id
+    id = "ID_#{(rand*1_000_000).to_i}_" 
+     while @sticker_nodes.include? id
+       id = "ID_#{(rand*1_000_000).to_i}_" 
+     end 
+     @sticker_nodes.push id   
+     return id   
+     
   end
+  
 end
