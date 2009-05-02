@@ -57,13 +57,13 @@ class Templet < ActiveRecord::Base
     @nodes || self.sticker_nodes
   end 
   
-  private
   
-  def create_nodes nodes=[] ,delete_not_for_use = true
+  
+  def create_nodes nodes_arr=[] ,delete_not_for_use = true
     #  delete nodes that not for used by modify name
     old_nodes =  self.sticker_nodes
     new_nodes = []
-    old_nodes.each do |node|
+    nodes_arr.each do |node|
        n = old_nodes.find_by_name node 
        new_nodes.push(n ? n : self.sticker_nodes.create(:name => node))
     end    
@@ -74,8 +74,11 @@ class Templet < ActiveRecord::Base
         node.destroy
       end
     end                                                      
-    
+   
   end                    
+  
+  private
+  
   #str to be checked
   def generate_identify_tag str  
      par = str.sub(/.*?sticker_tag\s*/,'').sub(/\s*%>/,'').chomp
