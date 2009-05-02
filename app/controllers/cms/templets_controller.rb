@@ -15,6 +15,8 @@ class Cms::TempletsController < Cms::ApplicationController
     @templet = Templet.find params[:id]
   end                                  
   
+
+  
   def check
     @templet = Templet.find params[:id]
     @templet.check_stickers
@@ -43,10 +45,11 @@ class Cms::TempletsController < Cms::ApplicationController
   end   
   
   def republish
-    @templet = Templet.find params[:id]
+    @templet = Templet.find params[:id]   
+    @add,@remove,@total = @templet.check_and_create_nodes!
     @templet.publish!
     respond_to do |wants|
-      wants.html { render :text => "更新成功！"}
+      wants.html { render :text => "更新成功！新增加#{@add.size}张贴纸，删除废弃贴纸#{@remove.size}张，累计贴纸共#{@total.size}张！"}
       # wants.js 
     end
   end

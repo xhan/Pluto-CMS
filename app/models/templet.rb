@@ -17,7 +17,7 @@ class Templet < ActiveRecord::Base
   validates_presence_of :name , :content     
   validates_format_of :name, :with => /\A[^\/]*\Z/, :message => "cannot contain '/'"   
   validates_uniqueness_of :name
-  
+  attr_reader :nodes
   has_many :sticker_nodes , :dependent => :destroy
   
   TEMPLET_FOLDER = "cms_templets"
@@ -50,15 +50,25 @@ class Templet < ActiveRecord::Base
       self.content.gsub!(PATTERN_TAG) do |sticker|
          generate_identify_tag(sticker)
       end
-    # TODO  add block check & modify
+    # TODO  add block check & modify 
+    @nodes
   end                
   
-  def nodes
-    @nodes || self.sticker_nodes
-  end 
+  # def nodes
+  #   @nodes || self.sticker_nodes
+  # end 
+                                                       
+=begin
+  TODO 添加更新的节点信息 和删除的节点信息   发送 activity 到信息中心
+=end 
   
+  def check_and_create_nodes! delete_not_for_use = true
+    nodes = check_stickers
+    save
+    return create_nodes(nodes , delete_not_for_use)
+  end
   
-  
+  # return :add ,remove ,all
   def create_nodes nodes_arr=[] ,delete_not_for_use = true
     #  delete nodes that not for used by modify name
     old_nodes =  self.sticker_nodes
@@ -73,8 +83,9 @@ class Templet < ActiveRecord::Base
         #TODO : CLEAN relations
         node.destroy
       end
-    end                                                      
-   
+    end    
+   # TODO it seem sticker_nodes will be automatical cached  , reload it later
+   return [new_nodes - old_nodes,old_nodes - new_nodes,self.sticker_nodes]
   end                    
   
   private
@@ -94,7 +105,7 @@ class Templet < ActiveRecord::Base
   
   def generate_id
     id = "ID_#{(rand*1_000_000).to_i}_" 
-     while @sticker_nodes.include? id
+     while @nodes.include? id
        id = "ID_#{(rand*1_000_000).to_i}_" 
      end 
      @nodes.push id   
