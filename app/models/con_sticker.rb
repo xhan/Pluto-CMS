@@ -22,7 +22,7 @@ class ConSticker < ActiveRecord::Base
   belongs_to :page
   belongs_to :sticker
            
-  named_scope :stickers_in_page , lambda{|node_id,page_id| {:conditions => {:sticker_node_id => id,:page => page }, :order  => 'position' }}                 
+  named_scope :stickers_in_page , lambda{|node_id,page_id| {:conditions => {:sticker_node_id => node_id,:page_id => page_id }, :order  => 'position' }}                 
   
   before_save :add_position
   
@@ -31,8 +31,8 @@ class ConSticker < ActiveRecord::Base
   # end 
   
   def add_position
-    amount = self.class.stickers_in_page(sticker_node_id,page_id).count
-    position = amount + 1
+    amount = self.class.stickers_in_page(self.sticker_node_id,self.page_id).count
+    self.position = amount + 1
   end
   
   class << self

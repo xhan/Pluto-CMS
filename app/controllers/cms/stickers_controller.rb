@@ -15,7 +15,7 @@ class Cms::StickersController < Cms::ApplicationController
 
     
     @sticker = Sticker.new params[:sticker]
-    if true #@sticker.save
+    if @sticker.save
       # connect page sticker node
       if @page && @sticker_node
           ConSticker.create(:sticker_node  => @sticker_node ,
