@@ -26,6 +26,10 @@ class ConSticker < ActiveRecord::Base
   
   before_save :add_position
   
+  # def links()
+  #   
+  # end 
+  
   def add_position
     amount = self.class.stickers_in_page(sticker_node_id,page_id).count
     position = amount + 1

@@ -1,4 +1,12 @@
 <h1>Cms::Stickers#index</h1>
 <p>Find me in app/views/cms/stickers/index.html.erb</p>
-    <hr>
+    <hr>                                                                             
+<% if !@stickers.blank? %>
+  <% for sticker in @stickers %>
+    <%= link_to sticker.name   , cms_sticker_path(sticker) %>
+  <% end %>
+<% else %>
+  waiting for you to add more!
+<% end %>
+
 <%= link_to "new", new_cms_sticker_path(:sticker_node_id => params[:sticker_node_id],:page_id => params[:page_id]) %>

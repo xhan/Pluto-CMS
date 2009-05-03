@@ -2,7 +2,9 @@
 <% set_title '新建贴纸'%>    
 <%= error_messages_for :sticker %>
 
-<% form_for @sticker do |f| -%>
+<% form_for [:cms,@sticker] do |f| -%>
+<%= hidden_field_tag 'sticker_node_id',params[:sticker_node_id]  %>
+<%= hidden_field_tag 'page_id',params[:page_id] %>
   <%= f.text_area :content %>
 <%= f.submit "Submit", :disable_with => 'Submiting...' %>
 <% end -%>
