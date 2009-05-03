@@ -11,8 +11,13 @@ module Cms::StickersHelper
       for s in stickers
         str_out += content_tag(:div,s.content,:class => "sticker")
       end 
-    else
-      str_out = "#{sym.to_s} is empty in #{@page.path}"
+    else                
+      # TODO block controll
+      if block_given?
+#         capture(&block)
+      else
+        str_out = "#{sym.to_s} is empty in #{@page.path}"
+      end
     end
     #edit 
     str_out +=edit_tag(node.id,@page.id) if session[:edit]
