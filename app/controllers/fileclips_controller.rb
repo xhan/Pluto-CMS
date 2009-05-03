@@ -1,4 +1,5 @@
 class FileclipsController < ApplicationController
+  skip_before_filter :login_required , :only => [:index,:show]
   # GET /fileclips
   # GET /fileclips.xml
   def index
