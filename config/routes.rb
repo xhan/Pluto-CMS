@@ -16,7 +16,8 @@ ActionController::Routing::Routes.draw do |map|
       section.resources :pages, :only => [:new,:create]
     end
     cms.resources :templets, :member => {:check  => :get }
-    cms.resources :pages ,:only => [:show,:edit,:update]
+    cms.resources :pages ,:only => [:show,:edit,:update]                 
+    cms.resources :stickers
   end
   
   # routes for forums

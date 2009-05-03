@@ -12,4 +12,5 @@
 
 class StickerNode < ActiveRecord::Base    
   belongs_to :templet
+  named_scope :with_name , lambda{|name| {:conditions => ['name = ?',name] }}
 end

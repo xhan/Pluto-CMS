@@ -1,6 +1,9 @@
 class Cms::PagesController < Cms::ApplicationController
+  
   before_filter :setup
+  
   def index
+    @pages = Page.all
   end
 
   def new             
@@ -9,8 +12,13 @@ class Cms::PagesController < Cms::ApplicationController
   
   def show
     unless @page
-      render :text => "its under testing!" and return
+      url =  '/' + params[:path].join('/')
+      @page = Page.with_path(url).first
+      unless @page
+        render :text => "its under testing!" and return        
+      end
     end  
+    # render :text =>  @templet.@page_title and return 
     
     respond_to do |wants|
       wants.html  do 
@@ -30,6 +38,8 @@ class Cms::PagesController < Cms::ApplicationController
   end
 
   def edit
+    session[:edit] =  !session[:edit] 
+    redirect_to :action  => :show
   end
 
   def update

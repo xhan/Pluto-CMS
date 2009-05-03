@@ -1,7 +1,7 @@
 class Cms::StickersController < Cms::ApplicationController
   before_filter :setup
   def index
-    @stickers = Sticker.all
+    @stickers = Sticker.all 
   end
 
   def new
@@ -32,6 +32,9 @@ class Cms::StickersController < Cms::ApplicationController
 
 private
   def setup
-    @sticker = Sticker.find params[:id]
+    @sticker = Sticker.find_if params[:id] 
+    @sticker = Sticker.new unless params[:id]
+    @page = Page.find_if params[:page_id]
+    @sticker_node = StickerNode.find_if params[:sticker_node_id]
   end
 end

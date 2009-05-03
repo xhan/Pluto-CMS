@@ -1,2 +1,8 @@
-<h1>Cms::Stickers#new</h1>
-<p>Find me in app/views/cms/stickers/new.html.erb</p>
+<%#= @template.@page_title %>
+<% set_title '新建贴纸'%>    
+<%= error_messages_for :sticker %>
+
+<% form_for @sticker do |f| -%>
+  <%= f.text_area :content %>
+<%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<% end -%>

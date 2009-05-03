@@ -1,2 +1,8 @@
-<h1>Cms::Pages#index</h1>
-<p>Find me in app/views/cms/pages/index.html.erb</p>
+<% set_title "页面浏览" %>
+<% if !@pages.blank? %>
+  <% for page in @pages %>
+    <%= page.name  %> | <%= link_to page.path,page.path%> | <%= link_to "edit", edit_cms_page_path(page) %>
+  <% end %>
+<% else %>
+   no page exist ,<%= link_to "create on", cms_sections_path %>
+<% end %>

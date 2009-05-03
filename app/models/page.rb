@@ -28,6 +28,8 @@ class Page < ActiveRecord::Base
   validates_presence_of :name, :title, :path ,:templet
   validates_format_of :name, :with => /\A[^\/]*\Z/, :message => "cannot contain '/'"
   
+  named_scope :with_path ,lambda{|path| {:conditions => ['path = ?',path] }}
+  
   def before_save
     mount = self.class.count(:conditions => {:section_id  => self.section_id  } )
     position = mount + 1
