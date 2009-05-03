@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :fileclips
+
 
   # Global routes for Session 
   map.with_options(:controller => "session" ) do |session|

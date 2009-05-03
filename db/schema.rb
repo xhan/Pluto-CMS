@@ -9,7 +9,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090502131506) do
+ActiveRecord::Schema.define(:version => 20090503130539) do
+
+  create_table "con_stickers", :force => true do |t|
+    t.integer  "sticker_node_id"
+    t.integer  "page_id"
+    t.integer  "sticker_id"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fileclips", :force => true do |t|
+    t.string   "f_file_name"
+    t.string   "f_content_type"
+    t.integer  "f_file_size"
+    t.datetime "f_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "forum_posts", :force => true do |t|
     t.integer  "forum_topic_id"

@@ -1,0 +1,27 @@
+<%= image_tag @fileclip.f.url %>
+<%= image_tag @fileclip.f.url(:medium) %>
+<%= image_tag @fileclip.f.url(:thumb) %>
+
+<p>
+  <b>F file name:</b>
+  <%=h @fileclip.f_file_name %>
+</p>
+
+<p>
+  <b>F content type:</b>
+  <%=h @fileclip.f_content_type %>
+</p>
+
+<p>
+  <b>F file size:</b>
+  <%=h @fileclip.f_file_size %>
+</p>
+
+<p>
+  <b>F updated at:</b>
+  <%=h @fileclip.f_updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_fileclip_path(@fileclip) %> |
+<%= link_to 'Back', fileclips_path %>

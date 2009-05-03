@@ -1,0 +1,28 @@
+<h1>Editing fileclip</h1>
+
+<% form_for(@fileclip) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :f_file_name %><br />
+    <%= f.text_field :f_file_name %>
+  </p>
+  <p>
+    <%= f.label :f_content_type %><br />
+    <%= f.text_field :f_content_type %>
+  </p>
+  <p>
+    <%= f.label :f_file_size %><br />
+    <%= f.text_field :f_file_size %>
+  </p>
+  <p>
+    <%= f.label :f_updated_at %><br />
+    <%= f.datetime_select :f_updated_at %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @fileclip %> |
+<%= link_to 'Back', fileclips_path %>
