@@ -24,7 +24,7 @@ class Cms::StickersController < Cms::ApplicationController
                             )
       end
       flash[:notice] = "new sticker has been saved"
-      # redirect_to cms_stickers_path
+      redirect_to cms_stickers_path
     else
       flash[:notice] = "but it doesnt works,try again"
       render :action => "new"

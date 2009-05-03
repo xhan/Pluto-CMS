@@ -13,4 +13,10 @@
 class StickerNode < ActiveRecord::Base    
   belongs_to :templet
   named_scope :with_name , lambda{|name| {:conditions => ['name = ?',name] }}
+  has_many :con_stickers, :class_name => "ConSticker"
+  
+  def stickers_in_page_id page_id
+    self.con_stickers.with_page_id(page_id).map(&:sticker)
+  end
+  
 end

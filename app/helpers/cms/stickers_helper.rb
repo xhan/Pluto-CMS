@@ -2,12 +2,20 @@ module Cms::StickersHelper
     
   def sticker_tag sym , &block
     str_out = ""
-    str_out = "#{sym.to_s} is empty in #{@page.path}"   
     @templet = @page.templet                                       
     # TODO  if not found a node , whether or not to create a node ?
     # =>    here is default to set to find a exist
-    sticker_node = @templet.sticker_nodes.with_name(sym.to_s).first
-    str_out +=edit_tag(sticker_node.id,@page.id) if session[:edit]
+    node = @templet.sticker_nodes.with_name(sym.to_s).first
+    stickers = node.stickers_in_page_id(@page.id)         
+    if  !stickers.blank?
+      for s in stickers
+        str_out += content_tag(:div,s.content,:class => "sticker")
+      end 
+    else
+      str_out = "#{sym.to_s} is empty in #{@page.path}"
+    end
+    #edit 
+    str_out +=edit_tag(node.id,@page.id) if session[:edit]
     return str_out
   end                         
   

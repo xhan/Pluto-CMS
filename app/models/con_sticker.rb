@@ -23,12 +23,18 @@ class ConSticker < ActiveRecord::Base
   belongs_to :sticker
            
   named_scope :stickers_in_page , lambda{|node_id,page_id| {:conditions => {:sticker_node_id => node_id,:page_id => page_id }, :order  => 'position' }}                 
-  
-  before_save :add_position
-  
+  named_scope :with_page_id , lambda{|page_id| {:conditions => {:page_id => page_id} ,:order  => 'position'}}
+ # TODO  seems that  before_save does not work , using  function before_save instead
+#  before_save :add_position
+
   # def links()
   #   
   # end 
+  
+  def before_save
+    add_position
+  end           
+  
   
   def add_position
     amount = self.class.stickers_in_page(self.sticker_node_id,self.page_id).count
