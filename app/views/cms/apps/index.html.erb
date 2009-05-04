@@ -1,0 +1,22 @@
+<h1>Listing apps</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Class name</th>
+  </tr>
+
+<% @apps.each do |app| %>
+  <tr>
+    <td><%=h app.name %></td>
+    <td><%=h app.class_name %></td>
+    <td><%= link_to 'Show', app %></td>
+    <td><%= link_to 'Edit', edit_app_path(app) %></td>
+    <td><%= link_to 'Destroy', app, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New apps', new_cms_app_path %>
