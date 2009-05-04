@@ -164,6 +164,7 @@ ActiveRecord::Schema.define(:version => 20090504113814) do
     t.datetime "datetime_29"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "app_name"
   end
 
   create_table "apps", :force => true do |t|
