@@ -1,13 +1,13 @@
 <p>
   <b>Name:</b>
-  <%=h @apps.name %>
+  <%=h @app.name %>
 </p>
 
 <p>
   <b>Class name:</b>
-  <%=h @apps.class_name %>
+  <%=h @app.class_name %>
 </p>
 
 
-<%= link_to 'Edit', edit_apps_path(@apps) %> |
-<%= link_to 'Back', apps_path %>
+<%= link_to 'Edit', edit_cms_app_path(@app) %> |
+<%= link_to 'Back', cms_apps_path %>

@@ -1,6 +1,6 @@
-<h1>Editing apps</h1>
+<h1>Editing app</h1>
 
-<% form_for(@apps) do |f| %>
+<% form_for([:cms,@app]) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -16,5 +16,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @apps %> |
-<%= link_to 'Back', apps_path %>
+<%= link_to 'Show', [:cms,@app] %> |
+<%= link_to 'Back', cms_apps_path %>

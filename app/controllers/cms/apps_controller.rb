@@ -45,7 +45,7 @@ class Cms::AppsController < Cms::ApplicationController
     respond_to do |format|
       if @app.save
         flash[:notice] = 'App was successfully created.'
-        format.html { redirect_to(@app) }
+        format.html { redirect_to([:cms,@app]) }
         format.xml  { render :xml => @app, :status => :created, :location => @apps }
       else
         format.html { render :action => "new" }
@@ -62,7 +62,7 @@ class Cms::AppsController < Cms::ApplicationController
     respond_to do |format|
       if @app.update_attributes(params[:app])
         flash[:notice] = 'Apps was successfully updated.'
-        format.html { redirect_to(@app) }
+        format.html { redirect_to([:cms,@app]) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -78,7 +78,7 @@ class Cms::AppsController < Cms::ApplicationController
     @app.destroy
 
     respond_to do |format|
-      format.html { redirect_to(apps_url) }
+      format.html { redirect_to(cms_apps_url) }
       format.xml  { head :ok }
     end
   end
