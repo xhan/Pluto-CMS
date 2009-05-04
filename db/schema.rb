@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090504083728) do
+ActiveRecord::Schema.define(:version => 20090504113814) do
 
   create_table "app_bases", :force => true do |t|
     t.string   "string_0"
@@ -162,6 +162,13 @@ ActiveRecord::Schema.define(:version => 20090504083728) do
     t.integer  "integer_29"
     t.integer  "foreign_29"
     t.datetime "datetime_29"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "apps", :force => true do |t|
+    t.string   "name"
+    t.string   "class_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

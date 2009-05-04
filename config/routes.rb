@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  
+
   map.resources :fileclips
 
 
@@ -20,6 +22,7 @@ ActionController::Routing::Routes.draw do |map|
     cms.resources :templets, :member => {:check  => :get }
     cms.resources :pages ,:only => [:show,:edit,:update]                 
     cms.resources :stickers
+    cms.resources :apps
   end
   
   # routes for forums
