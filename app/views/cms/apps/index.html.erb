@@ -10,9 +10,9 @@
   <tr>
     <td><%=h app.name %></td>
     <td><%=h app.class_name %></td>
-    <td><%= link_to 'Show', app %></td>
-    <td><%= link_to 'Edit', edit_app_path(app) %></td>
-    <td><%= link_to 'Destroy', app, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', [:cms,app] %></td>
+    <td><%= link_to 'Edit', edit_cms_app_path(app) %></td>
+    <td><%= link_to 'Destroy', [:cms,app], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

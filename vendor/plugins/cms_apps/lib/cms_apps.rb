@@ -8,9 +8,11 @@ module CmsApps
         
         class CmsLinkHelper 
            
-          # render every
+          TYPE = %w|string,integer,text,datetime,foreign|.freeze 
+          #hook methods here
           def method_missing symbol ,*arg
-           # "Warning : The Function Name #{symbol.to_s} doesnot Exist!";
+           super(symbol,*arg) unless TYPE.size == (TYPE - [symbol.to_s] ).size + 1
+           # hooks
            
           end
           

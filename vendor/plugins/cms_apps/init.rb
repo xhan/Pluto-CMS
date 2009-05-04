@@ -1,1 +1,1 @@
-ActiveRecord::Base.send :include, CmsApps
+# ActiveRecord::Base.send :include, CmsApps
