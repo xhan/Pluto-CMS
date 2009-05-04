@@ -1,2 +1,3 @@
-class AppBase < ActiveRecord::Base
+class AppBase < ActiveRecord::Base                  
+  
 end
