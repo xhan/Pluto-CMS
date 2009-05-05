@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090504113814) do
+ActiveRecord::Schema.define(:version => 20090505065135) do
 
   create_table "app_bases", :force => true do |t|
     t.string   "string_0"
@@ -173,6 +173,20 @@ ActiveRecord::Schema.define(:version => 20090504113814) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "comments", :force => true do |t|
+    t.string   "title",            :limit => 50, :default => ""
+    t.text     "comment"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
+  add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "con_stickers", :force => true do |t|
     t.integer  "sticker_node_id"
