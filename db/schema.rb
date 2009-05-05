@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090505065135) do
+ActiveRecord::Schema.define(:version => 20090505074406) do
 
   create_table "app_bases", :force => true do |t|
     t.string   "string_0"
@@ -164,7 +164,7 @@ ActiveRecord::Schema.define(:version => 20090505065135) do
     t.datetime "datetime_29"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "app_name"
+    t.string   "type"
   end
 
   create_table "apps", :force => true do |t|
