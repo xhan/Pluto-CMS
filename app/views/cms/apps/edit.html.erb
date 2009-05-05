@@ -1,6 +1,10 @@
 <h1>Editing app</h1>
-
-<% form_for([:cms,@app]) do |f| %>
+<%= link_to 'Show', [:cms,@app] %> |
+<%= link_to 'Back', cms_apps_path %>
+<% form_for([:cms,@app]) do |f| %>   
+<p>
+  <%= f.submit 'Update' %>
+</p>
   <%= f.error_messages %>
 
   <p>
@@ -11,10 +15,56 @@
     <%= f.label :class_name %><br />
     <%= f.text_field :class_name %>
   </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
+
+<hr>
+<p>
+	<%= f.label :show_block, "Show Block" %> <br/>
+	<%= f.text_area :show_block ,:rows => 8, :cols => 60%>                                                                                                                          
+</p>                                                                                                                                                        
+<p>
+	<% if !@app.trs.visibles.blank? %>
+	  <% for item in @app.trs.visibles %>
+	    <%= button_to_function item.name , "textboxReplaceSelect($('#app_show_block')[0],'&lt;%=show.#{item.name}%&gt;')" %>
+	  <% end %>
+	<% else %>
+	    请先在应用中添加动态内容。
+	<% end %>
+	
+</p> 
+<p>
+	<%= f.label :list_block, "Show Block" %> <br/>
+	<%= f.text_area :list_block ,:rows => 8, :cols => 60%>                                                                                                                          
+</p>
+<p>
+	<% if !@app.trs.visibles.blank? %>
+	  <% for item in @app.trs.visibles %>
+	    <%= button_to_function item.name , "textboxReplaceSelect($('#app_list_block')[0],'&lt;%=list.#{item.name}%&gt;')" %>
+	  <% end %>
+	<% else %>
+	    请先在应用中添加动态内容。
+	<% end %>
+	
+</p> 
+<p>
+  <%= f.submit 'Update' %>
+</p>
 <% end %>
 
-<%= link_to 'Show', [:cms,@app] %> |
-<%= link_to 'Back', cms_apps_path %>
+
+<hr>
+   
+<script type="text/javascript">
+function textboxReplaceSelect (oTextbox, sText) {
+if (false) {
+var oRange = document.selection.createRange();
+oRange.text = sText;
+oRange.collapse(true);
+oRange.select();
+} else if (true) {
+var iStart = oTextbox.selectionStart;
+oTextbox.value = oTextbox.value.substring(0, iStart) + sText + oTextbox.value.substring(oTextbox.selectionEnd, oTextbox.value.length);
+oTextbox.setSelectionRange(iStart + sText.length, iStart + sText.length);
+}
+oTextbox.focus();
+}             
+</script>
