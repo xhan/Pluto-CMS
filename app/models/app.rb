@@ -17,7 +17,7 @@
 class App < ActiveRecord::Base
   # acts_as_commentable
   # has_many :app_attributes
-  has_many :trs, :class_name => "AppAttribute", :foreign_key => "app_id"
+  has_many :trs, :class_name => "AppAttribute", :foreign_key => "app_id" , :dependent => :destroy
     
   BASE_TYPE = %w[integer string datetime text]
   # used in select options

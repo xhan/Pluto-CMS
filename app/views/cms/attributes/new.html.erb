@@ -3,8 +3,8 @@
 <% remote_form_for @app_attribute, :url => cms_app_attributes_path(@app) do |f| -%>
   <%= f.label :name, "Name" %>
   <%= f.text_field :name ,:class => "text"%>
-	<%= f.label :type, "Type" %>
-	<%= f.select :type , App.type_select,:include_blank => true  %>   
+	<%= f.label :category, "Type" %>
+	<%= f.select :category , App.type_select,:include_blank => true  %>   
 	<%= f.label :link_name, "Link Name" %>
 	<%= f.select :link_name, eval(@app.table_source).select_attr %>   
 	<%= f.submit "Submit" %>

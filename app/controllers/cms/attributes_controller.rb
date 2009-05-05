@@ -22,7 +22,7 @@ class Cms::AttributesController < ApplicationController
         render :update do |page|  
           if @app_attribute.save
             page<<"tb_remove()"
-            page.insert_html :after, "app_attributes", :partial => 'attribute',:object => @app_attribute 
+            page.insert_html :bottom, "app_attributes", :partial => 'attribute',:object => @app_attribute 
           else
             page.alert "errors"
           end

@@ -8,7 +8,7 @@ class AddColumnApp < ActiveRecord::Migration
   end
 
   def self.down
-    # remove_column :apps, :table_source
+    remove_column :apps, :table_source
     remove_column :apps, :type
     remove_column :apps, :list_block
     remove_column :apps, :show_block
