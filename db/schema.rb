@@ -186,6 +186,7 @@ ActiveRecord::Schema.define(:version => 20090505082027) do
     t.text     "show_block"
     t.text     "list_block"
     t.integer  "type"
+    t.string   "table_source"
   end
 
   create_table "comments", :force => true do |t|

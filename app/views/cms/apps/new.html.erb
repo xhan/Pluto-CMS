@@ -2,7 +2,10 @@
 
 <% form_for([:cms,@app]) do |f| %>
   <%= f.error_messages %>
-
+  <p>
+  	<%= f.label :table_source, "Table Source" %>
+	<%= f.select :table_source,[['Default','AppBase']] %>
+  </p>
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>

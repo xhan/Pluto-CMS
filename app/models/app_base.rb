@@ -1,3 +1,4 @@
+
 class AppBase < ActiveRecord::Base                  
 =begin
   TODO 1 hidden not use properties  in console  hook to_s doesnt works
@@ -12,7 +13,10 @@ class AppBase < ActiveRecord::Base
   # end  
 
   class << self       
-                                 
+                                               
+    def select_attr
+      ( column_names - ["id",'created_at','updated_at'] ).map{ |f| [f,f] }
+    end                                 
     def inherited subclass 
       super if defined? super
       subclass.class_eval do

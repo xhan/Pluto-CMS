@@ -1,13 +1,26 @@
+<% set_title "查看应用 #{@app.name}" %>
+<%= link_to 'Edit', edit_cms_app_path(@app) %> |
+<%= link_to 'Back', cms_apps_path %>
 <p>
   <b>Name:</b>
   <%=h @app.name %>
 </p>
-
+<p>
+  <b>table name:</b>
+  <%=h @app.table_source %>
+</p
 <p>
   <b>Class name:</b>
   <%=h @app.class_name %>
+</p>     
+
+<p>
+  <b>Attributes </b>
+	<table id = 'app_attributes'>
+		<tr><td>显示名称</td><td>类型</td><td>映射</td></tr>
+		<%= render :partial => 'cms/attributes/attribute', :collection => @trs %>
+	</table>                                        
+	<%= thickbox_outline '添加属性',new_cms_app_attribute_path(@app),{:title => 'ADD NEW PROPERTY'} %>
+  		
 </p>
 
-
-<%= link_to 'Edit', edit_cms_app_path(@app) %> |
-<%= link_to 'Back', cms_apps_path %>
