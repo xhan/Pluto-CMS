@@ -40,6 +40,7 @@ doc\:clobber_plugins=Remove plugin documentation
 doc\:clobber_rails=Remove rdoc products
 doc\:guides=Generate Rails guides
 doc\:plugins=Generate documentation for all installed plugins
+doc\:plugins\:acts_as_commentable=Generate documentation for the acts_as_commentable plugin
 doc\:plugins\:acts_as_tree=Generate documentation for the acts_as_tree plugin
 doc\:plugins\:acts_as_versioned=Generate documentation for the acts_as_versioned plugin
 doc\:plugins\:annotate_models=Generate documentation for the annotate_models plugin

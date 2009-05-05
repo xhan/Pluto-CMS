@@ -18,7 +18,7 @@
   <b>Attributes </b>
 	<table id = 'app_attributes'>
 		<tr><td>显示名称</td><td>类型</td><td>映射</td></tr>
-		<%= render :partial => 'cms/attributes/attribute', :collection => @trs %>
+		<%= render :partial => 'cms/attributes/attribute', :collection => @trs.visibles %>
 	</table>                                        
 	<%= thickbox_outline '添加属性',new_cms_app_attribute_path(@app),{:title => 'ADD NEW PROPERTY'} %>
   		

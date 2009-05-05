@@ -14,7 +14,7 @@ class Cms::AppsController < Cms::ApplicationController
   # GET /apps/1.xml
   def show
     @app = App.find(params[:id],:include => :trs)
-    @trs = @app.trs.visibles
+    @trs = @app.trs
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @app }
