@@ -9,7 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090505074406) do
+ActiveRecord::Schema.define(:version => 20090505082027) do
+
+  create_table "app_attributes", :force => true do |t|
+    t.integer  "app_id"
+    t.string   "name"
+    t.string   "type"
+    t.boolean  "hidden",     :default => false
+    t.string   "link_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "app_bases", :force => true do |t|
     t.string   "string_0"
@@ -172,6 +182,10 @@ ActiveRecord::Schema.define(:version => 20090505074406) do
     t.string   "class_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "edit_block"
+    t.text     "show_block"
+    t.text     "list_block"
+    t.integer  "type"
   end
 
   create_table "comments", :force => true do |t|
