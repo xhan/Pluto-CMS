@@ -17,13 +17,13 @@ class Cms::StickersController < Cms::ApplicationController
     if @sticker.save
       # connect page sticker node
       if @page && @sticker_node
-          ConSticker.create(:sticker_node  => @sticker_node ,
-                            :page          => @page,
-                            :sticker       => @sticker
+          @sticker.con_stickers.create(:sticker_node  => @sticker_node ,
+                            :page          => @page
                             )
       end
       flash[:notice] = "new sticker has been saved"
-      redirect_to cms_stickers_path
+      redirect_to @page.path
+      # go_back
     else
       flash[:notice] = "but it doesnt works,try again"
       render :action => "new"

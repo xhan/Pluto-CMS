@@ -85,7 +85,13 @@ li{
 </script>
 <% end -%>
 <%= link_to "Create new Section", new_cms_section_path %>
-<h2>Root Sites</h2>
+ 
+<div class="bubbleInfo">
+	<div class="trigger"><h2>Root Sites</h2></div>
+	<div class="popup">
+		<%= addition_fun @root %>
+	</div>
+</div>
 <% list_as_tree @root  do |item| %>
 <div class="bubbleInfo">
 	<div class="trigger"><%= item.name %></div>
