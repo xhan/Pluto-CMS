@@ -23,5 +23,37 @@ class App < ActiveRecord::Base
   # used in select options
   def self.type_select
     BASE_TYPE.map{ |v| [v,v] }
+  end                                       
+  
+  # include Plutocms::FileRecord                 
+  APP_FOLDER = "cms_apps"
+  APPLAYOUT_PATH = "#{RAILS_ROOT}/app/views/#{APP_FOLDER}"
+  
+
+  
+  def publish!
+    Dir.mkdir APPLAYOUT_PATH unless File.exist? APPLAYOUT_PATH
+    Dir.mkdir main_path unless File.exist? main_path
+    write_file 'show' , show_block
+    write_file 'list' , list_block
+    write_file 'edit' , edit_block
+    update_attribute :published_at , Time.now
   end
+  
+  def render_path partial_name
+    main_path + "/_#{partial_name}"
+  end
+  
+  private 
+  
+  def main_path
+     APPLAYOUT_PATH + "/#{self.class_name.underscore}"
+  end
+  
+  def write_file name,content
+    open "#{main_path}/_#{name}.html.erb","w" do |file|
+      file.puts content
+    end 
+  end                  
+  
 end

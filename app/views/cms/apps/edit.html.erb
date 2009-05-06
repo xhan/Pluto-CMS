@@ -46,6 +46,20 @@
 	
 </p> 
 <p>
+	<%= f.label :edit_block, "Edit Block" %>  貌似这个不需要<br/>
+	<%= f.text_area :edit_block ,:rows => 8, :cols => 60%>                                                                                                                          
+</p>
+<p>
+	<% if !@app.trs.visibles.blank? %>
+	  <% for item in @app.trs.visibles %>
+	    <%= button_to_function item.name , "textboxReplaceSelect($('#app_list_block')[0],'&lt;%=list.#{item.name}%&gt;')" %>
+	  <% end %>
+	<% else %>
+	    请先在应用中添加动态内容。
+	<% end %>
+	
+</p>
+<p>
   <%= f.submit 'Update' %>
 </p>
 <% end %>

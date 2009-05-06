@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090505113652) do
+ActiveRecord::Schema.define(:version => 20090506045733) do
 
   create_table "app_attributes", :force => true do |t|
     t.integer  "app_id"
@@ -187,6 +187,7 @@ ActiveRecord::Schema.define(:version => 20090505113652) do
     t.text     "list_block"
     t.integer  "category"
     t.string   "table_source"
+    t.datetime "published_at"
   end
 
   create_table "comments", :force => true do |t|
