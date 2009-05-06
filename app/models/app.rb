@@ -16,7 +16,8 @@
 
 class App < ActiveRecord::Base
   # acts_as_commentable
-  # has_many :app_attributes
+  # has_many :app_attributes       
+  has_many :widget_stickers
   has_many :trs, :class_name => "AppAttribute", :foreign_key => "app_id" , :dependent => :destroy
   # has_many :app_attributes , :conditions => "value",   
   BASE_TYPE = %w[integer string datetime text]
