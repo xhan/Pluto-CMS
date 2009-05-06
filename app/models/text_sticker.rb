@@ -1,0 +1,2 @@
+class TextSticker < Sticker
+end

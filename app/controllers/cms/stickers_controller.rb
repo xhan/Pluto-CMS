@@ -13,7 +13,6 @@ class Cms::StickersController < Cms::ApplicationController
   
   def create
 
-    
     @sticker = Sticker.new params[:sticker]
     if @sticker.save
       # connect page sticker node

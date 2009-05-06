@@ -1,0 +1,2 @@
+class WidgetSticker < Sticker
+end

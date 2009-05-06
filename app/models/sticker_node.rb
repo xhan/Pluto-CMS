@@ -16,7 +16,7 @@ class StickerNode < ActiveRecord::Base
   has_many :con_stickers, :class_name => "ConSticker"
   
   def stickers_in_page_id page_id
-    self.con_stickers.with_page_id(page_id).map(&:sticker)
+    self.con_stickers.with_page_id(page_id).map(&:refer)
   end
   
 end

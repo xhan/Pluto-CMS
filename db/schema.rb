@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090506045733) do
+ActiveRecord::Schema.define(:version => 20090506080355) do
 
   create_table "app_attributes", :force => true do |t|
     t.integer  "app_id"
@@ -207,10 +207,11 @@ ActiveRecord::Schema.define(:version => 20090506045733) do
   create_table "con_stickers", :force => true do |t|
     t.integer  "sticker_node_id"
     t.integer  "page_id"
-    t.integer  "sticker_id"
+    t.integer  "refer_id"
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "refer_type"
   end
 
   create_table "fileclips", :force => true do |t|
@@ -321,6 +322,7 @@ ActiveRecord::Schema.define(:version => 20090506045733) do
     t.datetime "published_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
   end
 
   create_table "templates", :force => true do |t|

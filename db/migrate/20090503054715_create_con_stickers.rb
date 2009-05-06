@@ -7,7 +7,7 @@ class CreateConStickers < ActiveRecord::Migration
       t.integer :position
       t.timestamps
     end
-    add_index :con_stickers,[:sticker_node_id,:sticker_id, :page_id]
+    add_index :con_stickers,[:sticker_node_id, :page_id]
   end
 
   def self.down

@@ -20,19 +20,14 @@ class ConSticker < ActiveRecord::Base
   
   belongs_to :sticker_node
   belongs_to :page
-  belongs_to :sticker
+  belongs_to :refer , :polymorphic => true
            
   named_scope :stickers_in_page , lambda{|node_id,page_id| {:conditions => {:sticker_node_id => node_id,:page_id => page_id }, :order  => 'position' }}                 
   named_scope :with_page_id , lambda{|page_id| {:conditions => {:page_id => page_id} ,:order  => 'position'}}
- # TODO  seems that  before_save does not work , using  function before_save instead
-#  before_save :add_position
-
-  # def links()
-  #   
-  # end 
+ 
   
   def before_save
-    add_position
+    self.add_position
   end           
   
   

@@ -13,5 +13,5 @@
 
 class Sticker < ActiveRecord::Base
    validates_presence_of :content
-   has_many :con_stickers
+   has_many :con_stickers , :as => :refer
 end
