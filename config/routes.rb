@@ -21,7 +21,7 @@ ActionController::Routing::Routes.draw do |map|
     end
     cms.resources :templets, :member => {:check  => :get }
     cms.resources :pages ,:only => [:show,:edit,:update]                 
-    cms.resources :stickers
+    cms.resources :stickers, :member => {:select  => :post}
     cms.resources :apps ,:has_many  => [:attributes]
   end
   

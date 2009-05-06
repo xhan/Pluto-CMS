@@ -8,8 +8,10 @@ module Cms::StickersHelper
     node = @templet.sticker_nodes.with_name(sym.to_s).first
     stickers = node.stickers_in_page_id(@page.id)         
     if  !stickers.blank?
-      for s in stickers
+      for s in stickers                                           
+        #text 
         str_out += content_tag(:div,s.content,:class => "sticker")
+        #widget TODO dynamic erb content seems will not be exec
       end 
     else                
       # TODO block controll
