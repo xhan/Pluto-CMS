@@ -22,7 +22,9 @@ ActionController::Routing::Routes.draw do |map|
     cms.resources :templets, :member => {:check  => :get }
     cms.resources :pages ,:only => [:show,:edit,:update]                 
     cms.resources :stickers, :member => {:select  => :post}
-    cms.resources :apps ,:has_many  => [:attributes]
+    cms.resources :apps ,:has_many  => [:attributes]    
+    cms.resources :groups 
+    cms.resources :users
   end
   
   # routes for forums

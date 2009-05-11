@@ -58,24 +58,26 @@ class App < ActiveRecord::Base
     end
   end 
 
-  private 
+  # private 
 
  def render_content action_name
    case action_name
    when "show"                                                                                                
       <<-EOS
        if  render_value = Apps::#{class_name}.find_if(params[:id])
-       <%= render :partial => #{render_path(action_name)} , :object => render_value %>
+        render :partial => "#{render_path(action_name)}" , :object => render_value 
        else                                                                        
          "暂时没有信息哟！"
+       end
       EOS
     when "list"
       <<-EOS
       render_value = Apps::#{class_name}.all
        if !render_value.blank? 
-       <%= render :partial => #{render_path(action_name)} , :collection => render_value %>
+        render :partial => "#{render_path(action_name)}" , :collection => render_value 
        else                                                                        
          "暂时没有信息哟！"
+       end
       EOS
    end
  end

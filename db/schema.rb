@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090506081259) do
+ActiveRecord::Schema.define(:version => 20090509074832) do
 
   create_table "app_attributes", :force => true do |t|
     t.integer  "app_id"
@@ -259,6 +259,34 @@ ActiveRecord::Schema.define(:version => 20090506081259) do
     t.datetime "updated_at"
   end
 
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.boolean  "cms_user"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups_permissions", :id => false, :force => true do |t|
+    t.integer  "group_id"
+    t.integer  "permission_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "groups_permissions", ["group_id"], :name => "index_groups_permissions_on_group_id"
+  add_index "groups_permissions", ["permission_id"], :name => "index_groups_permissions_on_permission_id"
+
+  create_table "groups_users", :id => false, :force => true do |t|
+    t.integer  "group_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "groups_users", ["group_id"], :name => "index_groups_users_on_group_id"
+  add_index "groups_users", ["user_id"], :name => "index_groups_users_on_user_id"
+
   create_table "page_versions", :force => true do |t|
     t.integer  "page_id"
     t.integer  "version"
@@ -294,6 +322,13 @@ ActiveRecord::Schema.define(:version => 20090506081259) do
     t.integer  "updated_by_id"
     t.integer  "section_id"
     t.integer  "position"
+  end
+
+  create_table "permissions", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sections", :force => true do |t|

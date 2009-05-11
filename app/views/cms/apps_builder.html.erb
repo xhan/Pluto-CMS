@@ -1,0 +1,9 @@
+class Apps::<%= class_name %> < <%= table_source %>
+  
+  <% unless trs.visibles.blank? %>
+    <% for item in trs.visibles %>
+      <%= "cms_attr_link :#{item.name} , :#{item.link_name}" %>
+    <% end %>
+  <% end %>
+
+end
