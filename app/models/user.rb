@@ -37,7 +37,9 @@ class User < ActiveRecord::Base
   after_save  :handle_after_save
                         
   has_one :forum_profile, :class_name => "ForumUserProfile"
-  
+  has_and_belongs_to_many :groups
+  # has_many :permissions ,  :through => :groups
+  # TODO it seems cannot use through within habtm 
   # => Class methods -------------------------------------------------
   def self.authenticate login,pass
     u = find_by_login(login)
@@ -49,6 +51,8 @@ class User < ActiveRecord::Base
   end
   
   # => instance methods -------------------------------------------------
+  
+
   
   def handle_after_save
     create_forum_profile(:is_active  => true)
@@ -90,6 +94,37 @@ class User < ActiveRecord::Base
     end
     save!
   end
+  
+  # => Permission methods
+  def permissions
+    @permissions ||= Permission.find(:all, :include => {:groups => :users}, :conditions => ["users.id = ?", id])
+  end                    
+
+  
+  def able_to?(*required_permissions)
+    perms = permissions.map(&:name)
+    reqs = required_permissions.map(&:to_s)
+    reqs.each do |p|
+      return false unless perms.include? p
+    end                                   
+    true
+  end
+
+  # able to any of pars permission
+  def able_to_any?(*required_permissions)
+    perms = required_permissions.map(&:to_sym)
+    permissions.any? do |p| 
+      perms.include?(p.name.to_sym) 
+    end
+  end
+  
+  def cms_user?
+    groups.any? do |g|
+      g.cms_user?
+    end
+  end
+  # => End of Permission methods
+  
   # => protected methods -------------------------------------------------
   
   protected

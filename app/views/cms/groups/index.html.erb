@@ -1,0 +1,19 @@
+<% set_title "Group List" %>
+<%= link_to "new group", new_cms_group_path %>
+<table>
+	<thead>
+		<tr><td>Name</td><td>Type</td><td>Permission</td></tr>
+	</thead>                                        
+	<% if !@groups.blank? %>
+	  <% for group in @groups %>
+		<tr>
+			<td><%= link_to group.name ,edit_cms_group_path(group)%></td>
+			<td><%= group.cms_user? ? "CMS" : "Public" %></td>
+			<td><%= group.description %></td>
+		</tr>
+	  <% end %>
+	<% else %>
+	
+	<% end %>
+	
+</table>

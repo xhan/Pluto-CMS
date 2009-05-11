@@ -17,7 +17,7 @@ ActionController::Routing::Routes.draw do |map|
     cms.root :controller => "home", :action => "dashboard"
     
     cms.resources :sections, :member => {:position => :put}  do |section|
-      section.resources :pages, :only => [:new,:create]
+      section.resources :pages, :only => [:new,:create,:index]
     end
     cms.resources :templets, :member => {:check  => :get }
     cms.resources :pages ,:only => [:show,:edit,:update]                 

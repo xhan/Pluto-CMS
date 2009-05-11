@@ -31,7 +31,10 @@ class Page < ActiveRecord::Base
   named_scope :with_path ,lambda{|path| {:conditions => ['path = ?',path] }}
   
   def before_save
-    mount = self.class.count(:conditions => {:section_id  => self.section_id  } )
-    position = mount + 1
+    # mount = self.class.count(:conditions => {:section_id  => self.section_id  } )
+    # position = mount + 1
+    # mount = self.class.count(:conditions => {:section_id  => self.section_id  } ) + self.section.children.count
+    
+    position = self.section.child_size + 1
   end
 end

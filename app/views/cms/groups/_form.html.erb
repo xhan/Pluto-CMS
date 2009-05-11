@@ -1,0 +1,21 @@
+<% form_for [:cms,@group] do |f| -%>
+	<%= f.label :name, "Name" %>
+	<%= f.text_field :name %>
+	<%= f.label :description, "Description" %>
+	<%= f.text_area :description %>
+	<%= f.label :cms_user, "Belongs to CMS ?" %>
+	<%= f.check_box :cms_user %>            
+	<hr>
+	<b>Global Permission</b>
+	<%= hidden_field_tag "group[permission_ids][]" , "" %>
+	<% if !@permissions.blank? %>
+	  <% for p in @permissions %>
+	    <%= check_box_tag "group[permission_ids][]",p.id ,@group.permissions.include?(p) %>
+		<%= p.name %>
+	  <% end %>
+	<% else %>
+	  Empty
+	<% end %>
+	
+	<%= f.submit "Submit" %>
+<% end -%>

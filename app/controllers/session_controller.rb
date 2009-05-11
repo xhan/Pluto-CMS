@@ -14,7 +14,7 @@ class SessionController < ApplicationController
 
 
   def login
-    go_back  and return if logged_in?
+    # go_back  and return if logged_in?
     # redirect_to :back and return if logged_in?
     @user = User.new
     return unless request.post?

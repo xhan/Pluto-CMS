@@ -20,9 +20,23 @@ class Section < ActiveRecord::Base
   has_many :pages, :order => "position"
   validates_presence_of :name,:path
   validates_format_of :name, :with => /\A[^\/]*\Z/, :message => "cannot contain '/'"
+                                       
+  
   
   def before_save
-    self.position = Section.count(:conditions => {:parent_id => self.parent}) + 1  
-  end              
+    # self.position = Section.count(:conditions => {:parent_id => self.parent}) + 1
+    amount = self.parent.child_size
+    self.position = amount + 1
+  end                                                                
+ 
+=begin
+  TODO Now: section -> childrens  with page  . its coufuse
+       Modify :section_node . page_node  as poly
+=end 
+  
+  def child_size
+    self.class.count(:conditions => {:parent_id => id}) + \
+    Page.count(:conditions => {:section_id  => id} )      
+  end
   
 end

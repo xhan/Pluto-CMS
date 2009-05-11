@@ -3,6 +3,7 @@ class AppBase < ActiveRecord::Base
 =begin
   TODO 1 hidden not use properties  in console  hook to_s doesnt works
        2 protected attributes for not use columns
+       additions to 1 : how do console Model,Model.new display columns works
 =end                                 
                     
   
@@ -11,7 +12,8 @@ class AppBase < ActiveRecord::Base
   #   self.app_name = self.class.name.sub('Apps::','')
   #   # puts "|||||||||||||||||||||||------->  #{app_name},#{title}" 
   # end  
-
+    
+  
   class << self       
                                                
     def select_attr
