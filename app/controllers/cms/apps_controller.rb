@@ -1,6 +1,9 @@
 class Cms::AppsController < Cms::ApplicationController
   # GET /apps
   # GET /apps.xml
+  check_permissions :edit ,:only => [:edit]
+  check_permissions :publish ,:only => [:publish]
+  
   def index
     @apps = App.all
 
@@ -80,6 +83,20 @@ class Cms::AppsController < Cms::ApplicationController
     respond_to do |format|
       format.html { redirect_to(cms_apps_url) }
       format.xml  { head :ok }
+    end
+  end       
+  
+  def publish
+    @app = App.find params[:id]
+    @app.publish!
+    respond_to do |wants|  
+      flash[:notice] = "Publish Success!"
+      wants.html { redirect_to cms_app_path(@app) }
+      wants.js do
+        render :update do |page|
+          page.alert "Update Success!"
+        end
+      end
     end
   end
 end

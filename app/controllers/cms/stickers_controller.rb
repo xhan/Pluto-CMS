@@ -43,7 +43,7 @@ class Cms::StickersController < Cms::ApplicationController
   end       
 
   def edit
-
+     
   end
 
   def update
