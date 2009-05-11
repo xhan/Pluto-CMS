@@ -20,7 +20,10 @@ class Section < ActiveRecord::Base
   has_many :pages, :order => "position"
   validates_presence_of :name,:path
   validates_format_of :name, :with => /\A[^\/]*\Z/, :message => "cannot contain '/'"
-                                       
+  
+  named_scope :with_path ,lambda{|path| {:conditions => ['path = ?',path] }}
+  named_scope :visibles  , :conditions => {:hidden => false}
+  named_scope :hidden    , :conditions => {:hidden => true }
   
   
   def before_save
