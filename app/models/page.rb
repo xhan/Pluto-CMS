@@ -27,8 +27,14 @@ class Page < ActiveRecord::Base
   belongs_to :templet
   validates_presence_of :name, :title, :path ,:templet
   validates_format_of :name, :with => /\A[^\/]*\Z/, :message => "cannot contain '/'"
-  
+  validates_uniqueness_of :path
   named_scope :with_path ,lambda{|path| {:conditions => ['path = ?',path] }}
+              
+  has_many :con_stickers , :dependent => :destroy
+  
+=begin
+  TODO after_destroy  : find a method to resort positions for exists pages ... (sections works same way)
+=end  
   
   def before_save
     # mount = self.class.count(:conditions => {:section_id  => self.section_id  } )
@@ -36,5 +42,9 @@ class Page < ActiveRecord::Base
     # mount = self.class.count(:conditions => {:section_id  => self.section_id  } ) + self.section.children.count
     
     position = self.section.child_size + 1
-  end
+  end   
+  
+  # def after_destroy
+  #   
+  # end    
 end

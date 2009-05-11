@@ -52,9 +52,9 @@ class App < ActiveRecord::Base
   def write_sticker action_name                            
       ws = widget_stickers.with_action(action_name)
     if ws.blank?
-       widget_stickers.create(:action => action_name , :content => render_content(action_name) )
+       widget_stickers.create(:action => action_name , :content => render_content(action_name),:name => "#{name}-#{action_name}"  )
      else    
-       ws[0].update_attribute(:content,render_content(action_name))
+       ws[0].update_attributes(:content => render_content(action_name), :name => "#{name}-#{action_name}" )
     end
   end 
 
@@ -64,7 +64,7 @@ class App < ActiveRecord::Base
    case action_name
    when "show"                                                                                                
       <<-EOS
-       if  render_value = Apps::#{class_name}.find_if(params[:id])
+       if  render_value = Apps::#{class_name}.find_if(@app_id)
         render :partial => "#{render_path(action_name)}" , :object => render_value 
        else                                                                        
          "暂时没有信息哟！"

@@ -14,19 +14,25 @@ ActionController::Routing::Routes.draw do |map|
   #routes for CMS
   map.namespace(:cms) do |cms|
                         
-    cms.root :controller => "home", :action => "dashboard"
+    cms.root :controller => :home, :action => "dashboard"
     
     cms.resources :sections, :member => {:position => :put}  do |section|
       section.resources :pages, :only => [:new,:create,:index]
     end
-    cms.resources :templets, :member => {:check  => :get }
-    cms.resources :pages ,:only => [:show,:edit,:update]                 
+    cms.resources :templets, :member => {:check  => :get } 
+    # cms.resources :pages ,:only => [:show,:edit,:update,]                 
+    cms.resources :pages , :except => [:new,:create,:index] 
     cms.resources :stickers, :member => {:select  => :post}
-    cms.resources :apps ,:has_many  => [:attributes]    
+    cms.resources :apps ,:has_many  => [:attributes] , :member => {:publish => :put}   
     cms.resources :groups 
-    cms.resources :users
+    cms.resources :users                   
+    
+    # cms.resources :systems   
+    # cms.resources :system , :member => {:processes => :get}
+    # cms.resources :graden
+
   end
-  
+                              
   # routes for forums
   map.namespace(:forum) do |forum|
     forum.root :controller => "forums"
