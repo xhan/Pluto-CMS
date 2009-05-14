@@ -63,7 +63,20 @@ class Cms::PagesController < Cms::ApplicationController
    redirect_to cms_sections_path
   end
        
-
+  def editable
+    session[:edit] =  !session[:edit]
+    # respond_to do |wants|
+    #   wants.html {  }
+    #   wants.js  do 
+    #     render :update do |page|
+    #       page.replace_html 'editable',"HHHH"
+    #     end
+    #   end
+    # end 
+    stats = session[:edit] ? "打开" : "关闭"
+    render :text =>  "操作成功，当前状态：#{stats}"
+  end         
+  
   private
   def setup
     @section = Section.find params[:section_id] if params[:section_id]

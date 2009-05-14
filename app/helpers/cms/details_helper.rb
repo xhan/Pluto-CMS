@@ -1,0 +1,2 @@
+module Cms::DetailsHelper
+end

@@ -4,6 +4,8 @@ class Cms::HomeController < Cms::ApplicationController
     
   end
     
-        
+  def test
+    
+  end      
   
 end

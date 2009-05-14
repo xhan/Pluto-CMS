@@ -18,7 +18,8 @@ module Cms::SectionsHelper
     link_to("up",position_cms_section_path(section,:pos=>"up")) + " " +
     link_to("down",edit_cms_section_path(section,:pos=>"down")) +  " " +
     link_to("新子节点",new_cms_section_path(:parent_id => section.id)) + " " +
-    link_to("新页面",new_cms_section_page_path(section))    
+    link_to("新页面",new_cms_section_page_path(section))  + " " +              
+    thickbox_outline("节点页面浏览",cms_section_pages_path(section))    
   end
   
   def item_view item
@@ -44,21 +45,13 @@ module Cms::SectionsHelper
     end #unless
 
   end # def         
-  # 
-  # def sss &block  
-  #   # puts "here is block function"
-  #    v = block.call
-  #    v+=" ...."
-  #   # concat(v)
-  #   # "fffsdf"   
-  #   # s ="123123"
-  # end
-  #     
-  # def list_as_tree object, &block
-  #   4.times do 
-  #       block.call(object)
-  #   end               
-  #   
-  # end      
+
+  def navbar section=Section.first , &block
+    result = ""
+    section.children.each do |item|
+      result += capture(item.name,item.path,&block)
+    end                                            
+    concat result
+  end    
 
 end
