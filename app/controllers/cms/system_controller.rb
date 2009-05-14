@@ -1,6 +1,6 @@
 class Cms::SystemController < Cms::ApplicationController
   def index
-
+    
   end
 
   def processes
@@ -26,5 +26,10 @@ class Cms::SystemController < Cms::ApplicationController
   def processes_list
     render :text => %x|ps -axcr -o "pid,pcpu,pmem,time,comm"|
   end
-  
+     
+  def gemlist   
+    
+    @list = %x[gem list]
+    render :layout => false
+  end
 end
