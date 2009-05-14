@@ -4,8 +4,6 @@ class Cms::HomeController < Cms::ApplicationController
     
   end
     
-  def process
-    
-  end        
+        
   
 end
