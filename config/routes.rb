@@ -21,7 +21,7 @@ ActionController::Routing::Routes.draw do |map|
     end
     cms.resources :templets, :member => {:check  => :get } 
     # cms.resources :pages ,:only => [:show,:edit,:update,]                 
-    cms.resources :pages , :except => [:new,:create,:index] 
+    cms.resources :pages , :except => [:new,:create,:index],:collection => {:editable => :put} 
     cms.resources :stickers, :member => {:select  => :post}
     cms.resources :apps ,:has_many  => [:attributes] , :member => {:publish => :put}   
     cms.resources :groups 
