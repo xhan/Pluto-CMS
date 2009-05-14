@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090511083518) do
+ActiveRecord::Schema.define(:version => 20090514071210) do
 
   create_table "app_attributes", :force => true do |t|
     t.integer  "app_id"
@@ -362,6 +362,24 @@ ActiveRecord::Schema.define(:version => 20090511083518) do
     t.string   "action"
     t.string   "name"
     t.text     "description"
+  end
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "taggable_type"
+    t.string   "context"
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["context"], :name => "index_taggings_on_context"
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type"], :name => "index_taggings_on_taggable_id_and_taggable_type"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
   end
 
   create_table "templates", :force => true do |t|
