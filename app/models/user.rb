@@ -37,7 +37,8 @@ class User < ActiveRecord::Base
   after_save  :handle_after_save
                         
   has_one :forum_profile, :class_name => "ForumUserProfile"
-  has_and_belongs_to_many :groups
+  has_and_belongs_to_many :groups      
+  has_many :comments
   # has_many :permissions ,  :through => :groups
   # TODO it seems cannot use through within habtm 
   # => Class methods -------------------------------------------------
