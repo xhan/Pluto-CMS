@@ -1,4 +1,3 @@
-class Apps::CommentsController < ApplicationController                            
-  layout 'cms/application'            
+class Apps::CommentsController < Apps::BaseController                           
   active_scaffold
 end

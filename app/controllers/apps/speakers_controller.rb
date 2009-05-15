@@ -1,5 +1,5 @@
-class Apps::SpeakersController < ApplicationController         
-  layout 'cms/application'            
+class Apps::SpeakersController < Apps::BaseController
+  # layout 'cms/application'            
   active_scaffold "apps/speakers" do |config|
     config.columns = [:id,:name,:age,:description,:price,:tag_list]
   end                                                              
