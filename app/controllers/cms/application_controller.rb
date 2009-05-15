@@ -45,5 +45,9 @@ class Cms::ApplicationController < ApplicationController
     end      
   end 
 
-  
+  def self.nav_path(path)
+    before_filter(opts) do |controller|
+       controller.instance_variable_set(:@nav_path,'/cms/system')
+    end
+  end
 end

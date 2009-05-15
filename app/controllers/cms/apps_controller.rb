@@ -98,5 +98,6 @@ class Cms::AppsController < Cms::ApplicationController
         end
       end
     end
-  end
+  end 
+  
 end

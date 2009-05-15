@@ -1,14 +1,12 @@
 class Cms::SectionsController < Cms::ApplicationController
   def index
-    # @section = Section.all 
-    # puts "------hello"
     @root = Section.first
   end
 
+
   def new                   
     @parent = Section.find params[:parent_id]
-    @section = Section.new(:parent_id => @parent.id)
-    
+    @section = Section.new(:parent_id => @parent.id)    
   end
 
   def create    
@@ -36,6 +34,9 @@ class Cms::SectionsController < Cms::ApplicationController
   end
 
   def destroy
+    @section = Section.find params[:id]
+    flash[:notice] = 'it didnot work ' unless @section.destroy
+    redirect_to :action => "index"
   end
 
 end
