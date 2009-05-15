@@ -1,0 +1,29 @@
+<%- set_title "Editing Widget Sticker #{@sticker.name}" -%>
+<p>Warning: Editing Existed Sticker Will Always Effect The Pages That Use This Sticker Too !</p>
+<p>Create A New One And Copy & Pasty It If U Just Wanna Modify One page</p>
+<% if related? %>
+<h4>Your are trying to add sticker on related page <%= @page.name %></h4>
+<% end -%>
+<%= link_to "back to List", cms_stickers_path %> 
+
+<% content_for :head do -%>
+	<%= javascript_include_tag :fckeditor %>
+<% end -%>
+
+<%= error_messages_for :sticker %>
+
+<% form_for [:cms,@sticker]  do |f| -%>
+<p>
+	<%= f.label :name, "Name" %>	
+	<%= f.text_field :name %>
+</p>                            
+<p>
+	<%= f.label :description, "Description" %>
+	<%= f.text_area :description ,:cols => 20 ,:rows => 4 %>
+</p>
+<p>
+	<%= f.label :content, "Content" %>
+	<%= f.text_area :content,:cols => 80,:rows	 => 15  %>
+</p>     
+<%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<% end -%>

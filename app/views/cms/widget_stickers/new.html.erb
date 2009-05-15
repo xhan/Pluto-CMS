@@ -1,0 +1,23 @@
+
+<% set_title '新建贴纸 Widget Sticker'%>        
+<% if related? %>
+<h4>Your are trying to add sticker on related page <%= @page.name %></h4>
+<% end -%>
+<%= error_messages_for :sticker %>
+
+<% form_for [:cms,@sticker] do |f| -%>
+         
+<p>
+	<%= f.label :name, "Name" %>	
+	<%= f.text_field :name %>
+</p>                            
+<p>
+	<%= f.label :description, "Description" %>
+	<%= f.text_area :description ,:cols => 20 ,:rows => 4 %>
+</p>
+<p>
+	<%= f.label :content, "Content" %>
+	<%= f.text_area :content,:cols => 80,:rows	 => 15  %>
+</p>	
+<%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<% end -%>
