@@ -13,9 +13,12 @@
 
 class Sticker < ActiveRecord::Base
    validates_presence_of :content
+   validates_presence_of :name
    has_many :con_stickers , :as => :refer
    has_many :pages , :through => :con_stickers
-   belongs_to :user
+   belongs_to :user           
+   
+   
    def page_count
     con_stickers.count
    end                

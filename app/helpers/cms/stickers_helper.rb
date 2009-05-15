@@ -49,9 +49,17 @@ module Cms::StickersHelper
   end
   
   def app_path name,app
-    # link_to name , request.path+"/#{app.id}"
-      link_to name , @page.path + "/#{app.id}"
+    # link_to name , request.path+"/#{app.id}"    
+      if @page
+        link_to name , @page.path + "/#{app.id}"
+      else
+        name
+      end
   end         
+        
+  def related?
+    @page && @sticker_node
+  end
   
   def method_missing symbol ,*arg
     "Warning : The Function Name #{symbol.to_s} doesnot Exist!";
