@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><%= @title || SITE_NAME %></title>
+<%= stylesheet_link_tag "base","thickbox"%>
+<%= javascript_include_tag "prototype"%>
+<%= active_scaffold_includes %>
+<%= yield:head %>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <!-- header -->
+  <div class="header">
+	<div class="innerHeader">
+		<div class="title">
+			<img src="/images/logo.png" alt="logo" id="logo" />
+
+			<h1><a href="index.htm">PlutoCMS<sup>&reg;</sup> Content Manage System</a></h1>
+			<p><%=  flash[:notice] || "explore UFO"%></p>
+		</div>
+		<div class="title-menu">
+	        <%= link_to "Pluto Forum", forum_root_path %>
+        	<a href="sitemap.htm">Site Map</a>
+
+			<%- if logged_in? -%> 
+			<%=  link_to current_user.login,"#copyright" %>
+			<%- else -%> 
+			<%= link_to "請先登錄",login_path %>
+			<% end -%>
+        </div>
+  </div>
+	</div>
+  <!-- end header -->
+  <!-- nav -->
+	<div class="navPanel">
+		<div class="innerNavPanel">
+
+			<div class="buttons" id="navMenu">
+			<a href="index.htm">Home</a>
+			<%= yield:nav %>
+			</div>
+		</div>
+	</div>
+  <!-- end nav -->
+
+	<div class="contentWrapper">
+	<%= yield %>
+	</div>
+
+	  <!-- footer -->
+  <div class="footer">
+	<div class="innerFooter">
+    <div class="footerLinks">
+			<table width="100%" border="0" cellspacing="3" cellpadding="10">
+				<tr>
+					<td width="25%" valign="top">
+						<h5>Help &amp; Support</h5>
+						<a href="support.htm">Frequently Asked Questions</a><br/>
+						<a href="http://help.maxthon.com">Online Help Center</a><br/>
+						<a href="http://forum.maxthon.com">Maxthon Forum</a><br />
+						<a href="http://wiki.maxthon.com">Maxthon Wiki</a>
+					</td>
+					<td width="25%" valign="top">
+						<h5>Downloads</h5>
+						<p><%= link_to "注冊帳號", signup_path %>
+							<br />
+						    <a href="http://addons.maxthon.com/">Skins &amp; Plugins</a><br/>
+						<a href="download.htm#lang">Language Packs</a></p>
+					</td>
+					<td width="25%" valign="top">
+						<h5>Maxthon Websites</h5>
+						<a href="http://blog.maxthon.com">Maxthon Blog</a><br />
+						<a href="http://jobs.maxthon.com">Maxthon Jobs</a><br />
+						<a href="http://passport.maxthon.com">Maxthon Passport</a><br />
+						<a href="http://addons.maxthon.com">Maxthon Addons</a>
+					</td>
+					<td valign="top">
+						<h5>Company</h5>
+						<a href="about.htm">About Maxthon</a><br />
+						<a href="business.htm">Business &amp; Partners</a><br />
+						<a href="press/">Press Room</a><br />
+						<a href="privacy.htm">Privacy Policy</a>
+					</td>
+                  </tr>
+			</table>
+		</div>
+    <div class="copyright" name="copyright">Copyright &copy; 1999-2008 Maxthon International Limited. All Rights Reserved. </div>
+  </div>
+	</div>
+  <!-- end footer -->
+  
+  </body>
+  </html>
