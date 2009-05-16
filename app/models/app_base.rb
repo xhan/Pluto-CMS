@@ -13,12 +13,17 @@ class AppBase < ActiveRecord::Base
   #   # puts "|||||||||||||||||||||||------->  #{app_name},#{title}" 
   # end  
     
+  def real_attribute virtal
+    
+  end
   
   class << self       
-                                               
+    
+    # used in form select                                           
     def select_attr
       ( column_names - ["id",'created_at','updated_at'] ).map{ |f| [f,f] }
-    end                                 
+    end                                         
+    
     def inherited subclass 
       super if defined? super
       subclass.class_eval do
@@ -31,7 +36,11 @@ class AppBase < ActiveRecord::Base
                      
     def cms_attr_link virtual , db_column 
        alias_name db_column, virtual
+       
     end
+       
+    
+           
     
     def alias_name oldname,newname
       oldname,newname = oldname.to_s , newname.to_s

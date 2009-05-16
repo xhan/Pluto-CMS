@@ -39,7 +39,8 @@ class App < ActiveRecord::Base
     write_file 'show' , show_block
     write_file 'list' , list_block
     write_file 'edit' , edit_block
-    write_class                               
+    write_class                    
+    write_controller           
     write_sticker 'show' 
     write_sticker 'list'
     update_attribute :published_at , Time.now
@@ -82,12 +83,39 @@ class App < ActiveRecord::Base
    end
  end
 
+
   def write_class
     open "#{RAILS_ROOT}/app/models/apps/#{class_name.underscore}.rb","w" do |file|
       file.puts generate_erb(open_erb)
     end 
   end            
-
+  
+  # value used in erb render
+  def attr_hash
+     hash={}
+    self.trs.each do |attr|
+      hash[attr.name] = attr.link_name
+    end 
+    hash
+  end            
+  
+  
+  def link_name_syms
+    res = ""
+    attr_hash.each_value do |v|
+      res += ",:#{v}"
+    end        
+    res
+  end
+  
+  # L end of values used in erb
+  
+  def write_controller
+    open "#{RAILS_ROOT}/app/controllers/apps/#{class_name.underscore.pluralize}_controller.rb","w" do |file|
+      file.puts generate_erb(open_erb("apps_controller"))
+    end    
+  end                 
+  
   def main_path
     APPLAYOUT_PATH + "/#{self.class_name.underscore}"
   end
