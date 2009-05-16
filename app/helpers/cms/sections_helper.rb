@@ -45,12 +45,17 @@ module Cms::SectionsHelper
     end #unless
 
   end # def         
+  
+#==navbar do |name,path|
+#
+#end
 
-  def navbar section=Section.first , &block
+  def navbar name_uniq = :root , &block
     result = ""
-    section.children.each do |item|
+    section = Section.find_by_name_uniq(name_uniq.to_s)
+    ([section] + section.children).each do |item|
       result += capture(item.name,item.path,&block)
-    end                                            
+    end if section                                            
     concat result
   end    
 

@@ -13,12 +13,12 @@ module Cms::StickersHelper
         #text
         case s
         when WidgetSticker
-          str_out += eval(s.content)
-        # when TextSticker
-        else
-          str_out += content_tag(:div,s.content,:class => "sticker")
+          str_out += add_class_if_in_edit(eval(s.content),s) #,:class => "sticker" ,:id => s.id
+        else #TextSticker
+          str_out += add_class_if_in_edit(s.content,s)# ,:class => "sticker" ,:id => s.id ) 
         end 
-        #widget TODO dynamic erb content seems will not be exec
+        #add css class style if in edit
+        # str_out += content_tag(:div,s.content,:class => "sticker")
       end 
     else                
       # TODO block controll
@@ -29,14 +29,31 @@ module Cms::StickersHelper
       end
     end
     #edit 
-    str_out +=edit_tag(node.id,@page.id) if session[:edit]
+    if page_editable?
+      str_out +=edit_tag(node.id,@page.id)
+      str_out = content_tag(:div,str_out,:class => "sticker_collection" )
+    end
     return str_out
   end                         
+    
+  def add_class_if_in_edit content ,sticker,html={:class => "sticker"}
+    if page_editable?             
+      edit_content = link_to('v' ,cms_sticker_path(sticker) ) \
+              + link_to('&and;' ,cms_sticker_path(sticker)) 
+      content_tag(:div,edit_content,:class => "sticker_edit") + 
+      content_tag(:div,content , html)
+    else
+      content
+    end
+  end
   
   def edit_tag node_id,page_id
     link_to("add or select a sticker",cms_stickers_path(:sticker_node_id => node_id,:page_id => page_id))
   end
-                            
+  
+  def page_editable?
+    !!session[:edit]
+  end                          
   
   def visitor_position &block
     p = @page.section              
