@@ -1,0 +1,20 @@
+class Apps::<%= class_name.pluralize %>Controller < Apps::BaseController
+  
+   # this class was dynamic created by pluto cms
+   # it will be clean up & replace with new if you publish the App contains it
+   # so just keep it ,not to modify this file  
+
+<%# attr_hash.each_value {|value| " , :#{value}"} %>
+
+
+  active_scaffold "apps/<%= class_name.underscore %>" do |config|
+    config.columns = [:id<%= link_name_syms %>]
+	<% attr_hash.each_pair do |key,value| %>
+config.columns[:<%= value %>].label="<%= key %>"	<% end %>
+	config.list.sorting = { :id => :desc }
+    config.create.columns.exclude :id
+    config.update.columns.exclude :id
+  end
+  
+
+end
