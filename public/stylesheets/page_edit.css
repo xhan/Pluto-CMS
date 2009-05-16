@@ -1,0 +1,21 @@
+.sticker_collection{
+	background:#9fe;
+}
+
+.sticker{          
+	margin:10px;
+	background:#666;
+}
+
+/*.sticker_collection */
+a img{
+	border:0;
+}            
+
+.sticker_collection_edit a{
+	color:#001;
+}
+
+.sticker_edit a{
+	color:#001;
+}
