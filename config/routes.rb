@@ -26,7 +26,8 @@ ActionController::Routing::Routes.draw do |map|
     cms.resources :widget_stickers,:member => {:select => :post }
     cms.resources :apps ,:has_many  => [:attributes] , :member => {:publish => :put}   
     cms.resources :groups 
-    cms.resources :users                   
+    cms.resources :users                                         
+    cms.resources :sticker_manager, :member => {:up => :put,:down => :put}
     
     # cms.resources :systems   
     # cms.resources :system , :member => {:processes => :get}

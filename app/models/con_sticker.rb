@@ -26,15 +26,65 @@ class ConSticker < ActiveRecord::Base
   named_scope :with_page_id , lambda{|page_id| {:conditions => {:page_id => page_id} ,:order  => 'position'}}
  
   
-  def before_save
+  def before_create
     self.add_position
   end           
   
+  #issue : when destroy a record ,new record will got a exist position 
+  # def add_position
+  #   amount = self.class.stickers_in_page(self.sticker_node_id,self.page_id).count
+  #   self.position = amount + 1
+  # end 
+
+  #   change to get maximun number of position  of record  
   
+  
+=begin
+  TODO add  act_as_list plugin methods 
+=end      
   def add_position
-    amount = self.class.stickers_in_page(self.sticker_node_id,self.page_id).count
-    self.position = amount + 1
+    self.position = self.max_position + 1
   end
+                                          
+  def pre_node
+    brothers.find(:last,:conditions => ["position < ?",self.position] )
+  end
+  
+  def next_node
+    brothers.find(:first,:conditions => ["position > ?",self.position] )
+  end
+  
+  def brothers
+    self.class.stickers_in_page(self.sticker_node_id,self.page_id)
+  end         
+    
+  def max_position
+    self.class.stickers_in_page(self.sticker_node_id,self.page_id).maximum(:position)
+  end                                                                                
+  
+  def move_pre      
+    pre = self.pre_node
+    if pre
+       self.position , pre.position = pre.position , self.position
+       save
+       pre.save
+       true
+     else
+       false
+    end
+  end         
+  
+  def move_next
+    n = self.next_node
+    if n
+       self.position , n.position = n.position , self.position
+       save
+       n.save
+       true
+     else
+       false
+    end
+  end  
   
   class << self
     

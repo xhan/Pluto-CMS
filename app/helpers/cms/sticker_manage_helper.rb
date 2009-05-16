@@ -1,0 +1,2 @@
+module Cms::StickerManageHelper
+end
