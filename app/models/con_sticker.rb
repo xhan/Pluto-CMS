@@ -91,7 +91,7 @@ class ConSticker < ActiveRecord::Base
     # def stickers_in_page(id,page)
     #   find_all(:conditions => {:sticker_node_id => id,:page => page } , :order  => 'position' )
     # end    
-    
+
   end
   
   
