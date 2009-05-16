@@ -22,12 +22,15 @@ end
 class CheckLines
   require 'find'
 
-  @check_type = %w{txt rb erb yml html css xml}
+  CheckType = %w{txt rb erb yml html css xml js}.freeze
+ 
   def initialize(directory)
     @total_lines = 0
     if  File.directory?(directory)
           @directory = directory 
           @contents = {}
+          @content_type ={}
+          CheckType.each {|ext| @content_type[ext.to_sym]=0}
           self.go
     else puts "#{directory} is not a directory! check it out!" and return
     end
@@ -37,17 +40,26 @@ class CheckLines
     if @directory
       Find.find @directory do |path|
         pathlite = path.gsub(@directory,'')
-        if File.file? path
+        if File.file?(path)  && is_check_file(path)
           File.open path do |f|
               tmp_line = f.total_lines  
-             @contents.store(pathlite,tmp_line) 
+             @contents.store(pathlite,tmp_line)
+             @content_type[(path.sub(/.*\./,'').to_sym)] += tmp_line
              @total_lines += tmp_line
           end
         end
       end
-      puts @total_lines
+      puts "Total Code Lines:#{@total_lines}"
+      puts "Total Files #{@contents.keys.size}"
+      @content_type.each_pair {|key,value| puts "#{key} : #{value}"}
     end
   end
+  
+  def is_check_file file_name
+    CheckType.any? do |ext|
+      !file_name.scan(/\.#{ext}$/).empty?
+    end
+  end                        
   
   def details
     @contents.each do |key,value|
@@ -55,3 +67,5 @@ class CheckLines
     end
   end
 end
+
+# s=CheckLines.new("/Users/xhan/Codes/plutocms")
