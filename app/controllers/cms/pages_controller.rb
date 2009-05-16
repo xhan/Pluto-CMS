@@ -1,6 +1,7 @@
 class Cms::PagesController < Cms::ApplicationController
   
-  before_filter :setup
+  before_filter :setup            
+  skip_before_filter :cms_required , :only => :show
   
   def index
     @pages = @section.pages.all(:order => "position")
@@ -12,14 +13,7 @@ class Cms::PagesController < Cms::ApplicationController
   end
   
   def show
-    # unless @page
-    #   url =  '/' + params[:path].join('/')
-    #   @page = Page.with_path(url).first
-    #   unless @page
-    #     render :text => "its under testing!" and return        
-    #   end
-    # end  
-    # render :text =>  @templet.@page_title and return    
+  
     @page ||= page_search || (section_search &&section_search.pages.first(:order => "position")  )
     @page ||= app_page_search
     # TODO : add expection here if page not exist

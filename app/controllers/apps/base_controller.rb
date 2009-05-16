@@ -44,6 +44,16 @@ class Apps::BaseController < Cms::ApplicationController
   #   end
   # end  
   
+  protected
+  
+  def resource_name
+    controller_name
+  end              
+                   
+  def resource
+    resource_name.classify.constantize
+  end
+  
   
   private
 

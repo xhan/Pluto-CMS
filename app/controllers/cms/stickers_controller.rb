@@ -7,7 +7,7 @@ class Cms::StickersController < Cms::ApplicationController
 
   def new  
     
-  end
+  end                                                               
 
   def show
     redirect_to [:cms,@sticker] if @sticker.is_a? WidgetSticker
