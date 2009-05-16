@@ -47,9 +47,9 @@ module Cms::StickersHelper
 =end      
       con_sticker = ConSticker.stickers_in_page(@node.id,@page.id).find_by_refer_id(sticker.id)            
       edit_content = link_to(image_tag('view.png') ,cms_sticker_path(sticker)) +         
-               link_to(image_tag('arrow_up.gif') ,up_cms_sticker_manage_path(con_sticker))  +
-               link_to(image_tag('arrow_down.gif') ,down_cms_sticker_manage_path(con_sticker)) + 
-               link_to(image_tag('close.gif') ,cms_sticker_manage_path(con_sticker),:method => :delete,:confirm => "ps Sticker will remains" )
+               link_to_remote(image_tag('arrow_up.gif') ,:url => up_cms_sticker_manage_path(con_sticker),:method => :put)  +
+               link_to_remote(image_tag('arrow_down.gif') ,:url => down_cms_sticker_manage_path(con_sticker),:method => :put) + 
+               link_to_remote(image_tag('close.gif') ,:url => cms_sticker_manage_path(con_sticker),:method => :delete,:confirm => "ps Sticker will remains" )
 
       content_tag(:div,edit_content,:class => "sticker_edit") + 
       content_tag(:div,content , html)

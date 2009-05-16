@@ -59,7 +59,7 @@ class ConSticker < ActiveRecord::Base
   end         
     
   def max_position
-    self.class.stickers_in_page(self.sticker_node_id,self.page_id).maximum(:position)
+    brothers.maximum(:position) || 0
   end                                                                                
   
   def move_pre      
