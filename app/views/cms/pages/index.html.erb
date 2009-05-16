@@ -1,8 +1,11 @@
-<% set_title "页面浏览" %>
+<%# set_title "页面浏览" %>
+
 <% if !@pages.blank? %>
+<%= link_to "create New Page", new_cms_section_page_path(@section) %>
   <% for page in @pages %>
     <%= page.name  %> | <%= link_to page.path,page.path%> | <%= link_to "edit", edit_cms_page_path(page) %>
+	<%= link_to "Del", cms_page_path(page),:method => :delete, :confirm => "Sure?"  %>
   <% end %>
 <% else %>
-   no page exist ,<%= link_to "create on", cms_sections_path %>
+   no page exist ,<%= link_to "create on", new_cms_section_page_path(@section) %>
 <% end %>

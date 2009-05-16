@@ -1,3 +1,29 @@
-<h2>
-	hello world
-</h2>
+<% set_title "User List" %> 
+<div class="content" style="margin-right: -260px;">    
+	<div class='post'>
+<table>
+	<thead>
+		<tr><td>Login</td><td>Created</td></tr>
+		<% if !@users.blank? %>
+		  <% for user in @users %>   
+			<tr>
+		    <td><%= link_to user.login ,cms_user_path(user) %></td>
+			<td><%= user.created_at %></td>
+			</tr>
+		  <% end %>
+		<% else %>
+
+		<% end %>		
+	</thead>
+</table>
+
+	</div>
+</div>  
+
+<div style="width: 242px;" class="sidebar" id="sidebar">
+	<div class='sideBox'>
+		<h4>Group & User</h4>
+		<%= link_to "Groups Manage", cms_groups_path %> <br/>
+		<%= link_to "Users Manage", cms_users_path %> <br/>
+	</div>
+</div>

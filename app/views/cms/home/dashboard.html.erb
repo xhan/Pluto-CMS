@@ -1,2 +1,47 @@
 <%- set_title "控制中心" -%>
 
+<div id="content" class="content" style="margin-right: -260px;">
+  <div class="innerContent" style="margin-right: 260px;">
+
+
+			<div class="indexBlock">
+				<div class="indexContent">
+
+					<h4>Welcome to PlutoCMS</h4>
+
+					 <p>
+					 	hi , <%= current_user.login %> ,your account was created at 
+					<%= current_user.created_at.strftime("%y年%m月%d日 %H:%M") %> 
+                            <br/>                      
+							<b>Groups List</b><br/>
+							<ul>
+						<% current_user.groups.each do |group| %>
+							<li><%= group.name %></li>
+
+						<% end -%>
+						</ul
+						<b>Permissions List</b><br/> 
+						<ul>
+						<% current_user.permissions.each do |permission| %>
+							<li><%= permission.name %></li>
+
+						<% end -%>
+                         </ul>
+					 </p>   
+
+				</div>
+			</div>  
+			<div class="indexBlock">
+				<div class="indexContent">
+
+					<h4><%= link_to "Visitor Your Site", '/' %></h4>
+
+					 <p>
+					 	add more words here
+					 </p>   
+
+				</div>
+			</div>
+			<hr/>
+  </div>
+</div>

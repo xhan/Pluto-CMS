@@ -1,1 +1,13 @@
 <%- set_title @page.title -%>
+<% content_for :head do -%>
+	<%= javascript_include_tag :defaults %>
+<% end -%>
+<%- if page_editable? -%>
+	<% content_for :head do -%>
+	<%= stylesheet_link_tag 'page_edit' %>
+		<%- javascript_tag do -%>
+		
+		<% end -%>
+		
+	<% end -%>
+<% end -%>	

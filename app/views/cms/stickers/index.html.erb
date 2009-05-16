@@ -1,12 +1,32 @@
-<h1>Cms::Stickers#index</h1>
-<p>Find me in app/views/cms/stickers/index.html.erb</p>
-    <hr>                                                                             
-<% if !@stickers.blank? %>
-  <% for sticker in @stickers %>
-    <%= link_to sticker.id   , cms_sticker_path(sticker) %>
-  <% end %>
-<% else %>
-  waiting for you to add more!
-<% end %>
+<% set_title "Sticker List"%>
+<hr>                       
+<div class="content" style="margin-right: -260px;">    
+	<div class='post'>
+		<h3>Text Stickers</h3>
+		<% if !@text_stickers.blank? %>
+		<% for sticker in @text_stickers %>
+		<%= link_to sticker.name || "No Name"   , cms_sticker_path(sticker) %>
+		<% end %>
+		<% else %>
+		waiting for you to add more!
+		<% end %>                        
+		<hr>
+		<%= link_to "new", new_cms_sticker_path(:sticker_node_id => params[:sticker_node_id],:page_id => params[:page_id]) %>
+	</div> 
 
-<%= link_to "new", new_cms_sticker_path(:sticker_node_id => params[:sticker_node_id],:page_id => params[:page_id]) %>
+	<div class="post">
+     		  <h3>Text Stickers</h3>
+			<% if !@widget_stickers.blank? %>
+			<% for sticker in @widget_stickers %>
+			<%= link_to sticker.name || "No Name"   , cms_widget_sticker_path(sticker) %>
+			<% end %>
+			<% else %>
+			waiting for you to add more!
+			<% end %>                        
+			<hr>                             
+<%= link_to "new", new_cms_widget_sticker_path(:sticker_node_id => params[:sticker_node_id],:page_id => params[:page_id]) %>
+			
+	</div>
+</div>                                                      
+
+

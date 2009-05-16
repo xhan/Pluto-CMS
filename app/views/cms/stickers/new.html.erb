@@ -2,13 +2,23 @@
 	<%= javascript_include_tag :fckeditor %>
 <% end -%>
 <% set_title '新建贴纸'%>        
-
+<% if related? %>
+<h4>Your are trying to add sticker on related page <%= @page.name %></h4>
+<% end -%>
 <%= error_messages_for :sticker %>
 
 <% form_for [:cms,@sticker] do |f| -%>
 <%= hidden_field_tag 'sticker_node_id',params[:sticker_node_id]  %>
 <%= hidden_field_tag 'page_id',params[:page_id] %>
-  <%#= f.text_area :content %>
+  <%#= f.text_area :content %>          
+<p>
+	<%= f.label :name, "Name" %>	
+	<%= f.text_field :name %>
+</p>                            
+<p>
+	<%= f.label :description, "Description" %>
+	<%= f.text_area :description ,:cols => 20 ,:rows => 4 %>
+</p>
   <%= fckeditor_textarea(:sticker, :content, :toolbarSet => FCK_toolbarSet, :width => '100%', :height => '200px') %>
 <%= f.submit "Submit", :disable_with => 'Submiting...' %>
 <% end -%>

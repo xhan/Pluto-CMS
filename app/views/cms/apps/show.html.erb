@@ -1,6 +1,7 @@
-<% set_title "查看应用 #{@app.name}" %>
+<% set_title "查看应用 #{@app.name}" %>       
 <%= link_to 'Edit', edit_cms_app_path(@app) %> |
-<%= link_to 'Back', cms_apps_path %>
+<%= link_to 'Back', cms_apps_path %>  
+<%= link_to "Publish", publish_cms_app_path(@app),:method => :put,:confirm => "确定吗？" %>
 <p>
   <b>Name:</b>
   <%=h @app.name %>
@@ -24,6 +25,14 @@
 <p>
 	<b>List Block</b>
 	<%=h @app.list_block %>
+</p>              
+<hr>
+<p>
+	<b>List Render</b>
+	<pre><%=simple_format h @app.render_content 'list' %></pre>
+	<b>Content</b>
+	<%#= eval(@app.render_content 'list') %>
+	<%#= eval(@app.widget_stickers.with_action('list').first.content) %>
 </p>
 <p>
   <b>Attributes </b>
@@ -33,5 +42,12 @@
 	</table>                                        
 	<%= thickbox_outline '添加属性',new_cms_app_attribute_path(@app),{:title => 'ADD NEW PROPERTY'} %>
   		
+</p>    
+<hr>
+<p>
+	<b>App Stickers List</b>
+	<% @app.widget_stickers.each do |s| %>
+		<%= link_to s.name, cms_sticker_path(s) %>
+	<% end -%>
 </p>
 

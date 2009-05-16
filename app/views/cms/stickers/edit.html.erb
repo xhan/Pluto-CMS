@@ -1,2 +1,23 @@
-<h1>Cms::Stickers#edit</h1>
-<p>Find me in app/views/cms/stickers/edit.html.erb</p>
+<%- set_title "Editing Sticker #{@sticker.name}" -%>
+<p>Warning: Editing Existed Sticker Will Always Effect The Pages That Use This Sticker Too !</p>
+<p>Create A New One And Copy & Pasty It If U Just Wanna Modify One page</p>
+<%= link_to "back to List", cms_stickers_path %> 
+
+<% content_for :head do -%>
+	<%= javascript_include_tag :fckeditor %>
+<% end -%>
+
+<%= error_messages_for :sticker %>
+
+<% form_for @sticker,:url => cms_sticker_path  do |f| -%>
+  <p>
+  	<%= f.label :name, "Name" %>
+	<%= f.text_field :name %>
+  </p>                
+<p>
+	<%= f.label :content, "Content" %>
+    <%= fckeditor_textarea(:sticker, :content, :toolbarSet => FCK_toolbarSet, :width => '100%', :height => '400px') %>
+</p>                                                                                                                  
+	<%= f.submit "Submit" %>
+<% end -%>
+     

@@ -1,0 +1,30 @@
+<% set_titile "view 帖子内容" %>
+<h3>Sticker Content</h3>
+<%= link_to "Edit This Sticker", edit_cms_sticker_path(@sticker) ,:title => "edit this sticker will always effect other pages that used this sticker too !"  %>
+Type:
+<%=  @sticker.class.name.titleize %><br/>
+<% if @sticker.page_count >0 %>
+	<p>u cannot delete a sticker that has been used in one more page</p>
+	<b>Used in following pages , total <%= @sticker.page_count %></b><br/>
+	 <%- @sticker.pages.each do |page| -%>
+		<%= link_to page.name , cms_page_path(page) %>  | 
+	<% end -%><br/>
+	<% else %>
+	<%= link_to "Del It", cms_sticker_path(@sticker),:method => :delete ,:confirm => "Are U Sure to Destroy This?"  %>
+<% end -%>
+<p>
+	<b>Name</b>
+	<%= @sticker.name %>	
+</p>                                  
+<p>
+	<%= @sticker.description %>
+</p>                        
+<p>
+	<b>created_by<b>
+	<%= @sticker.user.login || "System" %>	
+</p>
+<%= @sticker.content %>
+
+<% if related? %>
+<%= button_to "就添加这个贴纸了！",select_cms_sticker_path(@sticker), :method => :post %>
+<% end %>

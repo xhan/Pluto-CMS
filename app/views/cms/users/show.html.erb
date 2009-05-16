@@ -1,0 +1,16 @@
+<% set_title "View User : #{@user.login}" %>
+<%= link_to "Edit", edit_cms_user_path(@user) %>
+<%= @user.login %>
+<%= @user.created_at %>        
+<hr>                          
+<%= @user.cms_user? ? "Cms User" : "Public User" %><br/>
+<b>Groups List</b><br/>
+<% @user.groups.each do |group| %>
+	<quote><%= group.name %><br/></quote>
+	
+<% end -%>
+<b>Permissions List</b><br/>
+<% @user.permissions.each do |permission| %>
+	<quote><%= permission.name %><br/></quote>
+	
+<% end -%>

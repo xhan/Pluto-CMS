@@ -1,2 +1,14 @@
+<% set_title "Edit Section" %>
+<% content_for :head do -%>
+<script type="text/javascript">
+jQuery(function($){
+  $("#section_name").keyup(function(){
+    var section = { name: null, path: "<%= @parent.path %>".replace(/\/$/, '') }
+    section.name = $.trim($(this).val()).toLowerCase().replace(/-|_/g, '').replace(/ /g, '_').replace(/\W/g, '')
+    $("#section_path").val(section.path + "/" + section.name)
+  })
+})
+</script>                       
+<% end -%>
 <h2>Edit Section</h2>
 <%= render :partial => 'form' %>

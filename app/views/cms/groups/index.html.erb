@@ -1,19 +1,31 @@
-<% set_title "Group List" %>
-<%= link_to "new group", new_cms_group_path %>
-<table>
-	<thead>
-		<tr><td>Name</td><td>Type</td><td>Permission</td></tr>
-	</thead>                                        
-	<% if !@groups.blank? %>
-	  <% for group in @groups %>
-		<tr>
-			<td><%= link_to group.name ,edit_cms_group_path(group)%></td>
-			<td><%= group.cms_user? ? "CMS" : "Public" %></td>
-			<td><%= group.description %></td>
-		</tr>
-	  <% end %>
-	<% else %>
-	
-	<% end %>
-	
-</table>
+<% set_title "Group List" %>  
+<div class="content" style="margin-right: -260px;">    
+	<div class='post'>
+	   	<%= link_to "new group", new_cms_group_path %>
+		<table>
+			<thead>
+				<tr><td>Name</td><td>Type</td><td>Permission</td></tr>
+			</thead>                                        
+			<% if !@groups.blank? %>
+			  <% for group in @groups %>
+				<tr>
+					<td><%= link_to group.name ,edit_cms_group_path(group)%></td>
+					<td><%= group.cms_user? ? "CMS" : "Public" %></td>
+					<td><%= group.description %></td>
+				</tr>
+			  <% end %>
+			<% else %>
+
+			<% end %>
+
+		</table> 
+	</div>
+</div>  
+
+<div style="width: 242px;" class="sidebar" id="sidebar">
+	<div class='sideBox'>
+		<h4>Group & User</h4>
+		<%= link_to "Groups Manage", cms_groups_path %> <br/>
+		<%= link_to "Users Manage", cms_users_path %> <br/>
+	</div>
+</div>

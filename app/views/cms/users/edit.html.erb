@@ -1,0 +1,21 @@
+<% set_title "Edit User : #{@user.login}" %>
+<%= @user.login %>
+<%= @user.created_at %>        
+<hr>
+<b>Groups List</b><br/>
+<%= error_messages_for :user %>
+
+<% form_for [:cms,@user] do |f| -%>
+  <%= hidden_field_tag "user[group_ids][]","" %>
+  <%- @groups.each do |group| -%>
+	<%= check_box_tag "user[group_ids][]",group.id,@user.groups.include?(group) %>
+	<%= group.name %><br/>
+  <% end -%>     
+  <%= f.submit "Submit" %>
+<% end -%>
+   
+<b>Permissions List</b><br/>
+<% @user.permissions.each do |permission| %>
+	<quote><%= permission.name %><br/></quote>
+	
+<% end -%>
